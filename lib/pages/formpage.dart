@@ -54,7 +54,7 @@ class _formpageState extends State<formpage> {
                       border: InputBorder.none,
                       hintText: 'Name'
                     ),
-                      onSubmitted: (value){
+                      onChanged: (value){
                         setState(() {
                           Name = value;
                         });
@@ -86,7 +86,7 @@ class _formpageState extends State<formpage> {
                       border: InputBorder.none,
                       hintText: 'Something',
                     ),
-                      onSubmitted: (value){
+                      onChanged: (value){
                         setState(() {
                           Something = value;
                         });
@@ -118,7 +118,7 @@ class _formpageState extends State<formpage> {
                       border: InputBorder.none,
                       hintText: 'Sample Data'
                     ),
-                      onSubmitted: (value){
+                      onChanged: (value){
                         setState(() {
                           SampleData = value;
                         });
@@ -151,7 +151,7 @@ class _formpageState extends State<formpage> {
                       hintText: 'Dimensions'
                       
                     ),
-                  onSubmitted: (value){
+                  onChanged: (value){
                     setState(() {
                       Dimensions = value;
                     });
@@ -209,6 +209,10 @@ class _formpageState extends State<formpage> {
                         child: Text('Submit',style: TextStyle(fontFamily: 'Circular Air',color:Colors.white ),),
                       ),
                       onPressed: () {
+                        print('$Name l');
+                        print('$Something l');
+                        print('$SampleData l');
+                        print('$Dimensions l');
                  Firestore.instance.collection('app').add({
                   'name': Name,
                   'something': Something,
