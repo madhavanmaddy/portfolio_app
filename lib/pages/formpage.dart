@@ -32,10 +32,10 @@ class _formpageState extends State<formpage> {
                   fontSize: 25.0,
                 ),
                 ),
-                Image.asset('assets/1.png'),
+                Image.asset('assets/images/1.png'),
                 new Container(
-                  height:29.0,
-                  width:328.0,
+                  height:40.0,
+                  width:350.0,
                   decoration:BoxDecoration(
                     color:Color(0xffffffff),
                     boxShadow: [
@@ -47,24 +47,27 @@ class _formpageState extends State<formpage> {
                     ],
                     borderRadius: BorderRadius.circular(15.00),
                   ),
-                  child: TextField(
-                    decoration: InputDecoration(
-                    border: InputBorder.none,
-                    hintText: 'Name'
-                  ),
-                    onSubmitted: (value){
-                      setState(() {
-                        Name = value;
-                      });
-                    },
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25),
+                    child: TextField(
+                      decoration: InputDecoration(
+                      border: InputBorder.none,
+                      hintText: 'Name'
+                    ),
+                      onSubmitted: (value){
+                        setState(() {
+                          Name = value;
+                        });
+                      },
+                    ),
                   ),
                 ),
                 SizedBox(
-                  height: 10.0,
+                  height: 20.0,
                 ),
                 new Container(
-                  height:29.0,
-                  width:328.0,
+                  height:40.0,
+                  width:350.0,
                   decoration:BoxDecoration(
                     color:Color(0xffffffff),
                     boxShadow: [
@@ -76,24 +79,27 @@ class _formpageState extends State<formpage> {
                     ],
                     borderRadius: BorderRadius.circular(15.00),
                   ),
-                  child: TextField(
-                    decoration: InputDecoration(
-                    border: InputBorder.none,
-                    hintText: 'Something',
-                  ),
-                    onSubmitted: (value){
-                      setState(() {
-                        Something = value;
-                      });
-                    },
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25),
+                    child: TextField(
+                      decoration: InputDecoration(
+                      border: InputBorder.none,
+                      hintText: 'Something',
+                    ),
+                      onSubmitted: (value){
+                        setState(() {
+                          Something = value;
+                        });
+                      },
+                    ),
                   ),
                 ),
                 SizedBox(
-                  height: 10.0,
+                  height: 20.0,
                 ),
                 new Container(
-                  height:29.0,
-                  width:328.0,
+                  height:40.0,
+                  width:350.0,
                   decoration:BoxDecoration(
                     color:Color(0xffffffff),
                     boxShadow: [
@@ -105,24 +111,27 @@ class _formpageState extends State<formpage> {
                     ],
                     borderRadius: BorderRadius.circular(15.00),
                   ),
-                  child: TextField(
-                    decoration: InputDecoration(
-                    border: InputBorder.none,
-                    hintText: 'Sample Data'
-                  ),
-                    onSubmitted: (value){
-                      setState(() {
-                        SampleData = value;
-                      });
-                    },
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25),
+                    child: TextField(
+                      decoration: InputDecoration(
+                      border: InputBorder.none,
+                      hintText: 'Sample Data'
+                    ),
+                      onSubmitted: (value){
+                        setState(() {
+                          SampleData = value;
+                        });
+                      },
+                    ),
                   ),
                 ),
                 SizedBox(
-                  height: 10.0,
+                  height: 20.0,
                 ),
                 new Container(
-                  height:29.0,
-                  width:328.0,
+                  height:40.0,
+                  width:350.0,
                   decoration:BoxDecoration(
                     color:Color(0xffffffff),
                     boxShadow: [
@@ -134,23 +143,26 @@ class _formpageState extends State<formpage> {
                     ],
                     borderRadius: BorderRadius.circular(15.00),
                   ),
-                child: TextField(
-                  decoration: InputDecoration(
-                    border: InputBorder.none,
-                    hintText: 'Dimensions'
-                    
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25),
+                  child: TextField(
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      hintText: 'Dimensions'
+                      
+                    ),
+                  onSubmitted: (value){
+                    setState(() {
+                      Dimensions = value;
+                    });
+                  },
                   ),
-                onSubmitted: (value){
-                  setState(() {
-                    Dimensions = value;
-                  });
-                },
                 ),
                     
                   
                 ),
                 SizedBox(
-                  height: 10.0,
+                  height: 20.0,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -177,7 +189,7 @@ class _formpageState extends State<formpage> {
                       },
                     ),
                     SizedBox(
-                      width: 10.0,
+                      width: 20.0,
                     ),
                     new RaisedButton(
                       shape: RoundedRectangleBorder(
