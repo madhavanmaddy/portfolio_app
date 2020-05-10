@@ -48,7 +48,10 @@ flutter:
     
 =======
    - assets/images/home.png
-   - assets/images/homesvg.svg
+  #  - assets/images/homesvg.svg
+   - assets/images/flutter.png
+   
+   
 
    
 >>>>>>> c628b0448d7960d73767bcad85f45b8bb4f1218a
