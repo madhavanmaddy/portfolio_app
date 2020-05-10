@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'pages/formpage.dart';
 
 void main() => runApp(MyApp());
@@ -71,3 +72,9 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+=======
+import 'homepage.dart';
+
+void main() => runApp(MyApp());
+
+>>>>>>> c628b0448d7960d73767bcad85f45b8bb4f1218a
