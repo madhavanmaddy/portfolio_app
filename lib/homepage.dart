@@ -57,12 +57,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
       backgroundColor: Colors.white,
       body: Column(
@@ -110,9 +104,27 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
                 borderRadius: BorderRadius.circular(33.00),
               ),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Image.asset('assets/images/flutter.png'),
+                  new Text(
+                    "Build Flutter applications",
+                    style: TextStyle(
+                      fontFamily: "Segoe UI",
+                      fontWeight: FontWeight.w600,
+                      fontSize: 16,
+                      color: Color(0xff101010),
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
-          SizedBox(height: 15,),
+          SizedBox(
+            height: 15,
+          ),
           Center(
             child: new Container(
               height: 116.00,
@@ -128,9 +140,27 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
                 borderRadius: BorderRadius.circular(33.00),
               ),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Image.asset('assets/images/flutter.png'),
+                  new Text(
+                    "Build Flutter applications",
+                    style: TextStyle(
+                      fontFamily: "Segoe UI",
+                      fontWeight: FontWeight.w600,
+                      fontSize: 16,
+                      color: Color(0xff101010),
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
-          SizedBox(height: 15,),
+          SizedBox(
+            height: 15,
+          ),
           Center(
             child: new Container(
               height: 116.00,
@@ -145,6 +175,22 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ],
                 borderRadius: BorderRadius.circular(33.00),
+              ),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Image.asset('assets/images/flutter.png'),
+                  new Text(
+                    "Build Flutter applications",
+                    style: TextStyle(
+                      fontFamily: "Segoe UI",
+                      fontWeight: FontWeight.w600,
+                      fontSize: 16,
+                      color: Color(0xff101010),
+                    ),
+                  )
+                ],
               ),
             ),
           ),
