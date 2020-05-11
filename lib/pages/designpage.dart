@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/main.dart';
+import 'package:portfolio/pages/formpage.dart';
 
 class MyApp1 extends StatelessWidget {
   // This widget is the root of your application.
@@ -24,6 +25,8 @@ class MyDesignPage1 extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyDesignPage1> {
+  ScrollController _scrollController = new ScrollController();
+   List<Widget> _messages = <Widget>[new Text('hello'), new Text('world')];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,16 +77,33 @@ class _MyHomePageState extends State<MyDesignPage1> {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25),
-                  child: Icon(Icons.arrow_forward),
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+            _messages.insert(5, new Text("message ${_messages.length}"));
+          });
+          _scrollController.animateTo(
+            5,
+            curve: Curves.decelerate,
+            duration: const Duration(milliseconds: 300),
+          );
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25),
+                    child: Icon(Icons.arrow_forward),
+                  ),
                 ),
+                
               ],
             ),
             Container(
               margin: EdgeInsets.symmetric(vertical: 20.0),
               height: 100.0,
               child: ListView(
+                controller: _scrollController,
+                
+                reverse: true,
+                // shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
                 children: <Widget>[
                   SizedBox(width: 10),
@@ -105,14 +125,14 @@ class _MyHomePageState extends State<MyDesignPage1> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Image.asset(
-                          'assets/images/poster.png',
+                          'assets/images/others.png',
                           height: 40,
                           width: 40,
                         ),
                         SizedBox(
                           height: 10,
                         ),
-                        Text('Posters'),
+                        Text('Others'),
                       ],
                     ),
                   ),
@@ -135,14 +155,14 @@ class _MyHomePageState extends State<MyDesignPage1> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Image.asset(
-                          'assets/images/illustration.png',
+                          'assets/images/ads.png',
                           height: 40,
                           width: 40,
                         ),
                         SizedBox(
                           height: 10,
                         ),
-                        Text('Illustrations'),
+                        Text('Ads'),
                       ],
                     ),
                   ),
@@ -165,14 +185,14 @@ class _MyHomePageState extends State<MyDesignPage1> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Image.asset(
-                          'assets/images/Banner.png',
+                          'assets/images/mockups.png',
                           height: 40,
                           width: 40,
                         ),
                         SizedBox(
                           height: 10,
                         ),
-                        Text('Banners'),
+                        Text('Mockups'),
                       ],
                     ),
                   ),
@@ -225,14 +245,14 @@ class _MyHomePageState extends State<MyDesignPage1> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Image.asset(
-                          'assets/images/mockups.png',
+                          'assets/images/Banner.png',
                           height: 40,
                           width: 40,
                         ),
                         SizedBox(
                           height: 10,
                         ),
-                        Text('Mockups'),
+                        Text('Banners'),
                       ],
                     ),
                   ),
@@ -255,14 +275,14 @@ class _MyHomePageState extends State<MyDesignPage1> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Image.asset(
-                          'assets/images/ads.png',
+                          'assets/images/illustration.png',
                           height: 40,
                           width: 40,
                         ),
                         SizedBox(
                           height: 10,
                         ),
-                        Text('Ads'),
+                        Text('Illustrations'),
                       ],
                     ),
                   ),
@@ -285,14 +305,14 @@ class _MyHomePageState extends State<MyDesignPage1> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Image.asset(
-                          'assets/images/others.png',
+                          'assets/images/poster.png',
                           height: 40,
                           width: 40,
                         ),
                         SizedBox(
                           height: 10,
                         ),
-                        Text('Others'),
+                        Text('Posters'),
                       ],
                     ),
                   ),
