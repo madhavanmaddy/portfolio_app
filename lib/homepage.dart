@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'pages/formpage.dart';
 import 'pages/designpage.dart';
+import 'package:flutter/painting.dart';
 import 'pages/apppage.dart';
 
 class MyApp extends StatelessWidget {
@@ -11,15 +12,6 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Portfolio',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(),
@@ -67,9 +59,9 @@ class _MyHomePageState extends State<MyHomePage> {
               //       //
               //       ),
               // ),
-              SizedBox(height:40),
+              SizedBox(height: 40),
               Image.asset('assets/images/menu.png'),
-              SizedBox(height:30),
+              SizedBox(height: 30),
               ListTile(
                   title: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -77,19 +69,17 @@ class _MyHomePageState extends State<MyHomePage> {
                       Text(
                         'Recent projects',
                         style: TextStyle(
-                            fontSize: 22,
-                            fontFamily: "Circular Air",
-                            // fontWeight: FontWeight.bold
-                            ),
+                          fontSize: 22,
+                          fontFamily: "Circular Air",
+                          // fontWeight: FontWeight.bold
+                        ),
                       ),
                       Icon(Icons.arrow_forward),
                     ],
                   ),
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => MyApp2()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => MyApp2()));
                   }),
               GestureDetector(
                 onTap: () {
@@ -102,15 +92,14 @@ class _MyHomePageState extends State<MyHomePage> {
                     children: <Widget>[
                       Text(
                         'App development',
-                        style: TextStyle(
-                            fontSize: 22),
+                        style: TextStyle(fontSize: 22),
                       ),
                       Icon(Icons.arrow_forward),
                     ],
                   ),
                 ),
               ),
-               GestureDetector(
+              GestureDetector(
                 onTap: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => MyApp1()));
@@ -121,15 +110,14 @@ class _MyHomePageState extends State<MyHomePage> {
                     children: <Widget>[
                       Text(
                         'Graphic Design',
-                        style: TextStyle(
-                            fontSize: 22),
+                        style: TextStyle(fontSize: 22),
                       ),
                       Icon(Icons.arrow_forward),
                     ],
                   ),
                 ),
               ),
-               GestureDetector(
+              GestureDetector(
                 onTap: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => MyDesignPage1()));
@@ -140,8 +128,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     children: <Widget>[
                       Text(
                         'UI/UX Design',
-                        style: TextStyle(
-                            fontSize: 22),
+                        style: TextStyle(fontSize: 22),
                       ),
                       Icon(Icons.arrow_forward),
                     ],
@@ -159,8 +146,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     children: <Widget>[
                       Text(
                         'Contact us',
-                        style: TextStyle(
-                            fontSize: 22),
+                        style: TextStyle(fontSize: 22),
                       ),
                       Icon(Icons.arrow_forward),
                     ],
@@ -178,15 +164,13 @@ class _MyHomePageState extends State<MyHomePage> {
                     children: <Widget>[
                       Text(
                         'Developer Contact',
-                        style: TextStyle(
-                            fontSize: 22),
+                        style: TextStyle(fontSize: 22),
                       ),
                       Icon(Icons.arrow_forward),
                     ],
                   ),
                 ),
               ),
-              
             ],
           ),
         ),
@@ -233,7 +217,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
                 child: new Container(
                   height: 116.00,
-                  width: 360.00,
+                  width: (MediaQuery.of(context).size.width) - 50,
                   decoration: BoxDecoration(
                     color: Color(0xffffffff),
                     boxShadow: [
@@ -284,7 +268,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
                 child: new Container(
                   height: 116.00,
-                  width: 360.00,
+                  width: (MediaQuery.of(context).size.width) - 50,
                   decoration: BoxDecoration(
                     color: Color(0xffffffff),
                     boxShadow: [
@@ -328,7 +312,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Center(
               child: new Container(
                 height: 116.00,
-                width: 360.00,
+                width: (MediaQuery.of(context).size.width) - 50,
                 decoration: BoxDecoration(
                   color: Color(0xffffffff),
                   boxShadow: [
