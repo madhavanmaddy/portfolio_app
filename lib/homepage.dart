@@ -8,6 +8,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Portfolio',
       theme: ThemeData(
         // This is the theme of your application.
@@ -45,16 +46,111 @@ class _MyHomePageState extends State<MyHomePage> {
         elevation: 0.0,
       ),
       drawer: Drawer(
-        child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(18.0),
-            child: ListView(
-              children: <Widget>[
-                ListTile(
-                  title: Text('Item1'),
-                )
-              ],
-            ),
+        child: Container(
+          color: Colors.white,
+          child: ListView(
+            // Important: Remove any padding from the ListView.
+            padding: EdgeInsets.symmetric(vertical: 40),
+            children: <Widget>[
+              // DrawerHeader(
+              //   child: Padding(
+              //     padding: const EdgeInsets.symmetric(vertical: 18.0),
+              //     child: Center(
+              //         child: Text(
+              //           'Corona Virus Tracker ',
+              //           style: TextStyle(fontSize: 27, color: Colors.white,fontWeight: FontWeight.bold),
+              //         )),
+              //   ),
+              //   decoration: BoxDecoration(
+              //       color: Colors.blue[500],
+              //       //
+              //       ),
+              // ),
+              Image.asset('assets/images/android.png'),
+              ListTile(
+                  title: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text(
+                        'Recent projects',
+                        style: TextStyle(
+                            fontSize: 22,
+                            fontFamily: "Circular Air",
+                            fontWeight: FontWeight.bold),
+                      ),
+                      Icon(Icons.arrow_forward),
+                    ],
+                  ),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => MyDesignPage1()));
+                  }),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => MyDesignPage1()));
+                },
+                child: ListTile(
+                  title: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text(
+                        'Myth Busters',
+                        style: TextStyle(
+                            fontSize: 22, fontWeight: FontWeight.bold),
+                      ),
+                      Icon(Icons.arrow_forward),
+                    ],
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => MyDesignPage1()));
+                },
+                child: ListTile(
+                  title: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text(
+                        'Donate to WHO',
+                        style: TextStyle(
+                            fontSize: 22, fontWeight: FontWeight.bold),
+                      ),
+                      Icon(Icons.arrow_forward),
+                    ],
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => MyDesignPage1()));
+                },
+                child: Container(
+                  child: Align(
+                    alignment: Alignment.bottomLeft,
+                    child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 240.0, horizontal: 20),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Text(
+                              'Developer Contact',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 18),
+                            ),
+                            Icon(Icons.arrow_forward),
+                          ],
+                        )),
+                  ),
+                ),
+              )
+            ],
           ),
         ),
       ),
@@ -63,7 +159,6 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            
             SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -233,7 +328,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
-            SizedBox(height:30),
+            SizedBox(height: 30),
           ],
         ),
       ),
