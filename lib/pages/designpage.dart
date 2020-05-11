@@ -66,6 +66,17 @@ class _MyHomePageState extends State<MyDesignPage1> {
               ),
             ),
           ),
+          Image.asset('assets/images/Design.png'),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25),
+            child: Text('What do you want us to design ?',
+            style: TextStyle(
+                  fontFamily: "Circular Air",
+                  fontWeight: FontWeight.w600,
+                  fontSize: 16,
+                  color: Color(0xff101010),
+                ),),
+          ),
           Container(
             margin: EdgeInsets.symmetric(vertical: 20.0),
             height: 100.0,
@@ -102,7 +113,7 @@ class _MyHomePageState extends State<MyDesignPage1> {
                     ],
                   ),
                 ),
-                SizedBox(width: 25),
+                SizedBox(width: 20),
                 new Container(
                   height: 116.00,
                   width: 100.00,
@@ -128,7 +139,37 @@ class _MyHomePageState extends State<MyDesignPage1> {
                       SizedBox(
                         height: 10,
                       ),
-                      Text('Posters'),
+                      Text('Illustrations'),
+                    ],
+                  ),
+                ),
+                SizedBox(width: 20),
+                new Container(
+                  height: 116.00,
+                  width: 100.00,
+                  decoration: BoxDecoration(
+                    color: Color(0xffffffff),
+                    boxShadow: [
+                      BoxShadow(
+                        offset: Offset(0.00, 3.00),
+                        color: Color(0xff000000).withOpacity(0.05),
+                        blurRadius: 30,
+                      ),
+                    ],
+                    borderRadius: BorderRadius.circular(33.00),
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Image.asset(
+                        'assets/images/xd.png',
+                        height: 40,
+                        width: 40,
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text('Banners'),
                     ],
                   ),
                 ),
@@ -158,7 +199,7 @@ class _MyHomePageState extends State<MyDesignPage1> {
                       SizedBox(
                         height: 10,
                       ),
-                      Text('Posters'),
+                      Text('Templates'),
                     ],
                   ),
                 ),
@@ -188,7 +229,7 @@ class _MyHomePageState extends State<MyDesignPage1> {
                       SizedBox(
                         height: 10,
                       ),
-                      Text('Posters'),
+                      Text('Mockups'),
                     ],
                   ),
                 ),
@@ -218,7 +259,7 @@ class _MyHomePageState extends State<MyDesignPage1> {
                       SizedBox(
                         height: 10,
                       ),
-                      Text('Posters'),
+                      Text('Ads'),
                     ],
                   ),
                 ),
@@ -248,37 +289,7 @@ class _MyHomePageState extends State<MyDesignPage1> {
                       SizedBox(
                         height: 10,
                       ),
-                      Text('Posters'),
-                    ],
-                  ),
-                ),
-                SizedBox(width: 25),
-                new Container(
-                  height: 116.00,
-                  width: 100.00,
-                  decoration: BoxDecoration(
-                    color: Color(0xffffffff),
-                    boxShadow: [
-                      BoxShadow(
-                        offset: Offset(0.00, 3.00),
-                        color: Color(0xff000000).withOpacity(0.05),
-                        blurRadius: 30,
-                      ),
-                    ],
-                    borderRadius: BorderRadius.circular(33.00),
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Image.asset(
-                        'assets/images/xd.png',
-                        height: 40,
-                        width: 40,
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text('Posters'),
+                      Text('Others'),
                     ],
                   ),
                 ),

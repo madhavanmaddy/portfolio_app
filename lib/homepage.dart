@@ -99,7 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     children: <Widget>[
                       Image.asset('assets/images/flutter.png'),
                       SizedBox(
-                        width: 35,
+                        width: 15,
                       ),
                       new Text(
                         "Build Flutter applications",
@@ -120,41 +120,49 @@ class _MyHomePageState extends State<MyHomePage> {
             height: 15,
           ),
           Center(
-            child: new Container(
-              height: 116.00,
-              width: 350.00,
-              decoration: BoxDecoration(
-                color: Color(0xffffffff),
-                boxShadow: [
-                  BoxShadow(
-                    offset: Offset(0.00, 3.00),
-                    color: Color(0xff000000).withOpacity(0.09),
-                    blurRadius: 30,
-                  ),
-                ],
-                borderRadius: BorderRadius.circular(33.00),
-              ),
-              child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                    Image.asset('assets/images/ps1.png'),
-                    SizedBox(
-                      width: 15,
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MyApp1()),
+                );
+              },
+                          child: new Container(
+                height: 116.00,
+                width: 350.00,
+                decoration: BoxDecoration(
+                  color: Color(0xffffffff),
+                  boxShadow: [
+                    BoxShadow(
+                      offset: Offset(0.00, 3.00),
+                      color: Color(0xff000000).withOpacity(0.09),
+                      blurRadius: 30,
                     ),
-                    new Text(
-                      "Play with designs",
-                      style: TextStyle(
-                        fontFamily: "Circular Air",
-                        fontWeight: FontWeight.w600,
-                        fontSize: 16,
-                        color: Color(0xff101010),
-                      ),
-                    )
                   ],
+                  borderRadius: BorderRadius.circular(33.00),
+                ),
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: <Widget>[
+                      Image.asset('assets/images/ps1.png'),
+                      SizedBox(
+                        width: 15,
+                      ),
+                      new Text(
+                        "Play with designs",
+                        style: TextStyle(
+                          fontFamily: "Circular Air",
+                          fontWeight: FontWeight.w600,
+                          fontSize: 16,
+                          color: Color(0xff101010),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),
