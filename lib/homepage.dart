@@ -38,14 +38,35 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //  backgroundColor: Color(0xFF198BAA),
+      appBar: AppBar(
+        iconTheme: new IconThemeData(color: Colors.black),
+        backgroundColor: Colors.white,
+        elevation: 0.0,
+      ),
+      drawer: Drawer(
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(18.0),
+            child: ListView(
+              children: <Widget>[
+                ListTile(
+                  title: Text('Item1'),
+                )
+              ],
+            ),
+          ),
+        ),
+      ),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            SizedBox(height: 120),
+            
+            SizedBox(height: 20),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               child: new Text(
                 "Good morning,",
                 style: TextStyle(
@@ -58,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             SizedBox(height: 10),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               child: new Text(
                 "What do you want us to do ?",
                 style: TextStyle(
@@ -80,7 +101,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
                 child: new Container(
                   height: 116.00,
-                  width: 350.00,
+                  width: 360.00,
                   decoration: BoxDecoration(
                     color: Color(0xffffffff),
                     boxShadow: [
@@ -131,7 +152,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
                 child: new Container(
                   height: 116.00,
-                  width: 350.00,
+                  width: 360.00,
                   decoration: BoxDecoration(
                     color: Color(0xffffffff),
                     boxShadow: [
@@ -175,7 +196,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Center(
               child: new Container(
                 height: 116.00,
-                width: 350.00,
+                width: 360.00,
                 decoration: BoxDecoration(
                   color: Color(0xffffffff),
                   boxShadow: [

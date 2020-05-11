@@ -299,6 +299,19 @@ class _MyHomePageState extends State<MyDesignPage1> {
                 ],
               ),
             ),
+            SizedBox(height: 10),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25),
+              child: Text(
+                'Recents',
+                style: TextStyle(
+                  fontFamily: "Circular Air",
+                  fontWeight: FontWeight.w600,
+                  fontSize: 18,
+                  color: Color(0xff101010),
+                ),
+              ),
+            ),
             SizedBox(height: 30),
           ],
         ),
