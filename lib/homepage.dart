@@ -240,14 +240,30 @@ class _MyHomePageState extends State<MyHomePage> {
                         SizedBox(
                           width: 15,
                         ),
-                        new Text(
-                          "Build Flutter applications",
-                          style: TextStyle(
-                            fontFamily: "Circular Air",
-                            fontWeight: FontWeight.w600,
-                            fontSize: 16,
-                            color: Color(0xff101010),
-                          ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            new Text(
+                              "Build Flutter applications",
+                              style: TextStyle(
+                                fontFamily: "Circular Air",
+                                fontWeight: FontWeight.w600,
+                                fontSize: 16,
+                                color: Color(0xff101010),
+                              ),
+                            ),
+                            SizedBox(height: 7),
+                            Text(
+                              "We help us to build efficient applications\nusing flutter. Enjoy the power of fast, \nefficient, super cool apps with iOS and\n web versions too.",
+                              overflow: TextOverflow.clip,
+                              style: TextStyle(
+                                fontFamily: "Circular Air",
+                                fontWeight: FontWeight.w600,
+                                fontSize: 10,
+                                color: Color(0xff101010),
+                              ),
+                            ),
+                          ],
                         )
                       ],
                     ),
@@ -291,14 +307,31 @@ class _MyHomePageState extends State<MyHomePage> {
                         SizedBox(
                           width: 15,
                         ),
-                        new Text(
-                          "Play with designs",
-                          style: TextStyle(
-                            fontFamily: "Circular Air",
-                            fontWeight: FontWeight.w600,
-                            fontSize: 16,
-                            color: Color(0xff101010),
-                          ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            
+                            new Text(
+                              "Play with designs",
+                              style: TextStyle(
+                                fontFamily: "Circular Air",
+                                fontWeight: FontWeight.w600,
+                                fontSize: 16,
+                                color: Color(0xff101010),
+                              ),
+                            ),
+                            SizedBox(height: 7),
+                            Text(
+                              "We help us to build efficient applications\nusing flutter. Enjoy the power of fast, \nefficient, super cool apps with iOS and\nweb versions too.",
+                              overflow: TextOverflow.clip,
+                              style: TextStyle(
+                                fontFamily: "Circular Air",
+                                fontWeight: FontWeight.w600,
+                                fontSize: 10,
+                                color: Color(0xff101010),
+                              ),
+                            ),
+                          ],
                         )
                       ],
                     ),
@@ -335,14 +368,32 @@ class _MyHomePageState extends State<MyHomePage> {
                       SizedBox(
                         width: 15,
                       ),
-                      new Text(
-                        "User experience builder",
-                        style: TextStyle(
-                          fontFamily: "Circular Air",
-                          fontWeight: FontWeight.w600,
-                          fontSize: 16,
-                          color: Color(0xff101010),
-                        ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          new Text(
+                            "User experience builder",
+                            style: TextStyle(
+                              fontFamily: "Circular Air",
+                              fontWeight: FontWeight.w600,
+                              fontSize: 16,
+                              color: Color(0xff101010),
+                              
+                            ),
+                          ),
+                          SizedBox(height: 7),
+                            Text(
+                              "We help us to build efficient applications\nusing flutter. Enjoy the power of fast, \nefficient, super cool apps with iOS and\nweb versions too.",
+                              overflow: TextOverflow.clip,
+                              style: TextStyle(
+                                fontFamily: "Circular Air",
+                                fontWeight: FontWeight.w600,
+                                // height: 1.2,
+                                fontSize: 10,
+                                color: Color(0xff101010),
+                              ),
+                            ),
+                        ],
                       )
                     ],
                   ),
