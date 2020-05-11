@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'pages/formpage.dart';
+import 'pages/designpage.dart';
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -46,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: new Text(
               "Good morning,",
               style: TextStyle(
-                fontFamily: "Segoe UI",
+                fontFamily: "Circular Air",
                 fontWeight: FontWeight.w600,
                 fontSize: 22,
                 color: Color(0xff101010),
@@ -59,7 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: new Text(
               "What do you want us to do ?",
               style: TextStyle(
-                fontFamily: "Segoe UI",
+                fontFamily: "Circular Air",
                 fontWeight: FontWeight.w600,
                 fontSize: 24,
                 color: Color(0xff101010),
@@ -72,7 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => formpage()),
+                  MaterialPageRoute(builder: (context) => MyApp1()),
                 );
               },
               child: new Container(
@@ -98,12 +99,12 @@ class _MyHomePageState extends State<MyHomePage> {
                     children: <Widget>[
                       Image.asset('assets/images/flutter.png'),
                       SizedBox(
-                        width: 15,
+                        width: 35,
                       ),
                       new Text(
                         "Build Flutter applications",
                         style: TextStyle(
-                          fontFamily: "Segoe UI",
+                          fontFamily: "Circular Air",
                           fontWeight: FontWeight.w600,
                           fontSize: 16,
                           color: Color(0xff101010),
@@ -147,7 +148,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     new Text(
                       "Play with designs",
                       style: TextStyle(
-                        fontFamily: "Segoe UI",
+                        fontFamily: "Circular Air",
                         fontWeight: FontWeight.w600,
                         fontSize: 16,
                         color: Color(0xff101010),
@@ -190,7 +191,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     new Text(
                       "User experience builder",
                       style: TextStyle(
-                        fontFamily: "Segoe UI",
+                        fontFamily: "Circular Air",
                         fontWeight: FontWeight.w600,
                         fontSize: 16,
                         color: Color(0xff101010),
