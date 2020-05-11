@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'pages/formpage.dart';
 import 'pages/designpage.dart';
+import 'pages/apppage.dart';
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -73,7 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => MyApp1()),
+                  MaterialPageRoute(builder: (context) => MyApp2()),
                 );
               },
               child: new Container(
