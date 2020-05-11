@@ -89,12 +89,12 @@ class _MyHomePageState extends State<MyHomePage> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => MyDesignPage1()));
+                            builder: (context) => MyApp2()));
                   }),
               GestureDetector(
                 onTap: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => MyDesignPage1()));
+                      MaterialPageRoute(builder: (context) => MyApp2()));
                 },
                 child: ListTile(
                   title: Row(
@@ -113,7 +113,7 @@ class _MyHomePageState extends State<MyHomePage> {
                GestureDetector(
                 onTap: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => MyDesignPage1()));
+                      MaterialPageRoute(builder: (context) => MyApp1()));
                 },
                 child: ListTile(
                   title: Row(
