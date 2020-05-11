@@ -49,6 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Container(
           color: Colors.white,
           child: ListView(
+            scrollDirection: Axis.vertical,
             // Important: Remove any padding from the ListView.
             padding: EdgeInsets.symmetric(vertical: 40),
             children: <Widget>[
@@ -66,7 +67,9 @@ class _MyHomePageState extends State<MyHomePage> {
               //       //
               //       ),
               // ),
-              Image.asset('assets/images/android.png'),
+              SizedBox(height:40),
+              Image.asset('assets/images/menu.png'),
+              SizedBox(height:30),
               ListTile(
                   title: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -76,7 +79,8 @@ class _MyHomePageState extends State<MyHomePage> {
                         style: TextStyle(
                             fontSize: 22,
                             fontFamily: "Circular Air",
-                            fontWeight: FontWeight.bold),
+                            // fontWeight: FontWeight.bold
+                            ),
                       ),
                       Icon(Icons.arrow_forward),
                     ],
@@ -97,9 +101,47 @@ class _MyHomePageState extends State<MyHomePage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Text(
-                        'Myth Busters',
+                        'App development',
                         style: TextStyle(
-                            fontSize: 22, fontWeight: FontWeight.bold),
+                            fontSize: 22),
+                      ),
+                      Icon(Icons.arrow_forward),
+                    ],
+                  ),
+                ),
+              ),
+               GestureDetector(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => MyDesignPage1()));
+                },
+                child: ListTile(
+                  title: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text(
+                        'Graphic Design',
+                        style: TextStyle(
+                            fontSize: 22),
+                      ),
+                      Icon(Icons.arrow_forward),
+                    ],
+                  ),
+                ),
+              ),
+               GestureDetector(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => MyDesignPage1()));
+                },
+                child: ListTile(
+                  title: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text(
+                        'UI/UX Design',
+                        style: TextStyle(
+                            fontSize: 22),
                       ),
                       Icon(Icons.arrow_forward),
                     ],
@@ -116,9 +158,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Text(
-                        'Donate to WHO',
+                        'Contact us',
                         style: TextStyle(
-                            fontSize: 22, fontWeight: FontWeight.bold),
+                            fontSize: 22),
                       ),
                       Icon(Icons.arrow_forward),
                     ],
@@ -130,26 +172,21 @@ class _MyHomePageState extends State<MyHomePage> {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => MyDesignPage1()));
                 },
-                child: Container(
-                  child: Align(
-                    alignment: Alignment.bottomLeft,
-                    child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 240.0, horizontal: 20),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            Text(
-                              'Developer Contact',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 18),
-                            ),
-                            Icon(Icons.arrow_forward),
-                          ],
-                        )),
+                child: ListTile(
+                  title: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text(
+                        'Developer Contact',
+                        style: TextStyle(
+                            fontSize: 22),
+                      ),
+                      Icon(Icons.arrow_forward),
+                    ],
                   ),
                 ),
-              )
+              ),
+              
             ],
           ),
         ),
