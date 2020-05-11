@@ -8,15 +8,6 @@ class MyApp1 extends StatelessWidget {
     return MaterialApp(
       title: 'Portfolio',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         primarySwatch: Colors.blue,
       ),
       home: MyDesignPage1(),
@@ -68,17 +59,26 @@ class _MyHomePageState extends State<MyDesignPage1> {
               ),
             ),
             Image.asset('assets/images/Design.png'),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25),
-              child: Text(
-                'What do you want us to design ?',
-                style: TextStyle(
-                  fontFamily: "Circular Air",
-                  fontWeight: FontWeight.w600,
-                  fontSize: 16,
-                  color: Color(0xff101010),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25),
+                  child: Text(
+                    'What do you want us to design ?',
+                    style: TextStyle(
+                      fontFamily: "Circular Air",
+                      fontWeight: FontWeight.w600,
+                      fontSize: 16,
+                      color: Color(0xff101010),
+                    ),
+                  ),
                 ),
-              ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25),
+                  child: Icon(Icons.arrow_forward),
+                ),
+              ],
             ),
             Container(
               margin: EdgeInsets.symmetric(vertical: 20.0),
@@ -105,7 +105,7 @@ class _MyHomePageState extends State<MyDesignPage1> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Image.asset(
-                          'assets/images/xd.png',
+                          'assets/images/poster.png',
                           height: 40,
                           width: 40,
                         ),
@@ -135,7 +135,7 @@ class _MyHomePageState extends State<MyDesignPage1> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Image.asset(
-                          'assets/images/xd.png',
+                          'assets/images/illustration.png',
                           height: 40,
                           width: 40,
                         ),
@@ -165,7 +165,7 @@ class _MyHomePageState extends State<MyDesignPage1> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Image.asset(
-                          'assets/images/xd.png',
+                          'assets/images/Banner.png',
                           height: 40,
                           width: 40,
                         ),
@@ -195,7 +195,7 @@ class _MyHomePageState extends State<MyDesignPage1> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Image.asset(
-                          'assets/images/xd.png',
+                          'assets/images/temp.png',
                           height: 40,
                           width: 40,
                         ),
@@ -225,7 +225,7 @@ class _MyHomePageState extends State<MyDesignPage1> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Image.asset(
-                          'assets/images/xd.png',
+                          'assets/images/mockups.png',
                           height: 40,
                           width: 40,
                         ),
@@ -255,7 +255,7 @@ class _MyHomePageState extends State<MyDesignPage1> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Image.asset(
-                          'assets/images/xd.png',
+                          'assets/images/ads.png',
                           height: 40,
                           width: 40,
                         ),
@@ -285,7 +285,7 @@ class _MyHomePageState extends State<MyDesignPage1> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Image.asset(
-                          'assets/images/xd.png',
+                          'assets/images/others.png',
                           height: 40,
                           width: 40,
                         ),
@@ -299,7 +299,7 @@ class _MyHomePageState extends State<MyDesignPage1> {
                 ],
               ),
             ),
-            SizedBox(height:30),
+            SizedBox(height: 30),
           ],
         ),
       ),

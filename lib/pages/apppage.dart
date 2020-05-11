@@ -42,19 +42,19 @@ class _MyHomePageState extends State<MyAppPage1> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             SizedBox(height: 120),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25),
-              child: new Text(
-                "Welcome,",
-                style: TextStyle(
-                  fontFamily: "Circular Air",
-                  fontWeight: FontWeight.w600,
-                  fontSize: 22,
-                  color: Color(0xff101010),
-                ),
-              ),
-            ),
-            SizedBox(height: 10),
+            // Padding(
+            //   padding: const EdgeInsets.symmetric(horizontal: 25),
+            //   child: new Text(
+            //     "Welcome,",
+            //     style: TextStyle(
+            //       fontFamily: "Circular Air",
+            //       fontWeight: FontWeight.w600,
+            //       fontSize: 22,
+            //       color: Color(0xff101010),
+            //     ),
+            //   ),
+            // ),
+            // SizedBox(height: 10),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
               child: new Text(
