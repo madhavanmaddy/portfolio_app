@@ -1,16 +1,31 @@
 import 'package:flutter/material.dart';
-import 'pages/apppage.dart';
+import 'package:portfolio/pages/overallprojectspage.dart';
+import 'package:portfolio/pages/projectdetailspage.dart';
+import 'package:portfolio/pages/thankyoupage.dart';
+import 'package:portfolio/pages/uiuxpage.dart';
+import 'pages/designpage.dart';
 import 'pages/formpage.dart';
 import 'pages/designpage.dart';
 import 'package:flutter/painting.dart';
-import 'package:portfolio/pages/uiuxpage.dart';
 import 'pages/apppage.dart';
+import 'pages/formpage.dart';
+import 'pages/nextpage.dart';
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      routes: {
+        'apppage': (_) => MyApp2(),
+        'designpage': (_) => MyApp1(),
+        'formpage': (_) => formpage(),
+        'nextpage': (_) => nextpage(),
+        'overallprojectspage': (_) => overallprojectspage(),
+        'detailspage':(_)=> DetailsPage(),
+        'thankyoupage': (_) => MyThankyou(),
+        'uiuxpage':(_)=> UiuxPage(),
+      },
       debugShowCheckedModeBanner: false,
       title: 'Portfolio',
       theme: ThemeData(
@@ -80,13 +95,11 @@ class _MyHomePageState extends State<MyHomePage> {
                     ],
                   ),
                   onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => MyApp2()));
+                    Navigator.pushNamed(context, 'overallprojectspage');
                   }),
               GestureDetector(
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => MyApp2()));
+                  Navigator.pushNamed(context, 'apppage');
                 },
                 child: ListTile(
                   title: Row(
@@ -103,8 +116,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => MyApp1()));
+                  Navigator.pushNamed(context, 'designpage');
                 },
                 child: ListTile(
                   title: Row(
@@ -121,8 +133,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => MyDesignPage1()));
+                  Navigator.pushNamed(context, 'designpage');
                 },
                 child: ListTile(
                   title: Row(
@@ -139,8 +150,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => MyDesignPage1()));
+                  Navigator.pushNamed(context, 'designpage');
                 },
                 child: ListTile(
                   title: Row(
@@ -157,8 +167,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => MyDesignPage1()));
+                  Navigator.pushNamed(context, 'designpage');
                 },
                 child: ListTile(
                   title: Row(
@@ -212,10 +221,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Center(
               child: GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => MyApp2()),
-                  );
+                  Navigator.pushNamed(context, 'apppage');
                 },
                 child: new Container(
                   height: 116.00,
@@ -279,10 +285,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Center(
               child: GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => MyApp1()),
-                  );
+                  Navigator.pushNamed(context, 'designpage');
                 },
                 child: new Container(
                   height: 116.00,
@@ -312,7 +315,6 @@ class _MyHomePageState extends State<MyHomePage> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            
                             new Text(
                               "Play with designs",
                               style: TextStyle(
@@ -345,68 +347,58 @@ class _MyHomePageState extends State<MyHomePage> {
               height: 15,
             ),
             Center(
-              child: GestureDetector(
-                onTap: (){
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => UiuxPage()),
-                  );
-
-                },
-                              child: new Container(
-                  height: 116.00,
-                  width: (MediaQuery.of(context).size.width) - 50,
-                  decoration: BoxDecoration(
-                    color: Color(0xffffffff),
-                    boxShadow: [
-                      BoxShadow(
-                        offset: Offset(0.00, 3.00),
-                        color: Color(0xff000000).withOpacity(0.09),
-                        blurRadius: 30,
-                      ),
-                    ],
-                    borderRadius: BorderRadius.circular(33.00),
-                  ),
-                  child: Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: <Widget>[
-                        Image.asset('assets/images/xd.png'),
-                        SizedBox(
-                          width: 15,
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            new Text(
-                              "User experience builder",
-                              style: TextStyle(
-                                fontFamily: "Circular Air",
-                                fontWeight: FontWeight.w600,
-                                fontSize: 16,
-                                color: Color(0xff101010),
-                                
-                              ),
-                            ),
-                            SizedBox(height: 7),
-                              Text(
-                                "We help us to build efficient applications\nusing flutter. Enjoy the power of fast, \nefficient, super cool apps with iOS and\nweb versions too.",
-                                overflow: TextOverflow.clip,
-                                style: TextStyle(
-                                  fontFamily: "Circular Air",
-                                  fontWeight: FontWeight.w600,
-                                  // height: 1.2,
-                                  fontSize: 10,
-                                  color: Color(0xff101010),
-                                ),
-                              ),
-                          ],
-                        )
-                      ],
+              child: new Container(
+                height: 116.00,
+                width: (MediaQuery.of(context).size.width) - 50,
+                decoration: BoxDecoration(
+                  color: Color(0xffffffff),
+                  boxShadow: [
+                    BoxShadow(
+                      offset: Offset(0.00, 3.00),
+                      color: Color(0xff000000).withOpacity(0.09),
+                      blurRadius: 30,
                     ),
+                  ],
+                  borderRadius: BorderRadius.circular(33.00),
+                ),
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: <Widget>[
+                      Image.asset('assets/images/xd.png'),
+                      SizedBox(
+                        width: 15,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          new Text(
+                            "User experience builder",
+                            style: TextStyle(
+                              fontFamily: "Circular Air",
+                              fontWeight: FontWeight.w600,
+                              fontSize: 16,
+                              color: Color(0xff101010),
+                            ),
+                          ),
+                          SizedBox(height: 7),
+                          Text(
+                            "We help us to build efficient applications\nusing flutter. Enjoy the power of fast, \nefficient, super cool apps with iOS and\nweb versions too.",
+                            overflow: TextOverflow.clip,
+                            style: TextStyle(
+                              fontFamily: "Circular Air",
+                              fontWeight: FontWeight.w600,
+                              // height: 1.2,
+                              fontSize: 10,
+                              color: Color(0xff101010),
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
                   ),
                 ),
               ),

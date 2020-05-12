@@ -221,10 +221,7 @@ class _formpageState extends State<formpage> {
                               'sampledata': SampleData,
                               'dimensions': Dimensions,
                             });
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => MyThankyou()));
+                            Navigator.pushNamed(context, 'thankyoupage');
                           })
                     ],
                   )

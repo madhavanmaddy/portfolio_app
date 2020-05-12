@@ -14,7 +14,6 @@ class UiuxPage extends StatelessWidget {
     return MaterialApp(
       title: 'Portfolio',
       theme: ThemeData(
-      
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
@@ -34,13 +33,13 @@ class Myuiux extends StatefulWidget {
 class _MyHomePageState extends State<Myuiux> {
   crudMethods crudObj = new crudMethods();
 
-  QuerySnapshot projects;
+  QuerySnapshot uiuxprojects;
 
   @override
   void initState() {
-    crudObj.getdata().then((results) {
+    crudObj.getdatau().then((results) {
       setState(() {
-        projects = results;
+        uiuxprojects = results;
       });
     });
 
@@ -152,8 +151,7 @@ class _MyHomePageState extends State<Myuiux> {
             Center(
               child: GestureDetector(
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => formpage()));
+                  Navigator.pushNamed(context, 'formpage');
                 },
                 child: new Container(
                   height: 50.00,
@@ -183,8 +181,7 @@ class _MyHomePageState extends State<Myuiux> {
             Center(
               child: GestureDetector(
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => formpage()));
+                  Navigator.pushNamed(context, 'formpage');
                 },
                 child: new Container(
                   height: 50.00,
@@ -226,7 +223,11 @@ class _MyHomePageState extends State<Myuiux> {
                   IconButton(
                       icon: Icon(Icons.refresh),
                       onPressed: () {
-                        crudObj.getdata().then((results) {});
+                        crudObj.getdatau().then((results) {
+                          setState(() {
+                            uiuxprojects = results;
+                          });
+                        });
                       }),
                 ],
               ),
@@ -242,7 +243,7 @@ class _MyHomePageState extends State<Myuiux> {
   }
 
   Widget recentprojects() {
-    return projects != null
+    return uiuxprojects != null
         ? SizedBox(
             height: 700.0,
             child: GridView.builder(
@@ -250,7 +251,7 @@ class _MyHomePageState extends State<Myuiux> {
                 crossAxisCount: 3,
                 crossAxisSpacing: 8.0,
               ),
-              itemCount: projects.documents.length,
+              itemCount: uiuxprojects.documents.length,
               itemBuilder: (_, index) {
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -268,13 +269,9 @@ class _MyHomePageState extends State<Myuiux> {
                     ),
                     child: IconButton(
                       icon: Image.network(
-                          projects.documents[index].data['image']),
+                          uiuxprojects.documents[index].data['image']),
                       onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => DetailsPage()),
-                        );
+                        Navigator.pushNamed(context, 'detailspage');
                       },
                     ),
                   ),
