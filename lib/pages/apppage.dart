@@ -228,7 +228,7 @@ class _MyHomePageState extends State<MyAppPage1> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => DetailsPage()),
+                              builder: (context) => MyDetailsPage(projects.documents[index].data['title'],projects.documents[index].data['desc'])),
                         );
                       },
                     ),

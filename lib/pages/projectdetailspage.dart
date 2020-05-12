@@ -2,38 +2,10 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/main.dart';
 
-class DetailsPage extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Portfolio',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
-      home: MyDetailsPage(),
-    );
-  }
-}
 
-class MyDetailsPage extends StatefulWidget {
-  MyDetailsPage({Key key, this.title}) : super(key: key);
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyDetailsPage> {
+class MyDetailsPage extends StatelessWidget {
+  String title,desc;
+  MyDetailsPage(this.title,this.desc);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +18,7 @@ class _MyHomePageState extends State<MyDetailsPage> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
               child: new Text(
-                "Topic displayed here",
+                title,
                 style: TextStyle(
                   fontFamily: "Circular Air",
                   fontWeight: FontWeight.w600,
@@ -83,7 +55,7 @@ class _MyHomePageState extends State<MyDetailsPage> {
                 
                       SizedBox(height: 25),
                       Text(
-                        'Our team of developers and designers will be reaching you soon! \nGet ready for some thing amazing!Our team of developers and designers will be reaching you soon! \nGet ready for some thing amazing!Our team of developers and designers will be reaching you soon! \nGet ready for some thing amazing!Our team of developers and designers will be reaching you soon! \nGet ready for some thing amazing!Our team of developers and designers will be reaching you soon! \nGet ready for some thing amazing!Our team of developers and designers will be reaching you soon! \nGet ready for some thing amazing!Our team of developers and designers will be reaching you soon! \nGet ready for some thing amazing!Our team of developers and designers will be reaching you soon! \nGet ready for some thing amazing!Our team of developers and designers will be reaching you soon! \nGet ready for some thing amazing!',
+                        desc,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 16,
