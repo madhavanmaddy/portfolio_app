@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:portfolio/services/crud.dart';
+import 'package:portfolio/pages/projectdetailspage.dart';
 
 import 'nextpage.dart';
 
@@ -234,7 +235,13 @@ class _overallprojectspageState extends State<overallprojectspage> {
                     icon:
                         Image.network(projects.documents[index].data['image']),
                     onPressed: () {
-                      Navigator.pushNamed(context, 'nextpage');
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => MyDetailsPage(
+                                  projects.documents[index].data['title'],
+                                  projects.documents[index].data['desc'])),
+                        );
                     },
                   ),
                 ),
