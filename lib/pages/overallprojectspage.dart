@@ -11,6 +11,8 @@ class overallprojectspage extends StatefulWidget {
 
 class _overallprojectspageState extends State<overallprojectspage> {
   crudMethods crudObj = new crudMethods();
+  
+  int temp,temp2,temp4; double temp1,temp5,temp3;
 
   QuerySnapshot projects;
   QuerySnapshot designprojects;
@@ -21,16 +23,27 @@ class _overallprojectspageState extends State<overallprojectspage> {
     crudObj.getdata().then((results) {
       setState(() {
         projects = results;
+        temp=projects.documents.length;
+        temp=temp*113;
+        temp1=temp.toDouble();
+        
       });
     });
     crudObj.getdatad().then((results) {
       setState(() {
         designprojects = results;
+         temp2=designprojects.documents.length;
+        temp2=temp2*120;
+        temp3=temp2.toDouble();
+        print('$temp3 hahaha');
       });
     });
     crudObj.getdatau().then((results) {
       setState(() {
         uiuxprojects = results;
+         temp4=uiuxprojects.documents.length;
+        temp4=temp4*120;
+        temp5=temp4.toDouble();
       });
     });
     super.initState();
@@ -87,7 +100,8 @@ class _overallprojectspageState extends State<overallprojectspage> {
               height: 30.0,
             ),
             SizedBox(
-              height: 500.0,
+              height: temp1
+              ,
               child: oprojects(),
             ),
             SizedBox(
@@ -106,7 +120,7 @@ class _overallprojectspageState extends State<overallprojectspage> {
               height: 30.0,
             ),
             SizedBox(
-              height: 500.0,
+              height: temp3,
               child: odesignrojects(),
             ),
             SizedBox(
@@ -122,7 +136,7 @@ class _overallprojectspageState extends State<overallprojectspage> {
               ),
             ),
             SizedBox(
-              height: 500.0,
+              height: temp5,
               child: ouiuxprojects(),
             ),
           ],
@@ -134,6 +148,7 @@ class _overallprojectspageState extends State<overallprojectspage> {
   Widget ouiuxprojects() {
     return uiuxprojects != null
         ? GridView.builder(
+          primary: false,
             gridDelegate:
                 SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
             itemCount: uiuxprojects.documents.length,
@@ -141,6 +156,17 @@ class _overallprojectspageState extends State<overallprojectspage> {
               return Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Container(
+                  decoration: BoxDecoration(
+                      color: Color(0xffffffff),
+                      boxShadow: [
+                        BoxShadow(
+                          offset: Offset(0.00, 3.00),
+                          color: Color(0xff000000).withOpacity(0.09),
+                          blurRadius: 30,
+                        ),
+                      ],
+                      borderRadius: BorderRadius.circular(20.00),
+                    ),
                   child: IconButton(
                     icon: Image.network(
                         uiuxprojects.documents[index].data['image']),
@@ -159,13 +185,26 @@ class _overallprojectspageState extends State<overallprojectspage> {
   Widget oprojects() {
     return projects != null
         ? GridView.builder(
+          primary: false,
             gridDelegate:
                 SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+                 
             itemCount: projects.documents.length,
             itemBuilder: (_, index) {
               return Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Container(
+                  decoration: BoxDecoration(
+                      color: Color(0xffffffff),
+                      boxShadow: [
+                        BoxShadow(
+                          offset: Offset(0.00, 3.00),
+                          color: Color(0xff000000).withOpacity(0.09),
+                          blurRadius: 30,
+                        ),
+                      ],
+                      borderRadius: BorderRadius.circular(20.00),
+                    ),
                   child: IconButton(
                     icon:
                         Image.network(projects.documents[index].data['image']),
@@ -184,6 +223,7 @@ class _overallprojectspageState extends State<overallprojectspage> {
   Widget odesignrojects() {
     return designprojects != null
         ? GridView.builder(
+          primary: false,
             gridDelegate:
                 SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
             itemCount: designprojects.documents.length,
@@ -191,6 +231,17 @@ class _overallprojectspageState extends State<overallprojectspage> {
               return Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Container(
+                  decoration: BoxDecoration(
+                      color: Color(0xffffffff),
+                      boxShadow: [
+                        BoxShadow(
+                          offset: Offset(0.00, 3.00),
+                          color: Color(0xff000000).withOpacity(0.09),
+                          blurRadius: 30,
+                        ),
+                      ],
+                      borderRadius: BorderRadius.circular(20.00),
+                    ),
                   child: IconButton(
                     icon: Image.network(
                         designprojects.documents[index].data['image']),
