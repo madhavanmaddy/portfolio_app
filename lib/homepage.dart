@@ -22,7 +22,6 @@ class MyApp extends StatelessWidget {
         'formpage': (_) => formpage(),
         'nextpage': (_) => nextpage(),
         'overallprojectspage': (_) => overallprojectspage(),
-        'detailspage':(_)=> DetailsPage(),
         'thankyoupage': (_) => MyThankyou(),
         'uiuxpage':(_)=> UiuxPage(),
       },
