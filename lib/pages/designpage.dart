@@ -80,10 +80,10 @@ class _MyHomePageState extends State<MyDesignPage1> {
                 GestureDetector(
                   onTap: () {
                     setState(() {
-            _messages.insert(5, new Text("message ${_messages.length}"));
+            _messages.insert(0, new Text("message ${_messages.length}"));
           });
           _scrollController.animateTo(
-            5,
+            0,
             curve: Curves.decelerate,
             duration: const Duration(milliseconds: 300),
           );

@@ -187,7 +187,7 @@ class _MyHomePageState extends State<MyAppPage1> {
   Widget recentprojects() {
     return projects != null
         ? SizedBox(
-            height: 200.0,
+            height: 700.0,
             child: GridView.builder(
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
