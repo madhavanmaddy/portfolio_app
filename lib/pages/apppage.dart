@@ -2,8 +2,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/main.dart';
 import 'package:portfolio/services/crud.dart';
-
+import 'package:portfolio/pages/projectdetailspage.dart';
+import 'formpage.dart';
 import 'nextpage.dart';
+import 'thankyoupage.dart';
 
 class MyApp2 extends StatelessWidget {
   // This widget is the root of your application.
@@ -103,25 +105,32 @@ class _MyHomePageState extends State<MyAppPage1> {
               height: 25,
             ),
             Center(
-              child: new Container(
-                height: 50.00,
-                width: 370.00,
-                decoration: BoxDecoration(
-                  color: Color(0xffffffff),
-                  boxShadow: [
-                    BoxShadow(
-                      offset: Offset(0.00, 3.00),
-                      color: Color(0xff000000).withOpacity(0.09),
-                      blurRadius: 30,
-                    ),
-                  ],
-                  borderRadius: BorderRadius.circular(33.00),
+              child: GestureDetector
+              (
+                 onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => formpage()));
+                },
+                              child: new Container(
+                  height: 50.00,
+                  width: 370.00,
+                  decoration: BoxDecoration(
+                    color: Color(0xffffffff),
+                    boxShadow: [
+                      BoxShadow(
+                        offset: Offset(0.00, 3.00),
+                        color: Color(0xff000000).withOpacity(0.09),
+                        blurRadius: 30,
+                      ),
+                    ],
+                    borderRadius: BorderRadius.circular(33.00),
+                  ),
+                  child: Center(
+                      child: Text(
+                    'Commercial Application',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  )),
                 ),
-                child: Center(
-                    child: Text(
-                  'Commercial Application',
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                )),
               ),
             ),
             SizedBox(
@@ -198,12 +207,23 @@ class _MyHomePageState extends State<MyAppPage1> {
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
+                     decoration: BoxDecoration(
+                  color: Color(0xffffffff),
+                  boxShadow: [
+                    BoxShadow(
+                      offset: Offset(0.00, 3.00),
+                      color: Color(0xff000000).withOpacity(0.09),
+                      blurRadius: 30,
+                    ),
+                  ],
+                  borderRadius: BorderRadius.circular(33.00),
+                ),
                     child: IconButton(
                       icon: Image.network(projects.documents[index].data['image']), 
                       onPressed: (){
                         Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => nextpage()),
+                    MaterialPageRoute(builder: (context) => DetailsPage()),
                   );
                       },
                       ),

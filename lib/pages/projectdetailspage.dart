@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/main.dart';
 
-class MyThankyou extends StatelessWidget {
+class DetailsPage extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -20,20 +20,20 @@ class MyThankyou extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyThankPage1(),
+      home: MyDetailsPage(),
     );
   }
 }
 
-class MyThankPage1 extends StatefulWidget {
-  MyThankPage1({Key key, this.title}) : super(key: key);
+class MyDetailsPage extends StatefulWidget {
+  MyDetailsPage({Key key, this.title}) : super(key: key);
   final String title;
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyThankPage1> {
+class _MyHomePageState extends State<MyDetailsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +46,7 @@ class _MyHomePageState extends State<MyThankPage1> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
               child: new Text(
-                "Sucessfully submitted your request",
+                "Topic displayed here",
                 style: TextStyle(
                   fontFamily: "Circular Air",
                   fontWeight: FontWeight.w600,
@@ -61,7 +61,7 @@ class _MyHomePageState extends State<MyThankPage1> {
             ),
             Center(
               child: new Container(
-                height: 170.00,
+                height: 700.00,
                 width: 370.00,
                 decoration: BoxDecoration(
                   color: Color(0xffffffff),
@@ -79,12 +79,11 @@ class _MyHomePageState extends State<MyThankPage1> {
                   child: Center(
                       child: Column(
                     children: <Widget>[
-                      SizedBox(height: 15),
-                      Image.asset('assets/images/tick.png',height: 30,width: 30,),
+                      
                 
                       SizedBox(height: 25),
                       Text(
-                        'Our team of developers and designers will be reaching you soon! \nGet ready for some thing amazing!',
+                        'Our team of developers and designers will be reaching you soon! \nGet ready for some thing amazing!Our team of developers and designers will be reaching you soon! \nGet ready for some thing amazing!Our team of developers and designers will be reaching you soon! \nGet ready for some thing amazing!Our team of developers and designers will be reaching you soon! \nGet ready for some thing amazing!Our team of developers and designers will be reaching you soon! \nGet ready for some thing amazing!Our team of developers and designers will be reaching you soon! \nGet ready for some thing amazing!Our team of developers and designers will be reaching you soon! \nGet ready for some thing amazing!Our team of developers and designers will be reaching you soon! \nGet ready for some thing amazing!Our team of developers and designers will be reaching you soon! \nGet ready for some thing amazing!',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 16,
