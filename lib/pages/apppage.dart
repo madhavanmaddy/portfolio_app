@@ -105,13 +105,12 @@ class _MyHomePageState extends State<MyAppPage1> {
               height: 25,
             ),
             Center(
-              child: GestureDetector
-              (
-                 onTap: () {
+              child: GestureDetector(
+                onTap: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => formpage()));
                 },
-                              child: new Container(
+                child: new Container(
                   height: 50.00,
                   width: 370.00,
                   decoration: BoxDecoration(
@@ -177,7 +176,11 @@ class _MyHomePageState extends State<MyAppPage1> {
                       icon: Icon(Icons.refresh),
                       onPressed: () {
                         crudObj.getdata().then((results) {
-                          
+                          crudObj.getdata().then((results) {
+                            setState(() {
+                              projects = results;
+                            });
+                          });
                         });
                       }),
                 ],
@@ -207,26 +210,28 @@ class _MyHomePageState extends State<MyAppPage1> {
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
-                     decoration: BoxDecoration(
-                  color: Color(0xffffffff),
-                  boxShadow: [
-                    BoxShadow(
-                      offset: Offset(0.00, 3.00),
-                      color: Color(0xff000000).withOpacity(0.09),
-                      blurRadius: 30,
+                    decoration: BoxDecoration(
+                      color: Color(0xffffffff),
+                      boxShadow: [
+                        BoxShadow(
+                          offset: Offset(0.00, 3.00),
+                          color: Color(0xff000000).withOpacity(0.09),
+                          blurRadius: 30,
+                        ),
+                      ],
+                      borderRadius: BorderRadius.circular(33.00),
                     ),
-                  ],
-                  borderRadius: BorderRadius.circular(33.00),
-                ),
                     child: IconButton(
-                      icon: Image.network(projects.documents[index].data['image']), 
-                      onPressed: (){
+                      icon: Image.network(
+                          projects.documents[index].data['image']),
+                      onPressed: () {
                         Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => DetailsPage()),
-                  );
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => DetailsPage()),
+                        );
                       },
-                      ),
+                    ),
                   ),
                 );
               },
