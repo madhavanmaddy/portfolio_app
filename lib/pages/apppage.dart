@@ -1,5 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/main.dart';
+import 'package:portfolio/services/crud.dart';
+
+import 'nextpage.dart';
 
 class MyApp2 extends StatelessWidget {
   // This widget is the root of your application.
@@ -33,6 +37,21 @@ class MyAppPage1 extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyAppPage1> {
+  crudMethods crudObj = new crudMethods();
+
+  QuerySnapshot projects;
+
+  @override
+  void initState() {
+    crudObj.getdata().then((results) {
+      setState(() {
+        projects = results;
+      });
+    });
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -133,22 +152,68 @@ class _MyHomePageState extends State<MyAppPage1> {
             SizedBox(height: 30),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
-              child: Text(
-                'Recent Projects',
-                style: TextStyle(
-                  fontFamily: "Circular Air",
-                  fontWeight: FontWeight.w600,
-                  fontSize: 16,
-                  color: Color(0xff101010),
-                ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text(
+                    'Recent Projects',
+                    style: TextStyle(
+                      fontFamily: "Circular Air",
+                      fontWeight: FontWeight.w600,
+                      fontSize: 16,
+                      color: Color(0xff101010),
+                    ),
+                  ),
+                  IconButton(
+                      icon: Icon(Icons.refresh),
+                      onPressed: () {
+                        crudObj.getdata().then((results) {
+                          
+                        });
+                      }),
+                ],
               ),
             ),
-            SizedBox(height:30),
+            SizedBox(height: 30),
+            recentprojects(),
           ],
         ),
       ),
 
       // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+
+  Widget recentprojects() {
+    return projects != null
+        ? SizedBox(
+            height: 200.0,
+            child: GridView.builder(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 8.0,
+              ),
+              itemCount: projects.documents.length,
+              itemBuilder: (_, index) {
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    child: IconButton(
+                      icon: Image.network(projects.documents[index].data['image']), 
+                      onPressed: (){
+                        Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => nextpage()),
+                  );
+                      },
+                      ),
+                  ),
+                );
+              },
+            ),
+          )
+        : Center(
+            child: CircularProgressIndicator(),
+          );
   }
 }
