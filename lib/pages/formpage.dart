@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:portfolio/pages/nextpage.dart';
+import 'package:portfolio/pages/thankyoupage.dart';
 
 class formpage extends StatefulWidget {
   @override
@@ -223,7 +224,7 @@ class _formpageState extends State<formpage> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => nextpage()));
+                                    builder: (context) => MyThankyou()));
                           })
                     ],
                   )
