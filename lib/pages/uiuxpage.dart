@@ -264,7 +264,7 @@ class _MyHomePageState extends State<Myuiux> {
                           blurRadius: 30,
                         ),
                       ],
-                      borderRadius: BorderRadius.circular(33.00),
+                      borderRadius: BorderRadius.circular(20.00),
                     ),
                     child: IconButton(
                       icon: Image.network(
