@@ -2,10 +2,15 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/main.dart';
 import 'package:portfolio/services/crud.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:portfolio/pages/projectdetailspage.dart';
 import 'formpage.dart';
 import 'nextpage.dart';
 import 'thankyoupage.dart';
+
+
+
+
 
 class ContactPage extends StatelessWidget {
   // This widget is the root of your application.
@@ -32,10 +37,9 @@ class Mycontact extends StatefulWidget {
 
 class _MyHomePageState extends State<Mycontact> {
   crudMethods crudObj = new crudMethods();
+  
 
   QuerySnapshot uiuxprojects;
-
- 
 
   @override
   Widget build(BuildContext context) {
@@ -185,181 +189,74 @@ class _MyHomePageState extends State<Mycontact> {
             SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
+              child: Row(
+                children: <Widget>[
+                  new Text(
+                    "We'd love to hear from you",
+                    style: TextStyle(
+                      fontFamily: "Circular Air",
+                      fontWeight: FontWeight.w500,
+                      fontSize: 22,
+                      color: Color(0xff101010),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Icon(
+                    Icons.favorite,
+                    color: Colors.red,
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25),
               child: new Text(
-                "We are here to help!",
+                "Whether you have a question about features, trials, pricing, workflow processes, or anything else, our team is ready to answer all your questions",
                 style: TextStyle(
                   fontFamily: "Circular Air",
-                  fontWeight: FontWeight.bold,
-                  fontSize: 22,
+                  // fontWeight: FontWeight.w300,
+                  fontSize: 12,
                   color: Color(0xff101010),
                 ),
               ),
             ),
-            Image.asset('assets/images/uiux.png'),
+            Image.asset('assets/images/contact.png'),
             SizedBox(
               height: 15,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
-              child: Text(
-                'What are you planning to design: ',
-                style: TextStyle(
-                  fontFamily: "Circular Air",
-                  fontWeight: FontWeight.w600,
-                  fontSize: 16,
-                  color: Color(0xff101010),
+              child: Center(
+                child: Text(
+                  '~ Connect us on ~ ',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontFamily: "Circular Air",
+                    fontWeight: FontWeight.w600,
+                    fontSize: 16,
+                    color: Color(0xff101010),
+                  ),
                 ),
               ),
+            ),
+            Row(
+              children: <Widget>[
+                GestureDetector
+                
+                (
+                  onTap: () => launch("tel://21213123123"),
+                  child: Image.asset('assets/images/contact.png'),),
+              ],
             ),
             SizedBox(
               height: 25,
             ),
-            Center(
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => formpage()));
-                },
-                child: new Container(
-                  height: 50.00,
-                  width: 370.00,
-                  decoration: BoxDecoration(
-                    color: Color(0xffffffff),
-                    boxShadow: [
-                      BoxShadow(
-                        offset: Offset(0.00, 3.00),
-                        color: Color(0xff000000).withOpacity(0.09),
-                        blurRadius: 30,
-                      ),
-                    ],
-                    borderRadius: BorderRadius.circular(33.00),
-                  ),
-                  child: Center(
-                      child: Text(
-                    'Mobile Applications',
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  )),
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            Center(
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => formpage()));
-                },
-                child: new Container(
-                  height: 50.00,
-                  width: 370.00,
-                  decoration: BoxDecoration(
-                    color: Color(0xffffffff),
-                    boxShadow: [
-                      BoxShadow(
-                        offset: Offset(0.00, 3.00),
-                        color: Color(0xff000000).withOpacity(0.09),
-                        blurRadius: 30,
-                      ),
-                    ],
-                    borderRadius: BorderRadius.circular(33.00),
-                  ),
-                  child: Center(
-                      child: Text(
-                    'Websites',
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  )),
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            Center(
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, 'formpage');
-                },
-                child: new Container(
-                  height: 50.00,
-                  width: 370.00,
-                  decoration: BoxDecoration(
-                    color: Color(0xffffffff),
-                    boxShadow: [
-                      BoxShadow(
-                        offset: Offset(0.00, 3.00),
-                        color: Color(0xff000000).withOpacity(0.09),
-                        blurRadius: 30,
-                      ),
-                    ],
-                    borderRadius: BorderRadius.circular(33.00),
-                  ),
-                  child: Center(
-                      child: Text(
-                    'Smart TV applications',
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  )),
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            Center(
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, 'formpage');
-                },
-                child: new Container(
-                  height: 50.00,
-                  width: 370.00,
-                  decoration: BoxDecoration(
-                    color: Color(0xffffffff),
-                    boxShadow: [
-                      BoxShadow(
-                        offset: Offset(0.00, 3.00),
-                        color: Color(0xff000000).withOpacity(0.09),
-                        blurRadius: 30,
-                      ),
-                    ],
-                    borderRadius: BorderRadius.circular(33.00),
-                  ),
-                  child: Center(
-                      child: Text(
-                    'Others',
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  )),
-                ),
-              ),
-            ),
-            SizedBox(height: 30),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text(
-                    'Recent Projects',
-                    style: TextStyle(
-                      fontFamily: "Circular Air",
-                      fontWeight: FontWeight.w600,
-                      fontSize: 16,
-                      color: Color(0xff101010),
-                    ),
-                  ),
-                  IconButton(
-                      icon: Icon(Icons.refresh),
-                      onPressed: () {
-                        crudObj.getdatau().then((results) {
-                          setState(() {
-                            uiuxprojects = results;
-                          });
-                        });
-                      }),
-                ],
-              ),
-            ),
+
             SizedBox(height: 30),
             // recentprojects(),
           ],
@@ -370,5 +267,4 @@ class _MyHomePageState extends State<Mycontact> {
     );
   }
 
- 
 }

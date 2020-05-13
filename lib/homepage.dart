@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/pages/contact.dart';
 import 'package:portfolio/pages/overallprojectspage.dart';
 import 'package:portfolio/pages/projectdetailspage.dart';
 import 'package:portfolio/pages/thankyoupage.dart';
@@ -24,7 +25,6 @@ class MyApp extends StatelessWidget {
         'overallprojectspage': (_) => overallprojectspage(),
         'thankyoupage': (_) => MyThankyou(),
         'uiuxpage': (_) => UiuxPage(),
-        
       },
       debugShowCheckedModeBanner: false,
       title: 'Portfolio',
@@ -150,7 +150,10 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(context, 'designpage');
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ContactPage()),
+                  );
                 },
                 child: ListTile(
                   title: Row(
@@ -415,14 +418,15 @@ class _MyHomePageState extends State<MyHomePage> {
       // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
-  String greetings(){
+
+  String greetings() {
     var now;
     now = DateTime.now().hour;
-    if(now < 12) {
+    if (now < 12) {
       return 'Good Morning,';
-    } else if(now<17) {
+    } else if (now < 17) {
       return 'Good Afternoon,';
-    }else {
+    } else {
       return 'Good Evening,';
     }
   }
