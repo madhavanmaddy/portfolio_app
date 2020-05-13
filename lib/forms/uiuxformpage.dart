@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class formpage extends StatefulWidget {
+class uiuxformpage extends StatefulWidget {
   String title;
-  formpage(this.title);
+  uiuxformpage(this.title);
   @override
-  _formpageState createState() => _formpageState(title);
+  _uiuxformpageState createState() => _uiuxformpageState(title);
 }
 
-class _formpageState extends State<formpage> {
-  _formpageState(this.title);
+class _uiuxformpageState extends State<uiuxformpage> {
+  _uiuxformpageState(this.title);
   String title;
   String projectName;
   String desc;
@@ -83,7 +83,7 @@ class _formpageState extends State<formpage> {
                         keyboardType: TextInputType.multiline,
                         maxLines: null,
                         decoration: InputDecoration(
-                            border: InputBorder.none, hintText: 'Project Name'),
+                            border: InputBorder.none, hintText: 'Name of the Application/ Website'),
                         onChanged: (value) {
                           setState(() {
                             projectName = value;

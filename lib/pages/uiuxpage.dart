@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/forms/uiuxformpage.dart';
 import 'package:portfolio/pages/apppage.dart';
 import 'package:portfolio/services/crud.dart';
 
@@ -216,7 +217,7 @@ class _MyUiuxPageState extends State<MyuiuxPage> {
               child: GestureDetector(
                 onTap: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => MyAppPage1()));
+                      MaterialPageRoute(builder: (context) => uiuxformpage('UI / UX for Mobile Applications')));
                 },
                 child: new Container(
                   height: 50.00,
@@ -247,7 +248,7 @@ class _MyUiuxPageState extends State<MyuiuxPage> {
               child: GestureDetector(
                 onTap: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => MyAppPage1()));
+                      MaterialPageRoute(builder: (context) =>uiuxformpage('UI / UX for Websites')));
                 },
                 child: new Container(
                   height: 50.00,
@@ -277,7 +278,8 @@ class _MyUiuxPageState extends State<MyuiuxPage> {
             Center(
               child: GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(context, 'formpage');
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) =>uiuxformpage('UI / UX for Smart TV Applications')));
                 },
                 child: new Container(
                   height: 50.00,
@@ -307,7 +309,8 @@ class _MyUiuxPageState extends State<MyuiuxPage> {
             Center(
               child: GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(context, 'formpage');
+                 Navigator.push(context,
+                      MaterialPageRoute(builder: (context) =>uiuxformpage('Other UI / UX Projects')));
                 },
                 child: new Container(
                   height: 50.00,

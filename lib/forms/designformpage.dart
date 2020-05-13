@@ -1,23 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class formpage extends StatefulWidget {
+class designformpage extends StatefulWidget {
   String title;
-  formpage(this.title);
+  designformpage(this.title);
   @override
-  _formpageState createState() => _formpageState(title);
+  _designformpageState createState() => _designformpageState(title);
 }
 
-class _formpageState extends State<formpage> {
-  _formpageState(this.title);
+class _designformpageState extends State<designformpage> {
+  _designformpageState(this.title);
   String title;
   String projectName;
   String desc;
   String contactName;
   String contactNumber;
-  String category;
   String special;
-  int radioval;
+  int dl,db;
   @override
   final txtstle = TextStyle(
     fontFamily: 'Circular Air',
@@ -147,7 +146,7 @@ class _formpageState extends State<formpage> {
                         keyboardType: TextInputType.multiline,
                         maxLines: null,
                         decoration: InputDecoration(
-                            border: InputBorder.none, hintText: 'Special Features (if any)'),
+                            border: InputBorder.none, hintText: 'Other Details'),
                         onChanged: (value) {
                           setState(() {
                             special = value;
@@ -159,60 +158,80 @@ class _formpageState extends State<formpage> {
                   SizedBox(
                     height: 20.0,
                   ),
-                  Text(
-                    'Category',
-                    style: TextStyle(
-                      fontFamily: 'Circular Air',
-                      fontSize: 30.0,
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 30),
+                    child: Row(
+                      children: <Widget>[
+                         Container(
+                      height: 40.0,
+                      width: 150.0,
+                      decoration: BoxDecoration(
+                        color: Color(0xffffffff),
+                        boxShadow: [
+                          BoxShadow(
+                            offset: Offset(0.00, 3.00),
+                            color: Color(0xff000000).withOpacity(0.16),
+                            blurRadius: 6,
+                          ),
+                        ],
+                        borderRadius: BorderRadius.circular(15.00),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 25),
+                        child: TextField(
+                          keyboardType: TextInputType.multiline,
+                          maxLines: null,
+                          decoration: InputDecoration(
+                              border: InputBorder.none, hintText: 'Length'),
+                          onChanged: (value) {
+                            setState(() {
+                              desc = value;
+                            });
+                          },
+                        ),
+                      ),
+                    ),
+                     SizedBox(
+                    height: 15.0,
+                  ),
+                    Text('*',style: TextStyle(fontSize:30.0),),
+                      SizedBox(
+                    height: 30.0,
+                  ),
+                    Container(
+                      height: 40.0,
+                      width: 150.0,
+                      decoration: BoxDecoration(
+                        color: Color(0xffffffff),
+                        boxShadow: [
+                          BoxShadow(
+                            offset: Offset(0.00, 3.00),
+                            color: Color(0xff000000).withOpacity(0.16),
+                            blurRadius: 6,
+                          ),
+                        ],
+                        borderRadius: BorderRadius.circular(15.00),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 25),
+                        child: TextField(
+                          keyboardType: TextInputType.multiline,
+                          maxLines: null,
+                          decoration: InputDecoration(
+                              border: InputBorder.none, hintText: 'Breadth'),
+                          onChanged: (value) {
+                            setState(() {
+                              desc = value;
+                            });
+                          },
+                        ),
+                      ),
+                    ),
+                      ],
                     ),
                   ),
-                  RadioListTile(
-                    value: 1,
-                    activeColor: Color(0xff4a148c),
-                    groupValue: radioval,
-                    onChanged: (val) {
-                      setState(() {
-                        radioval = val;
-                        category = 'Entertainment';
-                      });
-                    },
-                    title: new Text('Entertainment'),
-                  ),
-                  RadioListTile(
-                    value: 2,
-                    activeColor: Color(0xff4a148c),
-                    groupValue: radioval,
-                    onChanged: (val) {
-                      setState(() {
-                        radioval = val;
-                        category = 'Tools';
-                      });
-                    },
-                    title: new Text('Tools'),
-                  ),
-                  RadioListTile(
-                    value: 3,
-                    activeColor: Color(0xff4a148c),
-                    groupValue: radioval,
-                    onChanged: (val) {
-                      setState(() {
-                        radioval = val;
-                        category = 'Social';
-                      });
-                    },
-                    title: new Text('Social'),
-                  ),
-                  RadioListTile(
-                    value: 4,
-                    activeColor: Color(0xff4a148c),
-                    groupValue: radioval,
-                    onChanged: (val) {
-                      setState(() {
-                        radioval = val;
-                        category = 'Others';
-                      });
-                    },
-                    title: new Text('Others'),
+                  SizedBox(
+                    height: 20.0,
                   ),
                   Text(
                     'Contact Details',
@@ -380,7 +399,6 @@ class _formpageState extends State<formpage> {
                               'special': special,
                               'contactName': contactName,
                               'contactNumber': contactNumber,
-                              'category': category,
                             });
                             Navigator.pushNamed(context, 'thankyoupage');
                             setState(() {
@@ -389,7 +407,6 @@ class _formpageState extends State<formpage> {
                             special = '';
                             contactName = '';
                             contactNumber = '';
-                            category = '';
                             });
                           })
                     ],

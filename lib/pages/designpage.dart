@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/forms/designformpage.dart';
 import 'package:portfolio/services/crud.dart';
 
 class MyApp1 extends StatelessWidget {
@@ -33,10 +34,10 @@ class _MyHomePageState extends State<MyDesignPage1> {
 
   @override
   void initState() {
-   crudObj.getdatad().then((results) {
+    crudObj.getdatad().then((results) {
       setState(() {
         designprojects = results;
-         temp2 = designprojects.documents.length;
+        temp2 = designprojects.documents.length;
         if (temp2 % 2 == 0) {
           temp2 = temp2 * 120;
           temp3 = temp2.toDouble();
@@ -46,7 +47,6 @@ class _MyHomePageState extends State<MyDesignPage1> {
           temp2 = temp2 * 120;
           temp3 = temp2.toDouble();
         }
-       
       });
     });
     super.initState();
@@ -134,213 +134,254 @@ class _MyHomePageState extends State<MyDesignPage1> {
                 scrollDirection: Axis.horizontal,
                 children: <Widget>[
                   SizedBox(width: 10),
-                  new Container(
-                    height: 116.00,
-                    width: 100.00,
-                    decoration: BoxDecoration(
-                      color: Color(0xffffffff),
-                      boxShadow: [
-                        BoxShadow(
-                          offset: Offset(0.00, 3.00),
-                          color: Color(0xff000000).withOpacity(0.05),
-                          blurRadius: 30,
-                        ),
-                      ],
-                      borderRadius: BorderRadius.circular(33.00),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Image.asset(
-                          'assets/images/others.png',
-                          height: 40,
-                          width: 40,
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text('Others'),
-                      ],
-                    ),
-                  ),
-                  SizedBox(width: 20),
-                  new Container(
-                    height: 116.00,
-                    width: 100.00,
-                    decoration: BoxDecoration(
-                      color: Color(0xffffffff),
-                      boxShadow: [
-                        BoxShadow(
-                          offset: Offset(0.00, 3.00),
-                          color: Color(0xff000000).withOpacity(0.05),
-                          blurRadius: 30,
-                        ),
-                      ],
-                      borderRadius: BorderRadius.circular(33.00),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Image.asset(
-                          'assets/images/ads.png',
-                          height: 40,
-                          width: 40,
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text('Ads'),
-                      ],
+                  GestureDetector(
+                    onTap: () { Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => designformpage('Other Design Projects')));
+                    },
+                    child: new Container(
+                      height: 116.00,
+                      width: 100.00,
+                      decoration: BoxDecoration(
+                        color: Color(0xffffffff),
+                        boxShadow: [
+                          BoxShadow(
+                            offset: Offset(0.00, 3.00),
+                            color: Color(0xff000000).withOpacity(0.05),
+                            blurRadius: 30,
+                          ),
+                        ],
+                        borderRadius: BorderRadius.circular(33.00),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Image.asset(
+                            'assets/images/others.png',
+                            height: 40,
+                            width: 40,
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text('Others'),
+                        ],
+                      ),
                     ),
                   ),
                   SizedBox(width: 20),
-                  new Container(
-                    height: 116.00,
-                    width: 100.00,
-                    decoration: BoxDecoration(
-                      color: Color(0xffffffff),
-                      boxShadow: [
-                        BoxShadow(
-                          offset: Offset(0.00, 3.00),
-                          color: Color(0xff000000).withOpacity(0.05),
-                          blurRadius: 30,
-                        ),
-                      ],
-                      borderRadius: BorderRadius.circular(33.00),
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => designformpage('Ad Design')));
+                    },
+                                      child: new Container(
+                      height: 116.00,
+                      width: 100.00,
+                      decoration: BoxDecoration(
+                        color: Color(0xffffffff),
+                        boxShadow: [
+                          BoxShadow(
+                            offset: Offset(0.00, 3.00),
+                            color: Color(0xff000000).withOpacity(0.05),
+                            blurRadius: 30,
+                          ),
+                        ],
+                        borderRadius: BorderRadius.circular(33.00),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Image.asset(
+                            'assets/images/ads.png',
+                            height: 40,
+                            width: 40,
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text('Ads'),
+                        ],
+                      ),
                     ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Image.asset(
-                          'assets/images/mockups.png',
-                          height: 40,
-                          width: 40,
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text('Mockups'),
-                      ],
+                  ),
+                  SizedBox(width: 20),
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => designformpage('Mockup Design')));
+                    },
+                                      child: new Container(
+                      height: 116.00,
+                      width: 100.00,
+                      decoration: BoxDecoration(
+                        color: Color(0xffffffff),
+                        boxShadow: [
+                          BoxShadow(
+                            offset: Offset(0.00, 3.00),
+                            color: Color(0xff000000).withOpacity(0.05),
+                            blurRadius: 30,
+                          ),
+                        ],
+                        borderRadius: BorderRadius.circular(33.00),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Image.asset(
+                            'assets/images/mockups.png',
+                            height: 40,
+                            width: 40,
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text('Mockups'),
+                        ],
+                      ),
                     ),
                   ),
                   SizedBox(width: 25),
-                  new Container(
-                    height: 116.00,
-                    width: 100.00,
-                    decoration: BoxDecoration(
-                      color: Color(0xffffffff),
-                      boxShadow: [
-                        BoxShadow(
-                          offset: Offset(0.00, 3.00),
-                          color: Color(0xff000000).withOpacity(0.05),
-                          blurRadius: 30,
-                        ),
-                      ],
-                      borderRadius: BorderRadius.circular(33.00),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Image.asset(
-                          'assets/images/temp.png',
-                          height: 40,
-                          width: 40,
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text('Templates'),
-                      ],
-                    ),
-                  ),
-                  SizedBox(width: 25),
-                  new Container(
-                    height: 116.00,
-                    width: 100.00,
-                    decoration: BoxDecoration(
-                      color: Color(0xffffffff),
-                      boxShadow: [
-                        BoxShadow(
-                          offset: Offset(0.00, 3.00),
-                          color: Color(0xff000000).withOpacity(0.05),
-                          blurRadius: 30,
-                        ),
-                      ],
-                      borderRadius: BorderRadius.circular(33.00),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Image.asset(
-                          'assets/images/Banner.png',
-                          height: 40,
-                          width: 40,
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text('Banners'),
-                      ],
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => designformpage('Template Design')));
+                    },
+                                      child: new Container(
+                      height: 116.00,
+                      width: 100.00,
+                      decoration: BoxDecoration(
+                        color: Color(0xffffffff),
+                        boxShadow: [
+                          BoxShadow(
+                            offset: Offset(0.00, 3.00),
+                            color: Color(0xff000000).withOpacity(0.05),
+                            blurRadius: 30,
+                          ),
+                        ],
+                        borderRadius: BorderRadius.circular(33.00),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Image.asset(
+                            'assets/images/temp.png',
+                            height: 40,
+                            width: 40,
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text('Templates'),
+                        ],
+                      ),
                     ),
                   ),
                   SizedBox(width: 25),
-                  new Container(
-                    height: 116.00,
-                    width: 100.00,
-                    decoration: BoxDecoration(
-                      color: Color(0xffffffff),
-                      boxShadow: [
-                        BoxShadow(
-                          offset: Offset(0.00, 3.00),
-                          color: Color(0xff000000).withOpacity(0.05),
-                          blurRadius: 30,
-                        ),
-                      ],
-                      borderRadius: BorderRadius.circular(33.00),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Image.asset(
-                          'assets/images/illustration.png',
-                          height: 40,
-                          width: 40,
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text('Illustrations'),
-                      ],
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => designformpage('Banner Design')));
+                    },
+                                      child: new Container(
+                      height: 116.00,
+                      width: 100.00,
+                      decoration: BoxDecoration(
+                        color: Color(0xffffffff),
+                        boxShadow: [
+                          BoxShadow(
+                            offset: Offset(0.00, 3.00),
+                            color: Color(0xff000000).withOpacity(0.05),
+                            blurRadius: 30,
+                          ),
+                        ],
+                        borderRadius: BorderRadius.circular(33.00),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Image.asset(
+                            'assets/images/Banner.png',
+                            height: 40,
+                            width: 40,
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text('Banners'),
+                        ],
+                      ),
                     ),
                   ),
                   SizedBox(width: 25),
-                  new Container(
-                    height: 116.00,
-                    width: 100.00,
-                    decoration: BoxDecoration(
-                      color: Color(0xffffffff),
-                      boxShadow: [
-                        BoxShadow(
-                          offset: Offset(0.00, 3.00),
-                          color: Color(0xff000000).withOpacity(0.05),
-                          blurRadius: 30,
-                        ),
-                      ],
-                      borderRadius: BorderRadius.circular(33.00),
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => designformpage('Illustration Design')));
+                    },
+                                      child: new Container(
+                      height: 116.00,
+                      width: 100.00,
+                      decoration: BoxDecoration(
+                        color: Color(0xffffffff),
+                        boxShadow: [
+                          BoxShadow(
+                            offset: Offset(0.00, 3.00),
+                            color: Color(0xff000000).withOpacity(0.05),
+                            blurRadius: 30,
+                          ),
+                        ],
+                        borderRadius: BorderRadius.circular(33.00),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Image.asset(
+                            'assets/images/illustration.png',
+                            height: 40,
+                            width: 40,
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text('Illustrations'),
+                        ],
+                      ),
                     ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Image.asset(
-                          'assets/images/poster.png',
-                          height: 40,
-                          width: 40,
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text('Posters'),
-                      ],
+                  ),
+                  SizedBox(width: 25),
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => designformpage('Poster Design')));
+                    },
+                                      child: new Container(
+                      height: 116.00,
+                      width: 100.00,
+                      decoration: BoxDecoration(
+                        color: Color(0xffffffff),
+                        boxShadow: [
+                          BoxShadow(
+                            offset: Offset(0.00, 3.00),
+                            color: Color(0xff000000).withOpacity(0.05),
+                            blurRadius: 30,
+                          ),
+                        ],
+                        borderRadius: BorderRadius.circular(33.00),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Image.asset(
+                            'assets/images/poster.png',
+                            height: 40,
+                            width: 40,
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text('Posters'),
+                        ],
+                      ),
                     ),
                   ),
                 ],
@@ -370,7 +411,7 @@ class _MyHomePageState extends State<MyDesignPage1> {
     );
   }
 
-   Widget recentprojects() {
+  Widget recentprojects() {
     return designprojects != null
         ? SizedBox(
             height: temp3,
