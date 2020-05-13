@@ -2,29 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/main.dart';
 import 'package:portfolio/forms/formpage.dart';
 
-class MyApp1 extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Portfolio',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MyDesignPage1(),
-    );
-  }
-}
-
 class MyDesignPage1 extends StatefulWidget {
-  MyDesignPage1({Key key, this.title}) : super(key: key);
-  final String title;
+  
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _MyDesignPage1State createState() => _MyDesignPage1State();
 }
 
-class _MyHomePageState extends State<MyDesignPage1> {
+class _MyDesignPage1State extends State<MyDesignPage1> {
   ScrollController _scrollController = new ScrollController();
    List<Widget> _messages = <Widget>[new Text('hello'), new Text('world')];
   @override

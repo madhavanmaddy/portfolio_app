@@ -8,30 +8,13 @@ import 'package:portfolio/forms/formpage.dart';
 import 'nextpage.dart';
 import 'thankyoupage.dart';
 
-class UiuxPage extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Portfolio',
-      theme: ThemeData(
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
-      home: Myuiux(),
-    );
-  }
+class MyuiuxPage extends StatefulWidget {
+
+@override
+  _MyUiuxPageState createState() =>  _MyUiuxPageState();
 }
 
-class Myuiux extends StatefulWidget {
-  Myuiux({Key key, this.title}) : super(key: key);
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<Myuiux> {
+class  _MyUiuxPageState extends State<MyuiuxPage> {
   crudMethods crudObj = new crudMethods();
 
   QuerySnapshot uiuxprojects;

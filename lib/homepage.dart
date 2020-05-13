@@ -16,12 +16,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
-        'apppage': (_) => MyApp2(),
-        'designpage': (_) => MyApp1(),
+        'apppage': (_) => MyAppPage1(),
+        'designpage': (_) => MyDesignPage1(),
         'nextpage': (_) => nextpage(),
         'overallprojectspage': (_) => overallprojectspage(),
-        'thankyoupage': (_) => MyThankyou(),
-        'uiuxpage': (_) => UiuxPage(),
+        'thankyoupage': (_) => MyThankPage1(),
+        'uiuxpage': (_) => MyuiuxPage(),
+        
       },
       debugShowCheckedModeBanner: false,
       title: 'Portfolio',
