@@ -5,11 +5,9 @@ import 'package:portfolio/pages/projectdetailspage.dart';
 import 'package:portfolio/pages/thankyoupage.dart';
 import 'package:portfolio/pages/uiuxpage.dart';
 import 'pages/designpage.dart';
-import 'pages/formpage.dart';
-import 'pages/designpage.dart';
+import 'forms/formpage.dart';
 import 'package:flutter/painting.dart';
 import 'pages/apppage.dart';
-import 'pages/formpage.dart';
 import 'pages/nextpage.dart';
 
 class MyApp extends StatelessWidget {
@@ -20,7 +18,6 @@ class MyApp extends StatelessWidget {
       routes: {
         'apppage': (_) => MyApp2(),
         'designpage': (_) => MyApp1(),
-        'formpage': (_) => formpage(),
         'nextpage': (_) => nextpage(),
         'overallprojectspage': (_) => overallprojectspage(),
         'thankyoupage': (_) => MyThankyou(),
