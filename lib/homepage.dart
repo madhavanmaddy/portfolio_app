@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
         'overallprojectspage': (_) => overallprojectspage(),
         'thankyoupage': (_) => MyThankPage1(),
         'uiuxpage': (_) => MyuiuxPage(),
+        'homepage': (_) => MyHomePage(),
         
       },
       debugShowCheckedModeBanner: false,
