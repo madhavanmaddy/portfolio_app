@@ -5,6 +5,43 @@ import 'package:portfolio/services/crud.dart';
 import 'package:portfolio/pages/projectdetailspage.dart';
 import 'package:portfolio/forms/formpage.dart';
 
+class EnterExitRoute extends PageRouteBuilder {
+  final Widget enterPage;
+  final Widget exitPage;
+  EnterExitRoute({this.exitPage, this.enterPage})
+      : super(
+          pageBuilder: (
+            BuildContext context,
+            Animation<double> animation,
+            Animation<double> secondaryAnimation,
+          ) =>
+              enterPage,
+          transitionsBuilder: (
+            BuildContext context,
+            Animation<double> animation,
+            Animation<double> secondaryAnimation,
+            Widget child,
+          ) =>
+              Stack(
+            children: <Widget>[
+              SlideTransition(
+                position: new Tween<Offset>(
+                  begin: const Offset(0.0, 0.0),
+                  end: const Offset(-1.0, 0.0),
+                ).animate(animation),
+                child: exitPage,
+              ),
+              SlideTransition(
+                position: new Tween<Offset>(
+                  begin: const Offset(1.0, 0.0),
+                  end: Offset.zero,
+                ).animate(animation),
+                child: enterPage,
+              )
+            ],
+          ),
+        );
+}
 
 class MyAppPage1 extends StatefulWidget {
   MyAppPage1({Key key, this.title}) : super(key: key);
@@ -220,9 +257,13 @@ class _MyHomePageState extends State<MyAppPage1> {
             Center(
               child: GestureDetector(
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => formpage('Commercial Application')));
+                  Navigator.push(
+                      context,
+                      EnterExitRoute(
+                          exitPage: MyAppPage1(),
+                          enterPage: formpage('Commercial Application')));
                 },
+                // },
                 child: new Container(
                   height: 50.00,
                   width: 370.00,
@@ -250,11 +291,14 @@ class _MyHomePageState extends State<MyAppPage1> {
             ),
             Center(
               child: GestureDetector(
-                onTap: (){
-                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => formpage('Non Commercial Application')));
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      EnterExitRoute(
+                          exitPage: MyAppPage1(),
+                          enterPage: formpage('Non Commercial Application')));
                 },
-                              child: new Container(
+                child: new Container(
                   height: 50.00,
                   width: 370.00,
                   decoration: BoxDecoration(
@@ -344,13 +388,20 @@ class _MyHomePageState extends State<MyAppPage1> {
                       icon: Image.network(
                           projects.documents[index].data['image']),
                       onPressed: () {
+                        // Navigator.push(
+                        //   context,
+                        //   MaterialPageRoute(
+                        //       builder: (context) => MyDetailsPage(
+                        //           projects.documents[index].data['title'],
+                        //           projects.documents[index].data['desc'])),
+                        // );
                         Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => MyDetailsPage(
-                                  projects.documents[index].data['title'],
-                                  projects.documents[index].data['desc'])),
-                        );
+                            context,
+                            EnterExitRoute(
+                                exitPage: MyAppPage1(),
+                                enterPage: MyDetailsPage(
+                                    projects.documents[index].data['title'],
+                                    projects.documents[index].data['desc'])));
                       },
                     ),
                   ),
