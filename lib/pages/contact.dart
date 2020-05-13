@@ -7,7 +7,7 @@ import 'formpage.dart';
 import 'nextpage.dart';
 import 'thankyoupage.dart';
 
-class UiuxPage extends StatelessWidget {
+class ContactPage extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -17,34 +17,25 @@ class UiuxPage extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: Myuiux(),
+      home: Mycontact(),
     );
   }
 }
 
-class Myuiux extends StatefulWidget {
-  Myuiux({Key key, this.title}) : super(key: key);
+class Mycontact extends StatefulWidget {
+  Mycontact({Key key, this.title}) : super(key: key);
   final String title;
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<Myuiux> {
+class _MyHomePageState extends State<Mycontact> {
   crudMethods crudObj = new crudMethods();
 
   QuerySnapshot uiuxprojects;
 
-  @override
-  void initState() {
-    crudObj.getdatau().then((results) {
-      setState(() {
-        uiuxprojects = results;
-      });
-    });
-
-    super.initState();
-  }
+ 
 
   @override
   Widget build(BuildContext context) {
@@ -84,7 +75,7 @@ class _MyHomePageState extends State<Myuiux> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Text(
-                        'Recent projects',
+                        'Contact',
                         style: TextStyle(
                           fontSize: 22,
                           fontFamily: "Circular Air",
@@ -195,11 +186,11 @@ class _MyHomePageState extends State<Myuiux> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
               child: new Text(
-                "Design is everywhere. \nFrom the dress you’re wearing to the smartphone you’re holding, it’s design.",
+                "We are here to help!",
                 style: TextStyle(
                   fontFamily: "Circular Air",
-                  fontWeight: FontWeight.w600,
-                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 22,
                   color: Color(0xff101010),
                 ),
               ),
@@ -370,7 +361,7 @@ class _MyHomePageState extends State<Myuiux> {
               ),
             ),
             SizedBox(height: 30),
-            recentprojects(),
+            // recentprojects(),
           ],
         ),
       ),
@@ -379,45 +370,5 @@ class _MyHomePageState extends State<Myuiux> {
     );
   }
 
-  Widget recentprojects() {
-    return uiuxprojects != null
-        ? SizedBox(
-            height: 700.0,
-            child: GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3,
-                crossAxisSpacing: 8.0,
-              ),
-              itemCount: uiuxprojects.documents.length,
-              itemBuilder: (_, index) {
-                return Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Color(0xffffffff),
-                      boxShadow: [
-                        BoxShadow(
-                          offset: Offset(0.00, 3.00),
-                          color: Color(0xff000000).withOpacity(0.09),
-                          blurRadius: 30,
-                        ),
-                      ],
-                      borderRadius: BorderRadius.circular(20.00),
-                    ),
-                    child: IconButton(
-                      icon: Image.network(
-                          uiuxprojects.documents[index].data['image']),
-                      onPressed: () {
-                        Navigator.pushNamed(context, 'detailspage');
-                      },
-                    ),
-                  ),
-                );
-              },
-            ),
-          )
-        : Center(
-            child: CircularProgressIndicator(),
-          );
-  }
+ 
 }

@@ -30,14 +30,151 @@ class _MyHomePageState extends State<MyDesignPage1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+       appBar: AppBar(
+        iconTheme: new IconThemeData(color: Colors.black),
+        backgroundColor: Colors.white,
+        elevation: 0.0,
+      ),
+      drawer: Drawer(
+        child: Container(
+          color: Colors.white,
+          child: ListView(
+            scrollDirection: Axis.vertical,
+            // Important: Remove any padding from the ListView.
+            padding: EdgeInsets.symmetric(vertical: 40),
+            children: <Widget>[
+              // DrawerHeader(
+              //   child: Padding(
+              //     padding: const EdgeInsets.symmetric(vertical: 18.0),
+              //     child: Center(
+              //         child: Text(
+              //           'Corona Virus Tracker ',
+              //           style: TextStyle(fontSize: 27, color: Colors.white,fontWeight: FontWeight.bold),
+              //         )),
+              //   ),
+              //   decoration: BoxDecoration(
+              //       color: Colors.blue[500],
+              //       //
+              //       ),
+              // ),
+              SizedBox(height: 40),
+              Image.asset('assets/images/menu.png'),
+              SizedBox(height: 30),
+              ListTile(
+                  title: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text(
+                        'Recent projects',
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontFamily: "Circular Air",
+                          // fontWeight: FontWeight.bold
+                        ),
+                      ),
+                      Icon(Icons.arrow_forward),
+                    ],
+                  ),
+                  onTap: () {
+                    Navigator.pushNamed(context, 'overallprojectspage');
+                  }),
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, 'apppage');
+                },
+                child: ListTile(
+                  title: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text(
+                        'App development',
+                        style: TextStyle(fontSize: 22),
+                      ),
+                      Icon(Icons.arrow_forward),
+                    ],
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, 'designpage');
+                },
+                child: ListTile(
+                  title: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text(
+                        'Graphic Design',
+                        style: TextStyle(fontSize: 22),
+                      ),
+                      Icon(Icons.arrow_forward),
+                    ],
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, 'designpage');
+                },
+                child: ListTile(
+                  title: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text(
+                        'UI/UX Design',
+                        style: TextStyle(fontSize: 22),
+                      ),
+                      Icon(Icons.arrow_forward),
+                    ],
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, 'designpage');
+                },
+                child: ListTile(
+                  title: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text(
+                        'Contact us',
+                        style: TextStyle(fontSize: 22),
+                      ),
+                      Icon(Icons.arrow_forward),
+                    ],
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, 'designpage');
+                },
+                child: ListTile(
+                  title: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text(
+                        'Developer Contact',
+                        style: TextStyle(fontSize: 22),
+                      ),
+                      Icon(Icons.arrow_forward),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            SizedBox(height: 120),
+            SizedBox(height: 20),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25),
+              padding: const EdgeInsets.symmetric(horizontal: 15),
               child: new Text(
                 "Hey there,",
                 style: TextStyle(
@@ -50,7 +187,7 @@ class _MyHomePageState extends State<MyDesignPage1> {
             ),
             SizedBox(height: 10),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25),
+              padding: const EdgeInsets.symmetric(horizontal: 15),
               child: new Text(
                 "Every great design begins with an even better story",
                 style: TextStyle(
@@ -66,7 +203,7 @@ class _MyHomePageState extends State<MyDesignPage1> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25),
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
                   child: Text(
                     'What do you want us to design ?',
                     style: TextStyle(
@@ -321,7 +458,7 @@ class _MyHomePageState extends State<MyDesignPage1> {
             ),
             SizedBox(height: 10),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25),
+              padding: const EdgeInsets.symmetric(horizontal: 15),
               child: Text(
                 'Recents',
                 style: TextStyle(

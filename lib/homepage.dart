@@ -23,7 +23,8 @@ class MyApp extends StatelessWidget {
         'nextpage': (_) => nextpage(),
         'overallprojectspage': (_) => overallprojectspage(),
         'thankyoupage': (_) => MyThankyou(),
-        'uiuxpage':(_)=> UiuxPage(),
+        'uiuxpage': (_) => UiuxPage(),
+        
       },
       debugShowCheckedModeBanner: false,
       title: 'Portfolio',
@@ -346,58 +347,63 @@ class _MyHomePageState extends State<MyHomePage> {
               height: 15,
             ),
             Center(
-              child: new Container(
-                height: 116.00,
-                width: (MediaQuery.of(context).size.width) - 50,
-                decoration: BoxDecoration(
-                  color: Color(0xffffffff),
-                  boxShadow: [
-                    BoxShadow(
-                      offset: Offset(0.00, 3.00),
-                      color: Color(0xff000000).withOpacity(0.09),
-                      blurRadius: 30,
-                    ),
-                  ],
-                  borderRadius: BorderRadius.circular(33.00),
-                ),
-                child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: <Widget>[
-                      Image.asset('assets/images/xd.png'),
-                      SizedBox(
-                        width: 15,
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, 'uiuxpage');
+                },
+                child: new Container(
+                  height: 116.00,
+                  width: (MediaQuery.of(context).size.width) - 50,
+                  decoration: BoxDecoration(
+                    color: Color(0xffffffff),
+                    boxShadow: [
+                      BoxShadow(
+                        offset: Offset(0.00, 3.00),
+                        color: Color(0xff000000).withOpacity(0.09),
+                        blurRadius: 30,
                       ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          new Text(
-                            "User experience builder",
-                            style: TextStyle(
-                              fontFamily: "Circular Air",
-                              fontWeight: FontWeight.w600,
-                              fontSize: 16,
-                              color: Color(0xff101010),
-                            ),
-                          ),
-                          SizedBox(height: 7),
-                          Text(
-                            "We help us to build efficient applications\nusing flutter. Enjoy the power of fast, \nefficient, super cool apps with iOS and\nweb versions too.",
-                            overflow: TextOverflow.clip,
-                            style: TextStyle(
-                              fontFamily: "Circular Air",
-                              fontWeight: FontWeight.w600,
-                              // height: 1.2,
-                              fontSize: 10,
-                              color: Color(0xff101010),
-                            ),
-                          ),
-                        ],
-                      )
                     ],
+                    borderRadius: BorderRadius.circular(33.00),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 15),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: <Widget>[
+                        Image.asset('assets/images/xd.png'),
+                        SizedBox(
+                          width: 15,
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            new Text(
+                              "User experience builder",
+                              style: TextStyle(
+                                fontFamily: "Circular Air",
+                                fontWeight: FontWeight.w600,
+                                fontSize: 16,
+                                color: Color(0xff101010),
+                              ),
+                            ),
+                            SizedBox(height: 7),
+                            Text(
+                              "We help us to build efficient applications\nusing flutter. Enjoy the power of fast, \nefficient, super cool apps with iOS and\nweb versions too.",
+                              overflow: TextOverflow.clip,
+                              style: TextStyle(
+                                fontFamily: "Circular Air",
+                                fontWeight: FontWeight.w600,
+                                // height: 1.2,
+                                fontSize: 10,
+                                color: Color(0xff101010),
+                              ),
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),
