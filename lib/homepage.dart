@@ -3,10 +3,51 @@ import 'package:portfolio/pages/contact.dart';
 import 'package:portfolio/pages/overallprojectspage.dart';
 import 'package:portfolio/pages/thankyoupage.dart';
 import 'package:portfolio/pages/uiuxpage.dart';
+import 'pages/apppage.dart';
+import 'pages/apppage.dart';
 import 'pages/designpage.dart';
 import 'package:flutter/painting.dart';
 import 'pages/apppage.dart';
+import 'pages/designpage.dart';
 import 'pages/nextpage.dart';
+
+class EnterExitRoute extends PageRouteBuilder {
+  final Widget enterPage;
+  final Widget exitPage;
+  EnterExitRoute({this.exitPage, this.enterPage})
+      : super(
+          pageBuilder: (
+            BuildContext context,
+            Animation<double> animation,
+            Animation<double> secondaryAnimation,
+          ) =>
+              enterPage,
+          transitionsBuilder: (
+            BuildContext context,
+            Animation<double> animation,
+            Animation<double> secondaryAnimation,
+            Widget child,
+          ) =>
+              Stack(
+            children: <Widget>[
+              SlideTransition(
+                position: new Tween<Offset>(
+                  begin: const Offset(0.0, 0.0),
+                  end: const Offset(-1.0, 0.0),
+                ).animate(animation),
+                child: exitPage,
+              ),
+              SlideTransition(
+                position: new Tween<Offset>(
+                  begin: const Offset(1.0, 0.0),
+                  end: Offset.zero,
+                ).animate(animation),
+                child: enterPage,
+              )
+            ],
+          ),
+        );
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -21,7 +62,6 @@ class MyApp extends StatelessWidget {
         'thankyoupage': (_) => MyThankPage1(),
         'uiuxpage': (_) => MyuiuxPage(),
         'homepage': (_) => MyHomePage(),
-        
       },
       debugShowCheckedModeBanner: false,
       title: 'Portfolio',
@@ -113,7 +153,10 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(context, 'designpage');
+                  Navigator.push(
+                      context,
+                      EnterExitRoute(
+                          exitPage: MyHomePage(), enterPage: MyDesignPage1()));
                 },
                 child: ListTile(
                   title: Row(
@@ -221,7 +264,10 @@ class _MyHomePageState extends State<MyHomePage> {
             Center(
               child: GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(context, 'apppage');
+                  Navigator.push(
+                      context,
+                      EnterExitRoute(
+                          exitPage: MyHomePage(), enterPage: MyAppPage1()));
                 },
                 child: new Container(
                   height: 116.00,
@@ -285,7 +331,10 @@ class _MyHomePageState extends State<MyHomePage> {
             Center(
               child: GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(context, 'designpage');
+                  Navigator.push(
+                      context,
+                      EnterExitRoute(
+                          exitPage: MyHomePage(), enterPage: MyDesignPage1()));
                 },
                 child: new Container(
                   height: 116.00,
@@ -349,7 +398,10 @@ class _MyHomePageState extends State<MyHomePage> {
             Center(
               child: GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(context, 'uiuxpage');
+                  Navigator.push(
+                      context,
+                      EnterExitRoute(
+                          exitPage: MyHomePage(), enterPage: MyuiuxPage()));
                 },
                 child: new Container(
                   height: 116.00,
