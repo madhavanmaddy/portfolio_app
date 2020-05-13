@@ -1,17 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:portfolio/main.dart';
-import 'package:portfolio/pages/apppage.dart';
 import 'package:portfolio/services/crud.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:portfolio/pages/projectdetailspage.dart';
-import 'package:portfolio/forms/formpage.dart';
-import 'nextpage.dart';
-import 'thankyoupage.dart';
-
-
-
-
 
 class ContactPage extends StatelessWidget {
   // This widget is the root of your application.
@@ -38,7 +28,6 @@ class Mycontact extends StatefulWidget {
 
 class _MyHomePageState extends State<Mycontact> {
   crudMethods crudObj = new crudMethods();
-  
 
   QuerySnapshot uiuxprojects;
 
@@ -212,7 +201,7 @@ class _MyHomePageState extends State<Mycontact> {
               ),
             ),
             SizedBox(
-              height: 10,
+              height: 20,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
@@ -226,9 +215,12 @@ class _MyHomePageState extends State<Mycontact> {
                 ),
               ),
             ),
+            SizedBox(
+              height: 25,
+            ),
             Image.asset('assets/images/contact.png'),
             SizedBox(
-              height: 15,
+              height: 25,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
@@ -245,14 +237,51 @@ class _MyHomePageState extends State<Mycontact> {
                 ),
               ),
             ),
-            Row(
-              children: <Widget>[
-                GestureDetector
-                
-                (
-                  onTap: () => launch("tel://21213123123"),
-                  child: Image.asset('assets/images/contact.png'),),
-              ],
+            SizedBox(
+              height: 40,
+            ),
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    // SizedBox(width: 15,),
+                    GestureDetector(
+                      onTap: () => _callMe(),
+                      child: Image.asset(
+                        'assets/images/call.png',
+                        height: 60,
+                        width: 60,
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () => _sendMail(),
+                      child: Image.asset(
+                        'assets/images/mail.png',
+                        height: 60,
+                        width: 60,
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () => _launchWhatsApp(),
+                      child: Image.asset(
+                        'assets/images/whatsapp.png',
+                        height: 80,
+                        width: 80,
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () => _textMe(),
+                      child: Image.asset(
+                        'assets/images/sms.png',
+                        height: 60,
+                        width: 60,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
             SizedBox(
               height: 25,
@@ -268,4 +297,42 @@ class _MyHomePageState extends State<Mycontact> {
     );
   }
 
+  _launchWhatsApp() async {
+    String phoneNumber = '917904748133';
+    String message = 'Hello! Can you help me out ?';
+    var whatsappUrl = "whatsapp://send?phone=$phoneNumber&text=$message";
+    if (await canLaunch(whatsappUrl)) {
+      await launch(whatsappUrl);
+    } else {
+      throw 'Could not launch $whatsappUrl';
+    }
+  }
+
+  _sendMail() async {
+    const uri =
+        'mailto:akillika49@gmail.com?subject=Support%20Needed&body=Place your query here\n';
+    if (await canLaunch(uri)) {
+      await launch(uri);
+    } else {
+      throw 'Could not launch $uri';
+    }
+  }
+
+  _textMe() async {
+    const uri = 'sms:+91 7904748133';
+    if (await canLaunch(uri)) {
+      await launch(uri);
+    } else {
+      throw 'Could not launch $uri';
+    }
+  }
+
+  _callMe() async {
+    const uri = 'tel:+91 7904748133';
+    if (await canLaunch(uri)) {
+      await launch(uri);
+    } else {
+      throw 'Could not launch $uri';
+    }
+  }
 }
