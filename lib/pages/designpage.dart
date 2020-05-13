@@ -1,165 +1,64 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/main.dart';
+import 'package:portfolio/pages/apppage.dart';
+import 'package:portfolio/services/crud.dart';
+import 'package:portfolio/pages/projectdetailspage.dart';
 import 'package:portfolio/forms/formpage.dart';
+import 'nextpage.dart';
+import 'thankyoupage.dart';
 
-class MyDesignPage1 extends StatefulWidget {
-  
-
+class MyApp1 extends StatelessWidget {
+  // This widget is the root of your application.
   @override
-  _MyDesignPage1State createState() => _MyDesignPage1State();
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Portfolio',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: MyDesignPage1(),
+    );
+  }
 }
 
-class _MyDesignPage1State extends State<MyDesignPage1> {
+class MyDesignPage1 extends StatefulWidget {
+  MyDesignPage1({Key key, this.title}) : super(key: key);
+  final String title;
+
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyDesignPage1> {
+  crudMethods crudObj = new crudMethods();
+
+  QuerySnapshot designprojects;
+
+  @override
+  void initState() {
+   crudObj.getdatad().then((results) {
+      setState(() {
+        designprojects = results;
+       
+      });
+    });
+    super.initState();
+  }
+
   ScrollController _scrollController = new ScrollController();
-   List<Widget> _messages = <Widget>[new Text('hello'), new Text('world')];
+  List<Widget> _messages = <Widget>[new Text('hello'), new Text('world')];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       appBar: AppBar(
-        iconTheme: new IconThemeData(color: Colors.black),
-        backgroundColor: Colors.white,
-        elevation: 0.0,
-      ),
-      drawer: Drawer(
-        child: Container(
-          color: Colors.white,
-          child: ListView(
-            scrollDirection: Axis.vertical,
-            // Important: Remove any padding from the ListView.
-            padding: EdgeInsets.symmetric(vertical: 40),
-            children: <Widget>[
-              // DrawerHeader(
-              //   child: Padding(
-              //     padding: const EdgeInsets.symmetric(vertical: 18.0),
-              //     child: Center(
-              //         child: Text(
-              //           'Corona Virus Tracker ',
-              //           style: TextStyle(fontSize: 27, color: Colors.white,fontWeight: FontWeight.bold),
-              //         )),
-              //   ),
-              //   decoration: BoxDecoration(
-              //       color: Colors.blue[500],
-              //       //
-              //       ),
-              // ),
-              SizedBox(height: 40),
-              Image.asset('assets/images/menu.png'),
-              SizedBox(height: 30),
-              ListTile(
-                  title: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        'Recent projects',
-                        style: TextStyle(
-                          fontSize: 22,
-                          fontFamily: "Circular Air",
-                          // fontWeight: FontWeight.bold
-                        ),
-                      ),
-                      Icon(Icons.arrow_forward),
-                    ],
-                  ),
-                  onTap: () {
-                    Navigator.pushNamed(context, 'overallprojectspage');
-                  }),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, 'apppage');
-                },
-                child: ListTile(
-                  title: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        'App development',
-                        style: TextStyle(fontSize: 22),
-                      ),
-                      Icon(Icons.arrow_forward),
-                    ],
-                  ),
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, 'designpage');
-                },
-                child: ListTile(
-                  title: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        'Graphic Design',
-                        style: TextStyle(fontSize: 22),
-                      ),
-                      Icon(Icons.arrow_forward),
-                    ],
-                  ),
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, 'designpage');
-                },
-                child: ListTile(
-                  title: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        'UI/UX Design',
-                        style: TextStyle(fontSize: 22),
-                      ),
-                      Icon(Icons.arrow_forward),
-                    ],
-                  ),
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, 'designpage');
-                },
-                child: ListTile(
-                  title: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        'Contact us',
-                        style: TextStyle(fontSize: 22),
-                      ),
-                      Icon(Icons.arrow_forward),
-                    ],
-                  ),
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, 'designpage');
-                },
-                child: ListTile(
-                  title: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        'Developer Contact',
-                        style: TextStyle(fontSize: 22),
-                      ),
-                      Icon(Icons.arrow_forward),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            SizedBox(height: 20),
+            SizedBox(height: 120),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
+              padding: const EdgeInsets.symmetric(horizontal: 25),
               child: new Text(
                 "Hey there,",
                 style: TextStyle(
@@ -172,7 +71,7 @@ class _MyDesignPage1State extends State<MyDesignPage1> {
             ),
             SizedBox(height: 10),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
+              padding: const EdgeInsets.symmetric(horizontal: 25),
               child: new Text(
                 "Every great design begins with an even better story",
                 style: TextStyle(
@@ -188,7 +87,7 @@ class _MyDesignPage1State extends State<MyDesignPage1> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  padding: const EdgeInsets.symmetric(horizontal: 25),
                   child: Text(
                     'What do you want us to design ?',
                     style: TextStyle(
@@ -202,20 +101,20 @@ class _MyDesignPage1State extends State<MyDesignPage1> {
                 GestureDetector(
                   onTap: () {
                     setState(() {
-            _messages.insert(0, new Text("message ${_messages.length}"));
-          });
-          _scrollController.animateTo(
-            0,
-            curve: Curves.decelerate,
-            duration: const Duration(milliseconds: 300),
-          );
+                      _messages.insert(
+                          5, new Text("message ${_messages.length}"));
+                    });
+                    _scrollController.animateTo(
+                      5,
+                      curve: Curves.decelerate,
+                      duration: const Duration(milliseconds: 300),
+                    );
                   },
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 25),
                     child: Icon(Icons.arrow_forward),
                   ),
                 ),
-                
               ],
             ),
             Container(
@@ -443,7 +342,7 @@ class _MyDesignPage1State extends State<MyDesignPage1> {
             ),
             SizedBox(height: 10),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
+              padding: const EdgeInsets.symmetric(horizontal: 25),
               child: Text(
                 'Recents',
                 style: TextStyle(
@@ -455,11 +354,55 @@ class _MyDesignPage1State extends State<MyDesignPage1> {
               ),
             ),
             SizedBox(height: 30),
+            recentprojects(),
+            SizedBox(height: 30),
           ],
         ),
       ),
 
       // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+
+   Widget recentprojects() {
+    return designprojects != null
+        ? SizedBox(
+            height: 700.0,
+            child: GridView.builder(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                crossAxisSpacing: 8.0,
+              ),
+              itemCount: designprojects.documents.length,
+              itemBuilder: (_, index) {
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Color(0xffffffff),
+                      boxShadow: [
+                        BoxShadow(
+                          offset: Offset(0.00, 3.00),
+                          color: Color(0xff000000).withOpacity(0.09),
+                          blurRadius: 30,
+                        ),
+                      ],
+                      borderRadius: BorderRadius.circular(20.00),
+                    ),
+                    child: IconButton(
+                      icon: Image.network(
+                          designprojects.documents[index].data['image']),
+                      onPressed: () {
+                        Navigator.pushNamed(context, 'detailspage');
+                      },
+                    ),
+                  ),
+                );
+              },
+            ),
+          )
+        : Center(
+            child: CircularProgressIndicator(),
+          );
   }
 }

@@ -421,11 +421,11 @@ class _MyHomePageState extends State<MyHomePage> {
     var now;
     now = DateTime.now().hour;
     if (now < 12) {
-      return 'Good Morning,';
+      return 'Good morning,';
     } else if (now < 17) {
-      return 'Good Afternoon,';
+      return 'Good afternoon,';
     } else {
-      return 'Good Evening,';
+      return 'Good evening,';
     }
   }
 }
