@@ -1,12 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:portfolio/main.dart';
 import 'package:portfolio/pages/apppage.dart';
 import 'package:portfolio/services/crud.dart';
-import 'package:portfolio/pages/projectdetailspage.dart';
-import 'package:portfolio/forms/formpage.dart';
-import 'nextpage.dart';
-import 'thankyoupage.dart';
 
 class MyuiuxPage extends StatefulWidget {
 

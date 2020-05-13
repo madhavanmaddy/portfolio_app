@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/pages/contact.dart';
 import 'package:portfolio/pages/overallprojectspage.dart';
-import 'package:portfolio/pages/projectdetailspage.dart';
 import 'package:portfolio/pages/thankyoupage.dart';
 import 'package:portfolio/pages/uiuxpage.dart';
 import 'pages/designpage.dart';
-import 'forms/formpage.dart';
 import 'package:flutter/painting.dart';
 import 'pages/apppage.dart';
 import 'pages/nextpage.dart';
@@ -151,7 +149,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => ContactPage()),
+                    MaterialPageRoute(builder: (context) => Mycontact()),
                   );
                 },
                 child: ListTile(

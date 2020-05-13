@@ -1,8 +1,5 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:portfolio/pages/nextpage.dart';
-import 'package:portfolio/pages/thankyoupage.dart';
 
 class formpage extends StatefulWidget {
   String title;

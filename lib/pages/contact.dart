@@ -3,30 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/services/crud.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class ContactPage extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Portfolio',
-      theme: ThemeData(
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
-      home: Mycontact(),
-    );
-  }
-}
 
 class Mycontact extends StatefulWidget {
-  Mycontact({Key key, this.title}) : super(key: key);
-  final String title;
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _MycontactState createState() => _MycontactState();
 }
 
-class _MyHomePageState extends State<Mycontact> {
+class _MycontactState extends State<Mycontact> {
   crudMethods crudObj = new crudMethods();
 
   QuerySnapshot uiuxprojects;
