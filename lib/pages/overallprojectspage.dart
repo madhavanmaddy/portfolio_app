@@ -116,17 +116,17 @@ class _overallprojectspageState extends State<overallprojectspage> {
               ),
             ),
             new Text(
-              'App Projects',
+              'Mobile Applications',
               style: TextStyle(
                 fontFamily: "Circular Air",
-                fontWeight: FontWeight.w600,
-                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                fontSize: 22,
                 color: Color(0xff101010),
               ),
             ),
-            SizedBox(
-              height: 30.0,
-            ),
+            // SizedBox(
+            //   height: 10.0,
+            // ),
             SizedBox(
               height: temp1,
               child: oprojects(),
@@ -135,17 +135,17 @@ class _overallprojectspageState extends State<overallprojectspage> {
               height: 30.0,
             ),
             new Text(
-              'Design Projects',
+              'Graphic Design / Illustarations',
               style: TextStyle(
                 fontFamily: "Circular Air",
-                fontWeight: FontWeight.w600,
-                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                fontSize: 22,
                 color: Color(0xff101010),
               ),
             ),
-            SizedBox(
-              height: 30.0,
-            ),
+            // SizedBox(
+            //   height: 30.0,
+            // ),
             SizedBox(
               height: temp3,
               child: odesignrojects(),
@@ -154,11 +154,11 @@ class _overallprojectspageState extends State<overallprojectspage> {
               height: 30.0,
             ),
             new Text(
-              'UI/UX Projects',
+              'UI/UX Designs',
               style: TextStyle(
                 fontFamily: "Circular Air",
-                fontWeight: FontWeight.w600,
-                fontSize: 16,
+                 fontWeight: FontWeight.bold,
+                fontSize: 22,
                 color: Color(0xff101010),
               ),
             ),
