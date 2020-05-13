@@ -4,11 +4,15 @@ import 'package:portfolio/pages/nextpage.dart';
 import 'package:portfolio/pages/thankyoupage.dart';
 
 class formpage extends StatefulWidget {
+  String title;
+  formpage(this.title);
   @override
-  _formpageState createState() => _formpageState();
+  _formpageState createState() => _formpageState(title);
 }
 
 class _formpageState extends State<formpage> {
+  _formpageState(this.title);
+  String title;
   String Name;
   String Something;
   String SampleData;
@@ -22,12 +26,23 @@ class _formpageState extends State<formpage> {
               child: Column(
           children: <Widget>[
             SizedBox(
-              height: 100.0,
+              height: 75.0,
             ),
             Padding(
               padding: EdgeInsets.all(20.0),
               child: Column(
                 children: <Widget>[
+                   Text(
+                    title,
+                    style: TextStyle(
+                      fontFamily: 'Circular Air',
+                      fontSize: 25.0,
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                  SizedBox(
+                    height: 20.0,
+                  ),
                   Text(
                     'Can you give us some details to serve you better?',
                     style: TextStyle(
