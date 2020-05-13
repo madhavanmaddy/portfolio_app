@@ -194,7 +194,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: new Text(
-                "Good morning,",
+                greetings(),
                 style: TextStyle(
                   fontFamily: "Circular Air",
                   fontWeight: FontWeight.w600,
@@ -408,5 +408,16 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+  String greetings(){
+    var now;
+    now = DateTime.now().hour;
+    if(now < 12) {
+      return 'Good Morning,';
+    } else if(now<17) {
+      return 'Good Afternoon,';
+    }else {
+      return 'Good Evening,';
+    }
   }
 }
