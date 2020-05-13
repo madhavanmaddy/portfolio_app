@@ -9,21 +9,31 @@ import 'nextpage.dart';
 import 'thankyoupage.dart';
 
 class MyuiuxPage extends StatefulWidget {
-
-@override
-  _MyUiuxPageState createState() =>  _MyUiuxPageState();
+  @override
+  _MyUiuxPageState createState() => _MyUiuxPageState();
 }
 
-class  _MyUiuxPageState extends State<MyuiuxPage> {
+class _MyUiuxPageState extends State<MyuiuxPage> {
   crudMethods crudObj = new crudMethods();
 
   QuerySnapshot uiuxprojects;
-
+  int temp2;
+  double temp3;
   @override
   void initState() {
     crudObj.getdatau().then((results) {
       setState(() {
         uiuxprojects = results;
+        temp2 = uiuxprojects.documents.length;
+        if (temp2 % 2 == 0) {
+          temp2 = temp2 * 120;
+          temp3 = temp2.toDouble();
+        } else {
+          // temp = projects.documents.length;
+          temp2 = temp2 + 1;
+          temp2 = temp2 * 120;
+          temp3 = temp2.toDouble();
+        }
       });
     });
 
@@ -366,10 +376,11 @@ class  _MyUiuxPageState extends State<MyuiuxPage> {
   Widget recentprojects() {
     return uiuxprojects != null
         ? SizedBox(
-            height: 700.0,
+            height: temp3,
             child: GridView.builder(
+              primary: false,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3,
+                crossAxisCount: 2,
                 crossAxisSpacing: 8.0,
               ),
               itemCount: uiuxprojects.documents.length,

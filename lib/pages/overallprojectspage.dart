@@ -87,6 +87,7 @@ class _overallprojectspageState extends State<overallprojectspage> {
             SizedBox(
               height: 75.0,
             ),
+            Image.asset('assets/images/recent.png'),
             SizedBox(
               child: GestureDetector(
                 onTap: () {
@@ -115,6 +116,7 @@ class _overallprojectspageState extends State<overallprojectspage> {
                 ),
               ),
             ),
+
             new Text(
               'Mobile Applications',
               style: TextStyle(
@@ -157,7 +159,7 @@ class _overallprojectspageState extends State<overallprojectspage> {
               'UI/UX Designs',
               style: TextStyle(
                 fontFamily: "Circular Air",
-                 fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.bold,
                 fontSize: 22,
                 color: Color(0xff101010),
               ),
@@ -236,12 +238,12 @@ class _overallprojectspageState extends State<overallprojectspage> {
                         Image.network(projects.documents[index].data['image']),
                     onPressed: () {
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => MyDetailsPage(
-                                  projects.documents[index].data['title'],
-                                  projects.documents[index].data['desc'])),
-                        );
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => MyDetailsPage(
+                                projects.documents[index].data['title'],
+                                projects.documents[index].data['desc'])),
+                      );
                     },
                   ),
                 ),

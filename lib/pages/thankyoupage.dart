@@ -1,10 +1,6 @@
-// #import 'package:flutter/material.dart';
-import 'package:portfolio/homepage.dart';
 import 'package:flutter/material.dart';
-import 'package:portfolio/main.dart';
 
 class MyThankPage1 extends StatefulWidget {
-
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -56,8 +52,11 @@ class _MyHomePageState extends State<MyThankPage1> {
                       child: Column(
                     children: <Widget>[
                       SizedBox(height: 15),
-                      Image.asset('assets/images/tick.png',height: 50,width: 50,),
-                
+                      Image.asset(
+                        'assets/images/tick.png',
+                        height: 50,
+                        width: 50,
+                      ),
                       SizedBox(height: 25),
                       Text(
                         'Our team of developers and designers will be reaching you soon! \nGet ready for some thing amazing!',
@@ -75,15 +74,14 @@ class _MyHomePageState extends State<MyThankPage1> {
             SizedBox(
               height: 25,
             ),
-             Center(
+            Center(
               child: GestureDetector(
-                onTap: (){
-                   Navigator.pushNamed(context, 'homepage');
+                onTap: () {
+                  Navigator.pushNamed(context, 'homepage');
                 },
-                              child: new Container(
+                child: new Container(
                   height: 40,
                   width: 200.00,
-                
                   decoration: BoxDecoration(
                     color: Color(0xff4a148c),
                     boxShadow: [
@@ -98,16 +96,17 @@ class _MyHomePageState extends State<MyThankPage1> {
                   child: Padding(
                     padding: const EdgeInsets.all(1.0),
                     child: Center(
-                        child:  Text(
-                          'Back to home',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
-                            // fontWeight: FontWeight.bold,
-                          ),
-                        ),),
+                      child: Text(
+                        'Back to home',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                          // fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ),
