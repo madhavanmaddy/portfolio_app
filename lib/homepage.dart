@@ -1,14 +1,18 @@
+import 'dart:async';
+
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/pages/contact.dart';
 import 'package:portfolio/pages/overallprojectspage.dart';
 import 'package:portfolio/pages/thankyoupage.dart';
 import 'package:portfolio/pages/uiuxpage.dart';
+import 'package:portfolio/pages/welcomepagecrousel.dart';
 import 'pages/apppage.dart';
 import 'pages/designpage.dart';
 import 'package:flutter/painting.dart';
 import 'pages/nextpage.dart';
 import 'model/message.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class EnterExitRoute extends PageRouteBuilder {
   final Widget enterPage;
@@ -63,13 +67,47 @@ class MyApp extends StatelessWidget {
         'homepage': (_) => MyHomePage(),
       },
       debugShowCheckedModeBanner: false,
-      title: 'Portfolio',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage(),
+      home: Splash(),
     );
   }
+}
+
+class Splash extends StatefulWidget {
+    @override
+    SplashState createState() => new SplashState();
+}
+
+class SplashState extends State<Splash> {
+    Future checkFirstSeen() async {
+        SharedPreferences prefs = await SharedPreferences.getInstance();
+        bool _seen = (prefs.getBool('seen') ?? false);
+
+        if (_seen) {
+        Navigator.of(context).pushReplacement(
+            new MaterialPageRoute(builder: (context) => new MyHomePage()));
+        } else {
+        await prefs.setBool('seen', true);
+        Navigator.of(context).pushReplacement(
+            new MaterialPageRoute(builder: (context) => new WelcomePageCrousel()));
+        }
+    }
+
+    @override
+    void initState() {
+        super.initState();
+        new Timer(new Duration(milliseconds: 200), () {
+        checkFirstSeen();
+        });
+    }
+
+    @override
+    Widget build(BuildContext context) {
+        return new Scaffold(
+        body: new Center(
+            child: CircularProgressIndicator(),
+        ),
+        );
+    }
 }
 
 class MyHomePage extends StatefulWidget {

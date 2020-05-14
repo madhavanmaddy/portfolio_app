@@ -26,6 +26,7 @@ dependencies:
   cloud_firestore: ^0.13.5
   url_launcher: ^5.4.7
   firebase_messaging:
+  shared_preferences:
   # flutter_launch: ^0.2.0
 
 dev_dependencies:
