@@ -1,14 +1,12 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/pages/contact.dart';
 import 'package:portfolio/pages/overallprojectspage.dart';
 import 'package:portfolio/pages/thankyoupage.dart';
 import 'package:portfolio/pages/uiuxpage.dart';
 import 'pages/apppage.dart';
-import 'pages/apppage.dart';
 import 'pages/designpage.dart';
 import 'package:flutter/painting.dart';
-import 'pages/apppage.dart';
-import 'pages/designpage.dart';
 import 'pages/nextpage.dart';
 
 class EnterExitRoute extends PageRouteBuilder {
@@ -82,6 +80,16 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+  final FirebaseMessaging _messaging = FirebaseMessaging();
+  
+  @override
+  void initState(){
+    super.initState();
+    _messaging.getToken().then((token){
+      print(token); 
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
