@@ -41,30 +41,38 @@ class _uiuxformpageState extends State<uiuxformpage> {
                 children: <Widget>[
                   Text(
                     title,
-                    style: txtstle,
+                    style: TextStyle(
+                      color: Color(0xff4a148c),
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                    ),
                     textAlign: TextAlign.left,
                   ),
                   SizedBox(
                     height: 20.0,
                   ),
-                  Text(
-                    'Can you give us some details to serve you better?',
-                    style: txtstle,
-                  ),
+                  // Text(
+                  //   'Can you give us some details to serve you better?',
+                  //   style: txtstle,
+                  // ),
                   Image.asset('assets/images/1.png'),
+                  SizedBox(
+                    height: 40,
+                  ),
                   Text(
                     'Project Details',
                     style: TextStyle(
-                      fontFamily: 'Circular Air',
-                      fontSize: 30.0,
+                      color: Color(0xff4a148c),
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
                     ),
                     textAlign: TextAlign.start,
                   ),
                   SizedBox(
-                    height: 20.0,
+                    height: 30.0,
                   ),
                   Container(
-                    height: 40.0,
+                    height: 50.0,
                     width: 350.0,
                     decoration: BoxDecoration(
                       color: Color(0xffffffff),
@@ -83,7 +91,8 @@ class _uiuxformpageState extends State<uiuxformpage> {
                         keyboardType: TextInputType.multiline,
                         maxLines: null,
                         decoration: InputDecoration(
-                            border: InputBorder.none, hintText: 'Name of the Application/ Website'),
+                            border: InputBorder.none,
+                            hintText: 'Name of the Application/ Website'),
                         onChanged: (value) {
                           setState(() {
                             projectName = value;
@@ -115,7 +124,8 @@ class _uiuxformpageState extends State<uiuxformpage> {
                         keyboardType: TextInputType.multiline,
                         maxLines: null,
                         decoration: InputDecoration(
-                            border: InputBorder.none, hintText: 'Project Description'),
+                            border: InputBorder.none,
+                            hintText: 'Project Description'),
                         onChanged: (value) {
                           setState(() {
                             desc = value;
@@ -147,7 +157,8 @@ class _uiuxformpageState extends State<uiuxformpage> {
                         keyboardType: TextInputType.multiline,
                         maxLines: null,
                         decoration: InputDecoration(
-                            border: InputBorder.none, hintText: 'Special Features (if any)'),
+                            border: InputBorder.none,
+                            hintText: 'Special Features (if any)'),
                         onChanged: (value) {
                           setState(() {
                             special = value;
@@ -157,14 +168,18 @@ class _uiuxformpageState extends State<uiuxformpage> {
                     ),
                   ),
                   SizedBox(
-                    height: 20.0,
+                    height: 40.0,
                   ),
                   Text(
                     'Category',
                     style: TextStyle(
-                      fontFamily: 'Circular Air',
-                      fontSize: 30.0,
+                      color: Color(0xff4a148c),
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
                     ),
+                  ),
+                  SizedBox(
+                    height: 20,
                   ),
                   RadioListTile(
                     value: 1,
@@ -214,16 +229,20 @@ class _uiuxformpageState extends State<uiuxformpage> {
                     },
                     title: new Text('Others'),
                   ),
+                  SizedBox(
+                    height: 40,
+                  ),
                   Text(
                     'Contact Details',
                     style: TextStyle(
-                      fontFamily: 'Circular Air',
-                      fontSize: 30.0,
+                      color: Color(0xff4a148c),
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
                     ),
                     textAlign: TextAlign.start,
                   ),
                   SizedBox(
-                    height: 20.0,
+                    height: 30.0,
                   ),
                   Container(
                     height: 40.0,
@@ -277,7 +296,8 @@ class _uiuxformpageState extends State<uiuxformpage> {
                         keyboardType: TextInputType.number,
                         maxLines: null,
                         decoration: InputDecoration(
-                            border: InputBorder.none, hintText: 'Mobile Number'),
+                            border: InputBorder.none,
+                            hintText: 'Mobile Number'),
                         onChanged: (value) {
                           setState(() {
                             contactNumber = value;
@@ -289,7 +309,7 @@ class _uiuxformpageState extends State<uiuxformpage> {
                   SizedBox(
                     height: 20.0,
                   ),
-                   Container(
+                  Container(
                     height: 40.0,
                     width: 350.0,
                     decoration: BoxDecoration(
@@ -309,7 +329,7 @@ class _uiuxformpageState extends State<uiuxformpage> {
                         keyboardType: TextInputType.number,
                         maxLines: null,
                         decoration: InputDecoration(
-                            border: InputBorder.none, hintText: 'E-Mail'),
+                            border: InputBorder.none, hintText: 'Email'),
                         onChanged: (value) {
                           setState(() {
                             contactNumber = value;
@@ -318,85 +338,91 @@ class _uiuxformpageState extends State<uiuxformpage> {
                       ),
                     ),
                   ),
-                   SizedBox(
+                  SizedBox(
                     height: 20.0,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: <Widget>[
-                      new RaisedButton(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(16.0)),
-                        color: Colors.white,
-                        child: new Container(
-                          decoration: BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                offset: Offset(0.00, 3.00),
-                                color: Color(00000000).withOpacity(0.0),
-                                blurRadius: 6,
-                              )
-                            ],
-                          ),
-                          child: Text(
-                            'Back',
-                            style: TextStyle(
-                                fontFamily: 'Circular Air',
-                                color: Color(0xff4a148c)),
-                          ),
-                        ),
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                      ),
-                      SizedBox(
-                        width: 20.0,
-                      ),
-                      new RaisedButton(
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget>[
+                        new RaisedButton(
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(16.0)),
-                          color: Color(0xff4a148c),
-                          child: Container(
+                          color: Colors.white,
+                          child: new Container(
                             decoration: BoxDecoration(
                               boxShadow: [
                                 BoxShadow(
                                   offset: Offset(0.00, 3.00),
-                                  color: Color(0xff000000).withOpacity(0.16),
+                                  color: Color(00000000).withOpacity(0.0),
                                   blurRadius: 6,
                                 )
                               ],
                             ),
                             child: Text(
-                              'Submit',
+                              'Back',
                               style: TextStyle(
                                   fontFamily: 'Circular Air',
-                                  color: Colors.white),
+                                  color: Color(0xff4a148c)),
                             ),
                           ),
                           onPressed: () {
-                            Firestore.instance.collection('app').add({
-                              'projectName': projectName,
-                              'desc': desc,
-                              'special': special,
-                              'contactName': contactName,
-                              'contactNumber': contactNumber,
-                              'category': category,
-                            });
-                            Navigator.pushNamed(context, 'thankyoupage');
-                            setState(() {
-                              projectName = '';
-                            desc = '';
-                            special = '';
-                            contactName = '';
-                            contactNumber = '';
-                            category = '';
-                            });
-                          })
-                    ],
+                            Navigator.pop(context);
+                          },
+                        ),
+                        SizedBox(
+                          width: 20.0,
+                        ),
+                        new RaisedButton(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(16.0)),
+                            color: Color(0xff4a148c),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                boxShadow: [
+                                  BoxShadow(
+                                    offset: Offset(0.00, 3.00),
+                                    color: Color(0xff000000).withOpacity(0.16),
+                                    blurRadius: 6,
+                                  )
+                                ],
+                              ),
+                              child: Text(
+                                'Submit',
+                                style: TextStyle(
+                                    fontFamily: 'Circular Air',
+                                    color: Colors.white),
+                              ),
+                            ),
+                            onPressed: () {
+                              Firestore.instance.collection('app').add({
+                                'projectName': projectName,
+                                'desc': desc,
+                                'special': special,
+                                'contactName': contactName,
+                                'contactNumber': contactNumber,
+                                'category': category,
+                              });
+                              Navigator.pushNamed(context, 'thankyoupage');
+                              setState(() {
+                                projectName = '';
+                                desc = '';
+                                special = '';
+                                contactName = '';
+                                contactNumber = '';
+                                category = '';
+                              });
+                            })
+                      ],
+                    ),
                   )
                 ],
               ),
             ),
+            SizedBox(
+              height: 100,
+            )
           ],
         ),
       ),

@@ -21,7 +21,7 @@ class _formpageState extends State<formpage> {
   @override
   final txtstle = TextStyle(
     fontFamily: 'Circular Air',
-    fontSize: 25.0,
+    fontSize: 16.0,
   );
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,299 +29,323 @@ class _formpageState extends State<formpage> {
       resizeToAvoidBottomPadding: false,
       resizeToAvoidBottomInset: false,
       body: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
+        // physics: BouncingScrollPhysics(),
         child: Column(
           children: <Widget>[
             SizedBox(
               height: 75.0,
             ),
-            Padding(
-              padding: EdgeInsets.all(20.0),
-              child: Column(
-                children: <Widget>[
-                  Text(
-                    title,
-                    style: txtstle,
+            Column(
+              children: <Widget>[
+                SizedBox(
+                  height: 20,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                  child: Text(
+                    'Lets register your $title here',
+                    // title,
+                    style: TextStyle(
+                       color: Color(0xff4a148c),
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                    ),
                     textAlign: TextAlign.left,
                   ),
-                  SizedBox(
-                    height: 20.0,
-                  ),
-                  Text(
-                    'Can you give us some details to serve you better?',
-                    style: txtstle,
-                  ),
-                  Image.asset('assets/images/1.png'),
-                  Text(
-                    'Project Details',
-                    style: TextStyle(
+                ),
+                SizedBox(
+                  height: 20.0,
+                ),
+                // Text(
+                //   'Can you give us some details to serve you better?',
+                //   style: txtstle,
+                // ),
+                Image.asset('assets/images/1.png'),
+                SizedBox(
+                  height: 30,
+                ),
+                Text('Project Details',
+                    style: TextStyle( color: Color(0xff4a148c),
                       fontFamily: 'Circular Air',
-                      fontSize: 30.0,
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
                     ),
-                    textAlign: TextAlign.start,
-                  ),
-                  SizedBox(
-                    height: 20.0,
-                  ),
-                  Container(
-                    height: 40.0,
-                    width: 350.0,
-                    decoration: BoxDecoration(
-                      color: Color(0xffffffff),
-                      boxShadow: [
-                        BoxShadow(
-                          offset: Offset(0.00, 3.00),
-                          color: Color(0xff000000).withOpacity(0.16),
-                          blurRadius: 6,
-                        ),
-                      ],
-                      borderRadius: BorderRadius.circular(15.00),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 25),
-                      child: TextField(
-                        keyboardType: TextInputType.multiline,
-                        maxLines: null,
-                        decoration: InputDecoration(
-                            border: InputBorder.none, hintText: 'Project Name'),
-                        onChanged: (value) {
-                          setState(() {
-                            projectName = value;
-                          });
-                        },
+                    textAlign: TextAlign.left),
+                SizedBox(
+                  height: 30.0,
+                ),
+                Container(
+                  height: 40.0,
+                  width: 350.0,
+                  decoration: BoxDecoration(
+                    color: Color(0xffffffff),
+                    boxShadow: [
+                      BoxShadow(
+                        offset: Offset(0.00, 3.00),
+                        color: Color(0xff000000).withOpacity(0.16),
+                        blurRadius: 6,
                       ),
+                    ],
+                    borderRadius: BorderRadius.circular(15.00),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25),
+                    child: TextField(
+                      keyboardType: TextInputType.multiline,
+                      maxLines: null,
+                      decoration: InputDecoration(
+                          border: InputBorder.none, hintText: 'Project Name'),
+                      onChanged: (value) {
+                        setState(() {
+                          projectName = value;
+                        });
+                      },
                     ),
                   ),
-                  SizedBox(
-                    height: 20.0,
-                  ),
-                  Container(
-                    height: 150.0,
-                    width: 350.0,
-                    decoration: BoxDecoration(
-                      color: Color(0xffffffff),
-                      boxShadow: [
-                        BoxShadow(
-                          offset: Offset(0.00, 3.00),
-                          color: Color(0xff000000).withOpacity(0.16),
-                          blurRadius: 6,
-                        ),
-                      ],
-                      borderRadius: BorderRadius.circular(15.00),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 25),
-                      child: TextField(
-                        keyboardType: TextInputType.multiline,
-                        maxLines: null,
-                        decoration: InputDecoration(
-                            border: InputBorder.none, hintText: 'Project Description'),
-                        onChanged: (value) {
-                          setState(() {
-                            desc = value;
-                          });
-                        },
+                ),
+                SizedBox(
+                  height: 20.0,
+                ),
+                Container(
+                  height: 150.0,
+                  width: 350.0,
+                  decoration: BoxDecoration(
+                    color: Color(0xffffffff),
+                    boxShadow: [
+                      BoxShadow(
+                        offset: Offset(0.00, 3.00),
+                        color: Color(0xff000000).withOpacity(0.16),
+                        blurRadius: 6,
                       ),
+                    ],
+                    borderRadius: BorderRadius.circular(15.00),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25),
+                    child: TextField(
+                      keyboardType: TextInputType.multiline,
+                      maxLines: null,
+                      decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: 'Project Description'),
+                      onChanged: (value) {
+                        setState(() {
+                          desc = value;
+                        });
+                      },
                     ),
                   ),
-                  SizedBox(
-                    height: 20.0,
-                  ),
-                  Container(
-                    height: 150.0,
-                    width: 350.0,
-                    decoration: BoxDecoration(
-                      color: Color(0xffffffff),
-                      boxShadow: [
-                        BoxShadow(
-                          offset: Offset(0.00, 3.00),
-                          color: Color(0xff000000).withOpacity(0.16),
-                          blurRadius: 6,
-                        ),
-                      ],
-                      borderRadius: BorderRadius.circular(15.00),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 25),
-                      child: TextField(
-                        keyboardType: TextInputType.multiline,
-                        maxLines: null,
-                        decoration: InputDecoration(
-                            border: InputBorder.none, hintText: 'Special Features (if any)'),
-                        onChanged: (value) {
-                          setState(() {
-                            special = value;
-                          });
-                        },
+                ),
+                SizedBox(
+                  height: 20.0,
+                ),
+                Container(
+                  height: 150.0,
+                  width: 350.0,
+                  decoration: BoxDecoration(
+                    color: Color(0xffffffff),
+                    boxShadow: [
+                      BoxShadow(
+                        offset: Offset(0.00, 3.00),
+                        color: Color(0xff000000).withOpacity(0.16),
+                        blurRadius: 6,
                       ),
+                    ],
+                    borderRadius: BorderRadius.circular(15.00),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25),
+                    child: TextField(
+                      keyboardType: TextInputType.multiline,
+                      maxLines: null,
+                      decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: 'Special Features (if any)'),
+                      onChanged: (value) {
+                        setState(() {
+                          special = value;
+                        });
+                      },
                     ),
                   ),
-                  SizedBox(
-                    height: 20.0,
+                ),
+                SizedBox(
+                  height: 40.0,
+                ),
+                Text(
+                  'Category of application',
+                  style: TextStyle(
+                    color: Color(0xff4a148c),
+                    fontFamily: 'Circular Air',
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
                   ),
-                  Text(
-                    'Category',
-                    style: TextStyle(
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                RadioListTile(
+                  value: 1,
+                  activeColor: Color(0xff4a148c),
+                  groupValue: radioval,
+                  onChanged: (val) {
+                    setState(() {
+                      radioval = val;
+                      category = 'Entertainment';
+                    });
+                  },
+                  title: new Text('Entertainment'),
+                ),
+                RadioListTile(
+                  value: 2,
+                  activeColor: Color(0xff4a148c),
+                  groupValue: radioval,
+                  onChanged: (val) {
+                    setState(() {
+                      radioval = val;
+                      category = 'Tools';
+                    });
+                  },
+                  title: new Text('Tools'),
+                ),
+                RadioListTile(
+                  value: 3,
+                  activeColor: Color(0xff4a148c),
+                  groupValue: radioval,
+                  onChanged: (val) {
+                    setState(() {
+                      radioval = val;
+                      category = 'Social';
+                    });
+                  },
+                  title: new Text('Social'),
+                ),
+                RadioListTile(
+                  value: 4,
+                  activeColor: Color(0xff4a148c),
+                  groupValue: radioval,
+                  onChanged: (val) {
+                    setState(() {
+                      radioval = val;
+                      category = 'Others';
+                    });
+                  },
+                  title: new Text('Others'),
+                ),
+                SizedBox(height: 30,),
+                Text(
+                  'Contact Details',
+                  style: TextStyle(
+                    color: Color(0xff4a148c),
                       fontFamily: 'Circular Air',
-                      fontSize: 30.0,
-                    ),
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
+                    
                   ),
-                  RadioListTile(
-                    value: 1,
-                    activeColor: Color(0xff4a148c),
-                    groupValue: radioval,
-                    onChanged: (val) {
-                      setState(() {
-                        radioval = val;
-                        category = 'Entertainment';
-                      });
-                    },
-                    title: new Text('Entertainment'),
-                  ),
-                  RadioListTile(
-                    value: 2,
-                    activeColor: Color(0xff4a148c),
-                    groupValue: radioval,
-                    onChanged: (val) {
-                      setState(() {
-                        radioval = val;
-                        category = 'Tools';
-                      });
-                    },
-                    title: new Text('Tools'),
-                  ),
-                  RadioListTile(
-                    value: 3,
-                    activeColor: Color(0xff4a148c),
-                    groupValue: radioval,
-                    onChanged: (val) {
-                      setState(() {
-                        radioval = val;
-                        category = 'Social';
-                      });
-                    },
-                    title: new Text('Social'),
-                  ),
-                  RadioListTile(
-                    value: 4,
-                    activeColor: Color(0xff4a148c),
-                    groupValue: radioval,
-                    onChanged: (val) {
-                      setState(() {
-                        radioval = val;
-                        category = 'Others';
-                      });
-                    },
-                    title: new Text('Others'),
-                  ),
-                  Text(
-                    'Contact Details',
-                    style: TextStyle(
-                      fontFamily: 'Circular Air',
-                      fontSize: 30.0,
-                    ),
-                    textAlign: TextAlign.start,
-                  ),
-                  SizedBox(
-                    height: 20.0,
-                  ),
-                  Container(
-                    height: 40.0,
-                    width: 350.0,
-                    decoration: BoxDecoration(
-                      color: Color(0xffffffff),
-                      boxShadow: [
-                        BoxShadow(
-                          offset: Offset(0.00, 3.00),
-                          color: Color(0xff000000).withOpacity(0.16),
-                          blurRadius: 6,
-                        ),
-                      ],
-                      borderRadius: BorderRadius.circular(15.00),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 25),
-                      child: TextField(
-                        keyboardType: TextInputType.multiline,
-                        maxLines: null,
-                        decoration: InputDecoration(
-                            border: InputBorder.none, hintText: 'Name'),
-                        onChanged: (value) {
-                          setState(() {
-                            contactName = value;
-                          });
-                        },
+                  textAlign: TextAlign.start,
+                ),
+                SizedBox(
+                  height: 30.0,
+                ),
+                Container(
+                  height: 40.0,
+                  width: 350.0,
+                  decoration: BoxDecoration(
+                    color: Color(0xffffffff),
+                    boxShadow: [
+                      BoxShadow(
+                        offset: Offset(0.00, 3.00),
+                        color: Color(0xff000000).withOpacity(0.16),
+                        blurRadius: 6,
                       ),
+                    ],
+                    borderRadius: BorderRadius.circular(15.00),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25),
+                    child: TextField(
+                      keyboardType: TextInputType.multiline,
+                      maxLines: null,
+                      decoration: InputDecoration(
+                          border: InputBorder.none, hintText: 'Name'),
+                      onChanged: (value) {
+                        setState(() {
+                          contactName = value;
+                        });
+                      },
                     ),
                   ),
-                  SizedBox(
-                    height: 20.0,
-                  ),
-                  Container(
-                    height: 40.0,
-                    width: 350.0,
-                    decoration: BoxDecoration(
-                      color: Color(0xffffffff),
-                      boxShadow: [
-                        BoxShadow(
-                          offset: Offset(0.00, 3.00),
-                          color: Color(0xff000000).withOpacity(0.16),
-                          blurRadius: 6,
-                        ),
-                      ],
-                      borderRadius: BorderRadius.circular(15.00),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 25),
-                      child: TextField(
-                        keyboardType: TextInputType.number,
-                        maxLines: null,
-                        decoration: InputDecoration(
-                            border: InputBorder.none, hintText: 'Mobile Number'),
-                        onChanged: (value) {
-                          setState(() {
-                            contactNumber = value;
-                          });
-                        },
+                ),
+                SizedBox(
+                  height: 20.0,
+                ),
+                Container(
+                  height: 40.0,
+                  width: 350.0,
+                  decoration: BoxDecoration(
+                    color: Color(0xffffffff),
+                    boxShadow: [
+                      BoxShadow(
+                        offset: Offset(0.00, 3.00),
+                        color: Color(0xff000000).withOpacity(0.16),
+                        blurRadius: 6,
                       ),
+                    ],
+                    borderRadius: BorderRadius.circular(15.00),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25),
+                    child: TextField(
+                      keyboardType: TextInputType.number,
+                      maxLines: null,
+                      decoration: InputDecoration(
+                          border: InputBorder.none, hintText: 'Mobile Number'),
+                      onChanged: (value) {
+                        setState(() {
+                          contactNumber = value;
+                        });
+                      },
                     ),
                   ),
-                  SizedBox(
-                    height: 20.0,
-                  ),
-                   Container(
-                    height: 40.0,
-                    width: 350.0,
-                    decoration: BoxDecoration(
-                      color: Color(0xffffffff),
-                      boxShadow: [
-                        BoxShadow(
-                          offset: Offset(0.00, 3.00),
-                          color: Color(0xff000000).withOpacity(0.16),
-                          blurRadius: 6,
-                        ),
-                      ],
-                      borderRadius: BorderRadius.circular(15.00),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 25),
-                      child: TextField(
-                        keyboardType: TextInputType.number,
-                        maxLines: null,
-                        decoration: InputDecoration(
-                            border: InputBorder.none, hintText: 'E-Mail'),
-                        onChanged: (value) {
-                          setState(() {
-                            contactNumber = value;
-                          });
-                        },
+                ),
+                SizedBox(
+                  height: 20.0,
+                ),
+                Container(
+                  height: 40.0,
+                  width: 350.0,
+                  decoration: BoxDecoration(
+                    color: Color(0xffffffff),
+                    boxShadow: [
+                      BoxShadow(
+                        offset: Offset(0.00, 3.00),
+                        color: Color(0xff000000).withOpacity(0.16),
+                        blurRadius: 6,
                       ),
+                    ],
+                    borderRadius: BorderRadius.circular(15.00),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25),
+                    child: TextField(
+                      keyboardType: TextInputType.number,
+                      maxLines: null,
+                      decoration: InputDecoration(
+                          border: InputBorder.none, hintText: 'Email'),
+                      onChanged: (value) {
+                        setState(() {
+                          contactNumber = value;
+                        });
+                      },
                     ),
                   ),
-                   SizedBox(
-                    height: 20.0,
-                  ),
-                  Row(
+                ),
+                SizedBox(
+                  height: 20.0,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25),
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
                       new RaisedButton(
@@ -372,7 +396,9 @@ class _formpageState extends State<formpage> {
                                   fontFamily: 'Circular Air',
                                   color: Colors.white),
                             ),
+                            
                           ),
+                          
                           onPressed: () {
                             Firestore.instance.collection('app').add({
                               'projectName': projectName,
@@ -385,17 +411,19 @@ class _formpageState extends State<formpage> {
                             Navigator.pushNamed(context, 'thankyoupage');
                             setState(() {
                               projectName = '';
-                            desc = '';
-                            special = '';
-                            contactName = '';
-                            contactNumber = '';
-                            category = '';
+                              desc = '';
+                              special = '';
+                              contactName = '';
+                              contactNumber = '';
+                              category = '';
                             });
                           })
+
                     ],
-                  )
-                ],
-              ),
+                  ),
+                ),
+                SizedBox(height: 100,),
+              ],
             ),
           ],
         ),
