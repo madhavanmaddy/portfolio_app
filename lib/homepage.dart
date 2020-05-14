@@ -8,6 +8,7 @@ import 'pages/apppage.dart';
 import 'pages/designpage.dart';
 import 'package:flutter/painting.dart';
 import 'pages/nextpage.dart';
+import 'model/message.dart';
 
 class EnterExitRoute extends PageRouteBuilder {
   final Widget enterPage;
@@ -82,14 +83,31 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
 
   final FirebaseMessaging _messaging = FirebaseMessaging();
+  final List<Message> messages = [];
   
   @override
   void initState(){
     super.initState();
-    _messaging.getToken().then((token){
-      print(token); 
-    });
+    _messaging.configure(
+      onMessage: (Map<String, dynamic> message) async {
+        print("onMessage: $message");
+        final notification = message ['notification'];
+        setState(() {
+          messages.add(Message (title: notification['title'],body:notification['body']));
+        });
+      },
+      onLaunch: (Map<String,dynamic> message) async {
+        print("onLaunch : $message");
+      },
+      onResume: (Map<String,dynamic> message) async {
+        print("onResume : $message");
+      }
+    );
+    _messaging.requestNotificationPermissions(
+      const IosNotificationSettings(sound: true,badge:true,alert:true)
+    );
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
