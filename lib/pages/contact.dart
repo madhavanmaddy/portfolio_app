@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/services/crud.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-
 class Mycontact extends StatefulWidget {
-
   @override
   _MycontactState createState() => _MycontactState();
 }
@@ -268,7 +266,88 @@ class _MycontactState extends State<Mycontact> {
               ),
             ),
             SizedBox(
+              height: 45,
+            ),
+            Center(
+              child: Text(
+                'App developed by',
+                style: TextStyle(
+                  fontFamily: "Circular Air",
+                  fontWeight: FontWeight.w500,
+                  fontSize: 18,
+                  color: Color(0xff101010),
+                ),
+              ),
+            ),
+            SizedBox(
               height: 25,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Column(
+                  children: <Widget>[
+                    CircleAvatar(
+                        radius: 50,
+                        backgroundImage: AssetImage('assets/images/sms.png')),
+                    SizedBox(height: 15),
+                    Text(
+                      'Akil S',
+                      style: TextStyle(
+                        fontFamily: "Circular Air",
+                        fontWeight: FontWeight.w500,
+                        fontSize: 16,
+                        color: Color(0xff101010),
+                      ),
+                    ),
+                    SizedBox(height: 15),
+                     Row(
+                      children: <Widget>[
+                         Image.asset(
+                        'assets/images/ghub.png',
+                        height: 20,
+                        width: 20,
+                      ),
+                        SizedBox(width: 10),
+                        Text('akillika')
+                      ],
+                    )
+                  ],
+                ),
+                SizedBox(
+                  width: 20,
+                ),
+                Column(
+                  children: <Widget>[
+                    CircleAvatar(
+                        radius: 50,
+                        backgroundImage: AssetImage('assets/images/sms.png')),
+                    SizedBox(height: 15),
+                    Text(
+                      'Madhavan S',
+                      style: TextStyle(
+                        fontFamily: "Circular Air",
+                        fontWeight: FontWeight.w500,
+                        fontSize: 16,
+                        color: Color(0xff101010),
+                      ),
+                    ),
+                    SizedBox(height: 15),
+                    Row(
+                      children: <Widget>[
+                        Image.asset(
+                        'assets/images/ghub.png',
+                        height: 20,
+                        width: 20,
+                      ),
+                        SizedBox(width: 10),
+                        Text('madhavanmaddy')
+                      ],
+                    )
+                  ],
+                ),
+                // Image.asset('assets/images/sms.png')
+              ],
             ),
 
             SizedBox(height: 30),
