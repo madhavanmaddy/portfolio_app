@@ -44,135 +44,139 @@ class _MyUiuxPageState extends State<MyuiuxPage> {
         backgroundColor: Colors.white,
         elevation: 0.0,
       ),
-      drawer: Drawer(
-        child: Container(
-          color: Colors.white,
-          child: ListView(
-            scrollDirection: Axis.vertical,
-            // Important: Remove any padding from the ListView.
-            padding: EdgeInsets.symmetric(vertical: 40),
-            children: <Widget>[
-              // DrawerHeader(
-              //   child: Padding(
-              //     padding: const EdgeInsets.symmetric(vertical: 18.0),
-              //     child: Center(
-              //         child: Text(
-              //           'Corona Virus Tracker ',
-              //           style: TextStyle(fontSize: 27, color: Colors.white,fontWeight: FontWeight.bold),
-              //         )),
-              //   ),
-              //   decoration: BoxDecoration(
-              //       color: Colors.blue[500],
-              //       //
-              //       ),
-              // ),
-              SizedBox(height: 40),
-              Image.asset('assets/images/menu.png'),
-              SizedBox(height: 30),
-              ListTile(
-                  title: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        'Recent projects',
-                        style: TextStyle(
-                          fontSize: 22,
-                          fontFamily: "Circular Air",
-                          // fontWeight: FontWeight.bold
+      drawer: ClipRRect(
+         borderRadius: BorderRadius.vertical(
+            top: Radius.circular(40.0), bottom: Radius.circular(40.0)),
+              child: Drawer(
+          child: Container(
+            color: Colors.white,
+            child: ListView(
+              scrollDirection: Axis.vertical,
+              // Important: Remove any padding from the ListView.
+              padding: EdgeInsets.symmetric(vertical: 40),
+              children: <Widget>[
+                // DrawerHeader(
+                //   child: Padding(
+                //     padding: const EdgeInsets.symmetric(vertical: 18.0),
+                //     child: Center(
+                //         child: Text(
+                //           'Corona Virus Tracker ',
+                //           style: TextStyle(fontSize: 27, color: Colors.white,fontWeight: FontWeight.bold),
+                //         )),
+                //   ),
+                //   decoration: BoxDecoration(
+                //       color: Colors.blue[500],
+                //       //
+                //       ),
+                // ),
+                SizedBox(height: 40),
+                Image.asset('assets/images/menu.png'),
+                SizedBox(height: 30),
+                ListTile(
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          'Recent projects',
+                          style: TextStyle(
+                            fontSize: 22,
+                            fontFamily: "Circular Air",
+                            // fontWeight: FontWeight.bold
+                          ),
                         ),
-                      ),
-                      Icon(Icons.arrow_forward),
-                    ],
-                  ),
+                        Icon(Icons.arrow_forward),
+                      ],
+                    ),
+                    onTap: () {
+                      Navigator.pushNamed(context, 'overallprojectspage');
+                    }),
+                GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, 'overallprojectspage');
-                  }),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, 'apppage');
-                },
-                child: ListTile(
-                  title: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        'App development',
-                        style: TextStyle(fontSize: 22),
-                      ),
-                      Icon(Icons.arrow_forward),
-                    ],
+                    Navigator.pushNamed(context, 'apppage');
+                  },
+                  child: ListTile(
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          'App development',
+                          style: TextStyle(fontSize: 22),
+                        ),
+                        Icon(Icons.arrow_forward),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, 'designpage');
-                },
-                child: ListTile(
-                  title: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        'Graphic Design',
-                        style: TextStyle(fontSize: 22),
-                      ),
-                      Icon(Icons.arrow_forward),
-                    ],
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, 'designpage');
+                  },
+                  child: ListTile(
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          'Graphic Design',
+                          style: TextStyle(fontSize: 22),
+                        ),
+                        Icon(Icons.arrow_forward),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, 'designpage');
-                },
-                child: ListTile(
-                  title: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        'UI/UX Design',
-                        style: TextStyle(fontSize: 22),
-                      ),
-                      Icon(Icons.arrow_forward),
-                    ],
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, 'designpage');
+                  },
+                  child: ListTile(
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          'UI/UX Design',
+                          style: TextStyle(fontSize: 22),
+                        ),
+                        Icon(Icons.arrow_forward),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, 'designpage');
-                },
-                child: ListTile(
-                  title: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        'Contact us',
-                        style: TextStyle(fontSize: 22),
-                      ),
-                      Icon(Icons.arrow_forward),
-                    ],
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, 'designpage');
+                  },
+                  child: ListTile(
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          'Contact us',
+                          style: TextStyle(fontSize: 22),
+                        ),
+                        Icon(Icons.arrow_forward),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, 'designpage');
-                },
-                child: ListTile(
-                  title: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        'Developer Contact',
-                        style: TextStyle(fontSize: 22),
-                      ),
-                      Icon(Icons.arrow_forward),
-                    ],
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, 'designpage');
+                  },
+                  child: ListTile(
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          'Developer Contact',
+                          style: TextStyle(fontSize: 22),
+                        ),
+                        Icon(Icons.arrow_forward),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

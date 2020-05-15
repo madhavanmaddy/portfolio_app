@@ -55,12 +55,25 @@ class _MyHomePageState extends State<MyAppPage1> {
   crudMethods crudObj = new crudMethods();
 
   QuerySnapshot projects;
+  double temp31;
+  int temp21;
 
   @override
   void initState() {
     crudObj.getdata().then((results) {
       setState(() {
         projects = results;
+      temp21 = projects.documents.length;
+        if (temp21 % 2 == 0) {
+          temp21 = temp21 * 120;
+          temp31 = temp21.toDouble();
+        } else {
+          // temp = projects.documents.length;
+          temp21 = temp21 + 1;
+          temp21 = temp21 * 120;
+          temp31 = temp21.toDouble();
+        }
+        print('$temp31');
       });
     });
 
@@ -362,7 +375,7 @@ class _MyHomePageState extends State<MyAppPage1> {
   Widget recentprojects() {
     return projects != null
         ? SizedBox(
-            height: 700.0,
+            height: temp31,
             child: GridView.builder(
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
