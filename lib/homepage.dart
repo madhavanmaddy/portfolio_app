@@ -4,13 +4,13 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/pages/contact.dart';
 import 'package:portfolio/pages/overallprojectspage.dart';
+import 'package:portfolio/pages/teamspage.dart';
 import 'package:portfolio/pages/thankyoupage.dart';
 import 'package:portfolio/pages/uiuxpage.dart';
 import 'package:portfolio/pages/welcomepagecrousel.dart';
 import 'pages/apppage.dart';
 import 'pages/designpage.dart';
 import 'package:flutter/painting.dart';
-import 'pages/nextpage.dart';
 import 'model/message.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -60,11 +60,11 @@ class MyApp extends StatelessWidget {
       routes: {
         'apppage': (_) => MyAppPage1(),
         'designpage': (_) => MyDesignPage1(),
-        'nextpage': (_) => nextpage(),
         'overallprojectspage': (_) => overallprojectspage(),
         'thankyoupage': (_) => MyThankPage1(),
         'uiuxpage': (_) => MyuiuxPage(),
         'homepage': (_) => MyHomePage(),
+        'teamspage':(_)=>teamspage(),
       },
       debugShowCheckedModeBanner: false,
       home: Splash(),
@@ -196,6 +196,23 @@ class _MyHomePageState extends State<MyHomePage> {
                     onTap: () {
                       Navigator.pushNamed(context, 'overallprojectspage');
                     }),
+                     GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, 'teamspage');
+                  },
+                  child: ListTile(
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          'Teams',
+                          style: TextStyle(fontSize: 22),
+                        ),
+                        Icon(Icons.arrow_forward),
+                      ],
+                    ),
+                  ),
+                ),
                 GestureDetector(
                   onTap: () {
                     Navigator.pushNamed(context, 'apppage');
@@ -274,23 +291,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.pushNamed(context, 'designpage');
-                  },
-                  child: ListTile(
-                    title: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Text(
-                          'Developer Contact',
-                          style: TextStyle(fontSize: 22),
-                        ),
-                        Icon(Icons.arrow_forward),
-                      ],
-                    ),
-                  ),
-                ),
+               
               ],
             ),
           ),

@@ -10,5 +10,7 @@ class crudMethods {
   getdatau() async {
     return await Firestore.instance.collection('uiuxprojects').getDocuments();
   }
-  
+  getdatadevs() async {
+    return await Firestore.instance.collection('devs').getDocuments();
+  }
 }
