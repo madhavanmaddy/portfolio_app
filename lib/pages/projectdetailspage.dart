@@ -1,10 +1,8 @@
-
 import 'package:flutter/material.dart';
 
-
 class MyDetailsPage extends StatelessWidget {
-  String title,desc;
-  MyDetailsPage(this.title,this.desc);
+  String title, desc, image;
+  MyDetailsPage(this.title, this.desc, this.image);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +24,17 @@ class MyDetailsPage extends StatelessWidget {
                 ),
               ),
             ),
-            Image.asset('assets/images/submit.png'),
+            SizedBox(height: 20.0),
+            Center(
+              child: Material(
+                color: Colors.white,
+                child: Container(
+                  child: Image.network(image),
+                  height: 200.0,
+                  width: 200.0,
+                ),
+              ),
+            ),
             SizedBox(
               height: 25,
             ),
@@ -50,8 +58,6 @@ class MyDetailsPage extends StatelessWidget {
                   child: Center(
                       child: Column(
                     children: <Widget>[
-                      
-                
                       SizedBox(height: 25),
                       Text(
                         desc,

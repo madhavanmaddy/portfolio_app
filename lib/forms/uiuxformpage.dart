@@ -396,7 +396,7 @@ class _uiuxformpageState extends State<uiuxformpage> {
                               ),
                             ),
                             onPressed: () {
-                              Firestore.instance.collection('app').add({
+                              Firestore.instance.collection('uiux').add({
                                 'projectName': projectName,
                                 'desc': desc,
                                 'special': special,

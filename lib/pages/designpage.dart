@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/forms/designformpage.dart';
+import 'package:portfolio/pages/projectdetailspage.dart';
 import 'package:portfolio/services/crud.dart';
 import 'package:portfolio/homepage.dart';
 import 'package:portfolio/pages/contact.dart';
@@ -604,14 +605,38 @@ class _MyHomePageState extends State<MyDesignPage1> {
             SizedBox(height: 10),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
-              child: Text(
-                'Recents',
-                style: TextStyle(
-                  fontFamily: "Circular Air",
-                  fontWeight: FontWeight.w600,
-                  fontSize: 18,
-                  color: Color(0xff101010),
-                ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text(
+                    'Recents',
+                    style: TextStyle(
+                      fontFamily: "Circular Air",
+                      fontWeight: FontWeight.w600,
+                      fontSize: 18,
+                      color: Color(0xff101010),
+                    ),
+                  ),
+                  IconButton(
+                      icon: Icon(Icons.refresh),
+                      onPressed: () {
+                        crudObj.getdatad().then((results) {
+                          setState(() {
+                            designprojects = results;
+                            temp2 = designprojects.documents.length;
+                            if (temp2 % 2 == 0) {
+                              temp2 = temp2 * 120;
+                              temp3 = temp2.toDouble();
+                            } else {
+                              // temp = projects.documents.length;
+                              temp2 = temp2 + 1;
+                              temp2 = temp2 * 120;
+                              temp3 = temp2.toDouble();
+                            }
+                          });
+                        });
+                      })
+                ],
               ),
             ),
             SizedBox(height: 30),
@@ -655,7 +680,15 @@ class _MyHomePageState extends State<MyDesignPage1> {
                       icon: Image.network(
                           designprojects.documents[index].data['image']),
                       onPressed: () {
-                        Navigator.pushNamed(context, 'detailspage');
+                         Navigator.push(
+                            context,
+                            EnterExitRoute(
+                                exitPage: MyDesignPage1(),
+                                enterPage: MyDetailsPage(
+                                    designprojects.documents[index].data['title'],
+                                    designprojects.documents[index].data['desc'],
+                                    designprojects.documents[index].data['image']
+                                    )));
                       },
                     ),
                   ),

@@ -63,7 +63,7 @@ class _MyHomePageState extends State<MyAppPage1> {
     crudObj.getdata().then((results) {
       setState(() {
         projects = results;
-      temp21 = projects.documents.length;
+        temp21 = projects.documents.length;
         if (temp21 % 2 == 0) {
           temp21 = temp21 * 120;
           temp31 = temp21.toDouble();
@@ -352,10 +352,19 @@ class _MyHomePageState extends State<MyAppPage1> {
                       icon: Icon(Icons.refresh),
                       onPressed: () {
                         crudObj.getdata().then((results) {
-                          crudObj.getdata().then((results) {
-                            setState(() {
-                              projects = results;
-                            });
+                          setState(() {
+                            projects = results;
+                            temp21 = projects.documents.length;
+                            if (temp21 % 2 == 0) {
+                              temp21 = temp21 * 120;
+                              temp31 = temp21.toDouble();
+                            } else {
+                              // temp = projects.documents.length;
+                              temp21 = temp21 + 1;
+                              temp21 = temp21 * 120;
+                              temp31 = temp21.toDouble();
+                            }
+                            print('$temp31');
                           });
                         });
                       }),
@@ -414,7 +423,9 @@ class _MyHomePageState extends State<MyAppPage1> {
                                 exitPage: MyAppPage1(),
                                 enterPage: MyDetailsPage(
                                     projects.documents[index].data['title'],
-                                    projects.documents[index].data['desc'])));
+                                    projects.documents[index].data['desc'],
+                                    projects.documents[index].data['image']
+                                    )));
                       },
                     ),
                   ),

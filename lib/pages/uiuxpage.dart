@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/forms/uiuxformpage.dart';
 import 'package:portfolio/pages/apppage.dart';
+import 'package:portfolio/pages/projectdetailspage.dart';
 import 'package:portfolio/services/crud.dart';
 
 class MyuiuxPage extends StatefulWidget {
@@ -45,9 +46,9 @@ class _MyUiuxPageState extends State<MyuiuxPage> {
         elevation: 0.0,
       ),
       drawer: ClipRRect(
-         borderRadius: BorderRadius.vertical(
+        borderRadius: BorderRadius.vertical(
             top: Radius.circular(40.0), bottom: Radius.circular(40.0)),
-              child: Drawer(
+        child: Drawer(
           child: Container(
             color: Colors.white,
             child: ListView(
@@ -220,8 +221,11 @@ class _MyUiuxPageState extends State<MyuiuxPage> {
             Center(
               child: GestureDetector(
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => uiuxformpage('UI / UX for Mobile Applications')));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              uiuxformpage('UI / UX for Mobile Applications')));
                 },
                 child: new Container(
                   height: 50.00,
@@ -251,8 +255,11 @@ class _MyUiuxPageState extends State<MyuiuxPage> {
             Center(
               child: GestureDetector(
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) =>uiuxformpage('UI / UX for Websites')));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              uiuxformpage('UI / UX for Websites')));
                 },
                 child: new Container(
                   height: 50.00,
@@ -282,8 +289,11 @@ class _MyUiuxPageState extends State<MyuiuxPage> {
             Center(
               child: GestureDetector(
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) =>uiuxformpage('UI / UX for Smart TV Applications')));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => uiuxformpage(
+                              'UI / UX for Smart TV Applications')));
                 },
                 child: new Container(
                   height: 50.00,
@@ -313,8 +323,11 @@ class _MyUiuxPageState extends State<MyuiuxPage> {
             Center(
               child: GestureDetector(
                 onTap: () {
-                 Navigator.push(context,
-                      MaterialPageRoute(builder: (context) =>uiuxformpage('Other UI / UX Projects')));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              uiuxformpage('Other UI / UX Projects')));
                 },
                 child: new Container(
                   height: 50.00,
@@ -359,6 +372,16 @@ class _MyUiuxPageState extends State<MyuiuxPage> {
                         crudObj.getdatau().then((results) {
                           setState(() {
                             uiuxprojects = results;
+                            temp2 = uiuxprojects.documents.length;
+                            if (temp2 % 2 == 0) {
+                              temp2 = temp2 * 120;
+                              temp3 = temp2.toDouble();
+                            } else {
+                              // temp = projects.documents.length;
+                              temp2 = temp2 + 1;
+                              temp2 = temp2 * 120;
+                              temp3 = temp2.toDouble();
+                            }
                           });
                         });
                       }),
@@ -405,7 +428,15 @@ class _MyUiuxPageState extends State<MyuiuxPage> {
                       icon: Image.network(
                           uiuxprojects.documents[index].data['image']),
                       onPressed: () {
-                        Navigator.pushNamed(context, 'detailspage');
+                        Navigator.push(
+                            context,
+                            EnterExitRoute(
+                                exitPage: MyuiuxPage(),
+                                enterPage: MyDetailsPage(
+                                    uiuxprojects.documents[index].data['title'],
+                                    uiuxprojects.documents[index].data['desc'],
+                                    uiuxprojects.documents[index].data['image']
+                                    )));
                       },
                     ),
                   ),

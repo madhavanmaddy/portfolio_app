@@ -413,7 +413,7 @@ class _designformpageState extends State<designformpage> {
                               ),
                             ),
                             onPressed: () {
-                              Firestore.instance.collection('app').add({
+                              Firestore.instance.collection('design').add({
                                 'projectName': projectName,
                                 'desc': desc,
                                 'special': special,

@@ -92,16 +92,53 @@ class _overallprojectspageState extends State<overallprojectspage> {
                   crudObj.getdata().then((results) {
                     setState(() {
                       projects = results;
+                      temp = projects.documents.length;
+                      if (temp % 2 == 0) {
+                        temp = temp * 113;
+                        temp1 = temp.toDouble();
+                      } else {
+                        // temp = projects.documents.length;
+                        temp = temp + 1;
+                        temp = temp * 113;
+                        temp1 = temp.toDouble();
+                      }
+                      // temp = projects.documents.length;
+                      // temp = temp * 113;
+                      // temp1 = temp.toDouble();
                     });
                   });
                   crudObj.getdatad().then((results) {
                     setState(() {
                       designprojects = results;
+                      temp2 = designprojects.documents.length;
+                      if (temp2 % 2 == 0) {
+                        temp2 = temp2 * 120;
+                        temp3 = temp2.toDouble();
+                      } else {
+                        // temp = projects.documents.length;
+                        temp2 = temp2 + 1;
+                        temp2 = temp2 * 120;
+                        temp3 = temp2.toDouble();
+                      }
+                      // temp2 = temp2 * 120;
+                      // temp3 = temp2.toDouble();
                     });
                   });
                   crudObj.getdatau().then((results) {
                     setState(() {
                       uiuxprojects = results;
+                      temp4 = uiuxprojects.documents.length;
+                      if (temp4 % 2 == 0) {
+                        temp4 = temp4 * 120;
+                        temp5 = temp4.toDouble();
+                      } else {
+                        // temp = projects.documents.length;
+                        temp4 = temp4 + 1;
+                        temp4 = temp4 * 120;
+                        temp5 = temp4.toDouble();
+                      }
+                      // temp4 = temp4 * 120;
+                      // temp5 = temp4.toDouble();
                     });
                   });
                 },
@@ -239,8 +276,10 @@ class _overallprojectspageState extends State<overallprojectspage> {
                         context,
                         MaterialPageRoute(
                             builder: (context) => MyDetailsPage(
-                                projects.documents[index].data['title'],
-                                projects.documents[index].data['desc'])),
+                                  projects.documents[index].data['title'],
+                                  projects.documents[index].data['desc'],
+                                  projects.documents[index].data['image'],
+                                )),
                       );
                     },
                   ),
