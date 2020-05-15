@@ -73,41 +73,41 @@ class MyApp extends StatelessWidget {
 }
 
 class Splash extends StatefulWidget {
-    @override
-    SplashState createState() => new SplashState();
+  @override
+  SplashState createState() => new SplashState();
 }
 
 class SplashState extends State<Splash> {
-    Future checkFirstSeen() async {
-        SharedPreferences prefs = await SharedPreferences.getInstance();
-        bool _seen = (prefs.getBool('seen') ?? false);
+  Future checkFirstSeen() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool _seen = (prefs.getBool('seen') ?? false);
 
-        if (_seen) {
-        Navigator.of(context).pushReplacement(
-            new MaterialPageRoute(builder: (context) => new MyHomePage()));
-        } else {
-        await prefs.setBool('seen', true);
-        Navigator.of(context).pushReplacement(
-            new MaterialPageRoute(builder: (context) => new WelcomePageCrousel()));
-        }
+    if (_seen) {
+      Navigator.of(context).pushReplacement(
+          new MaterialPageRoute(builder: (context) => new MyHomePage()));
+    } else {
+      await prefs.setBool('seen', true);
+      Navigator.of(context).pushReplacement(new MaterialPageRoute(
+          builder: (context) => new WelcomePageCrousel()));
     }
+  }
 
-    @override
-    void initState() {
-        super.initState();
-        new Timer(new Duration(milliseconds: 200), () {
-        checkFirstSeen();
-        });
-    }
+  @override
+  void initState() {
+    super.initState();
+    new Timer(new Duration(milliseconds: 200), () {
+      checkFirstSeen();
+    });
+  }
 
-    @override
-    Widget build(BuildContext context) {
-        return new Scaffold(
-        body: new Center(
-            child: CircularProgressIndicator(),
-        ),
-        );
-    }
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      body: new Center(
+        child: CircularProgressIndicator(),
+      ),
+    );
+  }
 }
 
 class MyHomePage extends StatefulWidget {
@@ -119,31 +119,26 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   final FirebaseMessaging _messaging = FirebaseMessaging();
   final List<Message> messages = [];
-  
+
   @override
-  void initState(){
+  void initState() {
     super.initState();
-    _messaging.configure(
-      onMessage: (Map<String, dynamic> message) async {
-        print("onMessage: $message");
-        final notification = message ['notification'];
-        setState(() {
-          messages.add(Message (title: notification['title'],body:notification['body']));
-        });
-      },
-      onLaunch: (Map<String,dynamic> message) async {
-        print("onLaunch : $message");
-      },
-      onResume: (Map<String,dynamic> message) async {
-        print("onResume : $message");
-      }
-    );
+    _messaging.configure(onMessage: (Map<String, dynamic> message) async {
+      print("onMessage: $message");
+      final notification = message['notification'];
+      setState(() {
+        messages.add(
+            Message(title: notification['title'], body: notification['body']));
+      });
+    }, onLaunch: (Map<String, dynamic> message) async {
+      print("onLaunch : $message");
+    }, onResume: (Map<String, dynamic> message) async {
+      print("onResume : $message");
+    });
     _messaging.requestNotificationPermissions(
-      const IosNotificationSettings(sound: true,badge:true,alert:true)
-    );
+        const IosNotificationSettings(sound: true, badge: true, alert: true));
   }
 
   @override
@@ -155,141 +150,149 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Colors.white,
         elevation: 0.0,
       ),
-      drawer: Drawer(
-        child: Container(
-          color: Colors.white,
-          child: ListView(
-            scrollDirection: Axis.vertical,
-            // Important: Remove any padding from the ListView.
-            padding: EdgeInsets.symmetric(vertical: 40),
-            children: <Widget>[
-              // DrawerHeader(
-              //   child: Padding(
-              //     padding: const EdgeInsets.symmetric(vertical: 18.0),
-              //     child: Center(
-              //         child: Text(
-              //           'Corona Virus Tracker ',
-              //           style: TextStyle(fontSize: 27, color: Colors.white,fontWeight: FontWeight.bold),
-              //         )),
-              //   ),
-              //   decoration: BoxDecoration(
-              //       color: Colors.blue[500],
-              //       //
-              //       ),
-              // ),
-              SizedBox(height: 40),
-              Image.asset('assets/images/menu.png'),
-              SizedBox(height: 30),
-              ListTile(
-                  title: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        'Recent projects',
-                        style: TextStyle(
-                          fontSize: 22,
-                          fontFamily: "Circular Air",
-                          // fontWeight: FontWeight.bold
+      drawer: ClipRRect(
+        borderRadius: BorderRadius.vertical(
+            top: Radius.circular(40.0), bottom: Radius.circular(40.0)),
+        child: Drawer(
+          child: Container(
+            color: Colors.white,
+            child: ListView(
+              scrollDirection: Axis.vertical,
+              // Important: Remove any padding from the ListView.
+              padding: EdgeInsets.symmetric(vertical: 40),
+              children: <Widget>[
+                // DrawerHeader(
+                //   child: Padding(
+                //     padding: const EdgeInsets.symmetric(vertical: 18.0),
+                //     child: Center(
+                //         child: Text(
+                //           'Corona Virus Tracker ',
+                //           style: TextStyle(fontSize: 27, color: Colors.white,fontWeight: FontWeight.bold),
+                //         )),
+                //   ),
+                //   decoration: BoxDecoration(
+                //       color: Colors.blue[500],
+                //       //
+                //       ),
+                // ),
+                SizedBox(height: 40),
+                Image.asset('assets/images/menu.png'),
+                SizedBox(height: 30),
+                ListTile(
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          'Recent projects',
+                          style: TextStyle(
+                            fontSize: 22,
+                            fontFamily: "Circular Air",
+                            // fontWeight: FontWeight.bold
+                          ),
                         ),
-                      ),
-                      Icon(Icons.arrow_forward),
-                    ],
-                  ),
+                        Icon(Icons.arrow_forward),
+                      ],
+                    ),
+                    onTap: () {
+                      Navigator.pushNamed(context, 'overallprojectspage');
+                    }),
+                GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, 'overallprojectspage');
-                  }),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, 'apppage');
-                },
-                child: ListTile(
-                  title: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        'App development',
-                        style: TextStyle(fontSize: 22),
-                      ),
-                      Icon(Icons.arrow_forward),
-                    ],
+                    Navigator.pushNamed(context, 'apppage');
+                  },
+                  child: ListTile(
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          'App development',
+                          style: TextStyle(fontSize: 22),
+                        ),
+                        Icon(Icons.arrow_forward),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        EnterExitRoute(
+                            exitPage: MyHomePage(),
+                            enterPage: MyDesignPage1()));
+                  },
+                  child: ListTile(
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          'Graphic Design',
+                          style: TextStyle(fontSize: 22),
+                        ),
+                        Icon(Icons.arrow_forward),
+                      ],
+                    ),
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        EnterExitRoute(
+                            exitPage: MyHomePage(), enterPage: MyuiuxPage()));
+                  },
+                  child: ListTile(
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          'UI/UX Design',
+                          style: TextStyle(fontSize: 22),
+                        ),
+                        Icon(Icons.arrow_forward),
+                      ],
+                    ),
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
                       context,
-                      EnterExitRoute(
-                          exitPage: MyHomePage(), enterPage: MyDesignPage1()));
-                },
-                child: ListTile(
-                  title: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        'Graphic Design',
-                        style: TextStyle(fontSize: 22),
-                      ),
-                      Icon(Icons.arrow_forward),
-                    ],
+                      MaterialPageRoute(builder: (context) => Mycontact()),
+                    );
+                  },
+                  child: ListTile(
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          'Contact us',
+                          style: TextStyle(fontSize: 22),
+                        ),
+                        Icon(Icons.arrow_forward),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, 'designpage');
-                },
-                child: ListTile(
-                  title: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        'UI/UX Design',
-                        style: TextStyle(fontSize: 22),
-                      ),
-                      Icon(Icons.arrow_forward),
-                    ],
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, 'designpage');
+                  },
+                  child: ListTile(
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          'Developer Contact',
+                          style: TextStyle(fontSize: 22),
+                        ),
+                        Icon(Icons.arrow_forward),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Mycontact()),
-                  );
-                },
-                child: ListTile(
-                  title: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        'Contact us',
-                        style: TextStyle(fontSize: 22),
-                      ),
-                      Icon(Icons.arrow_forward),
-                    ],
-                  ),
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, 'designpage');
-                },
-                child: ListTile(
-                  title: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        'Developer Contact',
-                        style: TextStyle(fontSize: 22),
-                      ),
-                      Icon(Icons.arrow_forward),
-                    ],
-                  ),
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
@@ -372,7 +375,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                             SizedBox(height: 7),
                             Text(
-                              "We help us to build efficient applications\nusing flutter. Enjoy the power of fast, \nefficient, super cool apps with iOS and\n web versions too.",
+                              "We help us to build efficient applications\nusing flutter. Enjoy the power of fast, \nefficient, super cool apps with iOS and \nweb versions too.",
                               overflow: TextOverflow.clip,
                               style: TextStyle(
                                 fontFamily: "Circular Air",
@@ -439,7 +442,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                             SizedBox(height: 7),
                             Text(
-                              "We help us to build efficient applications\nusing flutter. Enjoy the power of fast, \nefficient, super cool apps with iOS and\nweb versions too.",
+                              "Create super cool graphic designs \nbeyond your creativity and make your \nproducts reach a wider group of audience",
                               overflow: TextOverflow.clip,
                               style: TextStyle(
                                 fontFamily: "Circular Air",
@@ -506,7 +509,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                             SizedBox(height: 7),
                             Text(
-                              "We help us to build efficient applications\nusing flutter. Enjoy the power of fast, \nefficient, super cool apps with iOS and\nweb versions too.",
+                              "Cool UI makes user to love your product \nmore. We hep us to make your products \nfunction smooth and user friendly and \nmake more out of your users.",
                               overflow: TextOverflow.clip,
                               style: TextStyle(
                                 fontFamily: "Circular Air",
