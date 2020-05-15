@@ -37,39 +37,64 @@ class _teamspageState extends State<teamspage> {
                       style: TextStyle(
                         fontSize: 25.0,
                       ))),
-              SizedBox(height: 20.0),
-              Image.asset('assets/images/mockups.png'),
+              SizedBox(height: 10.0),
+              // Image.asset('assets/images/mockups.png'),
               SizedBox(height: 20.0),
               devs != null
                   ? SizedBox(
-                      height: 500.0,
+                      height: 1000.0,
                       child: ListView.builder(
                         itemCount: devs.documents.length,
                         itemBuilder: (_, index) {
                           return Material(
                             child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: <Widget>[
-                                Image.network(
-                                  devs.documents[index].data['image'],
-                                  height: 150.0,
-                                  width: 150.0,
-                                ),
-                                SizedBox(width: 20.0),
                                 Column(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
                                   children: <Widget>[
+                                    CircleAvatar(
+                                        radius: 50,
+                                        backgroundImage: AssetImage(
+                                            'assets/images/sms.png')),
+                                    SizedBox(height: 15),
                                     Text(
-                                      devs.documents[index].data['name'],
-                                      style: TextStyle(fontSize: 25.0),
+                                      'Akil S',
+                                      style: TextStyle(
+                                        fontFamily: "Circular Air",
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 16,
+                                        color: Color(0xff101010),
+                                      ),
                                     ),
-                                    SizedBox(height: 20.0),
-                                    Text(
-                                      devs.documents[index].data['pos'],
-                                      style: TextStyle(fontSize: 15.0),
-                                    ),
+                                    SizedBox(height: 15),
+                                    Text('Graphic Designer')
                                   ],
                                 ),
+                                SizedBox(
+                                  width: 20,
+                                ),
+                                Column(
+                                  children: <Widget>[
+                                    CircleAvatar(
+                                        radius: 50,
+                                        backgroundImage: AssetImage(
+                                            'assets/images/sms.png')),
+                                    SizedBox(height: 15),
+                                    Text(
+                                      'Madhavan S',
+                                      style: TextStyle(
+                                        fontFamily: "Circular Air",
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 16,
+                                        color: Color(0xff101010),
+                                      ),
+                                    ),
+                                    SizedBox(height: 15),
+                                    Text('Graphic Designer'),
+                                    SizedBox(height: 20),
+                                  ],
+                                ),
+                                // Image.asset('assets/images/sms.png')
                               ],
                             ),
                           );
