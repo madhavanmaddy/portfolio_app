@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/forms/uiuxformpage.dart';
 import 'package:portfolio/pages/apppage.dart';
+import 'package:portfolio/pages/contact.dart';
 import 'package:portfolio/pages/projectdetailspage.dart';
 import 'package:portfolio/services/crud.dart';
 
@@ -91,6 +92,23 @@ class _MyUiuxPageState extends State<MyuiuxPage> {
                     onTap: () {
                       Navigator.pushNamed(context, 'overallprojectspage');
                     }),
+                    GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, 'teamspage');
+                  },
+                  child: ListTile(
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          'Teams',
+                          style: TextStyle(fontSize: 22),
+                        ),
+                        Icon(Icons.arrow_forward),
+                      ],
+                    ),
+                  ),
+                ),
                 GestureDetector(
                   onTap: () {
                     Navigator.pushNamed(context, 'apppage');
@@ -127,7 +145,10 @@ class _MyUiuxPageState extends State<MyuiuxPage> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, 'designpage');
+                     Navigator.push(
+                        context,
+                        EnterExitRoute(
+                            exitPage: MyuiuxPage(), enterPage: MyuiuxPage()));
                   },
                   child: ListTile(
                     title: Row(
@@ -144,7 +165,10 @@ class _MyUiuxPageState extends State<MyuiuxPage> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, 'designpage');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Mycontact()),
+                    );
                   },
                   child: ListTile(
                     title: Row(
@@ -159,23 +183,7 @@ class _MyUiuxPageState extends State<MyuiuxPage> {
                     ),
                   ),
                 ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.pushNamed(context, 'designpage');
-                  },
-                  child: ListTile(
-                    title: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Text(
-                          'Developer Contact',
-                          style: TextStyle(fontSize: 22),
-                        ),
-                        Icon(Icons.arrow_forward),
-                      ],
-                    ),
-                  ),
-                ),
+                
               ],
             ),
           ),

@@ -150,6 +150,23 @@ class _MyHomePageState extends State<MyDesignPage1> {
                     onTap: () {
                       Navigator.pushNamed(context, 'overallprojectspage');
                     }),
+                    GestureDetector(
+                  onTap: () {
+                   Navigator.pushNamed(context, 'teamspage');
+                  },
+                  child: ListTile(
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          'Teams',
+                          style: TextStyle(fontSize: 22),
+                        ),
+                        Icon(Icons.arrow_forward),
+                      ],
+                    ),
+                  ),
+                ),
                 GestureDetector(
                   onTap: () {
                     Navigator.pushNamed(context, 'apppage');
@@ -228,23 +245,7 @@ class _MyHomePageState extends State<MyDesignPage1> {
                     ),
                   ),
                 ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.pushNamed(context, 'designpage');
-                  },
-                  child: ListTile(
-                    title: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Text(
-                          'Developer Contact',
-                          style: TextStyle(fontSize: 22),
-                        ),
-                        Icon(Icons.arrow_forward),
-                      ],
-                    ),
-                  ),
-                ),
+                
               ],
             ),
           ),
