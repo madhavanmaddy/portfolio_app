@@ -40,74 +40,62 @@ class _teamspageState extends State<teamspage> {
               SizedBox(height: 10.0),
               // Image.asset('assets/images/mockups.png'),
               SizedBox(height: 20.0),
-              devs != null
-                  ? SizedBox(
-                      height: 1000.0,
-                      child: ListView.builder(
-                        itemCount: devs.documents.length,
-                        itemBuilder: (_, index) {
-                          return Material(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: <Widget>[
-                                Column(
-                                  children: <Widget>[
-                                    CircleAvatar(
-                                        radius: 50,
-                                        backgroundImage: AssetImage(
-                                            'assets/images/sms.png')),
-                                    SizedBox(height: 15),
-                                    Text(
-                                      'Akil S',
-                                      style: TextStyle(
-                                        fontFamily: "Circular Air",
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 16,
-                                        color: Color(0xff101010),
-                                      ),
-                                    ),
-                                    SizedBox(height: 15),
-                                    Text('Graphic Designer')
-                                  ],
-                                ),
-                                SizedBox(
-                                  width: 20,
-                                ),
-                                Column(
-                                  children: <Widget>[
-                                    CircleAvatar(
-                                        radius: 50,
-                                        backgroundImage: AssetImage(
-                                            'assets/images/sms.png')),
-                                    SizedBox(height: 15),
-                                    Text(
-                                      'Madhavan S',
-                                      style: TextStyle(
-                                        fontFamily: "Circular Air",
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 16,
-                                        color: Color(0xff101010),
-                                      ),
-                                    ),
-                                    SizedBox(height: 15),
-                                    Text('Graphic Designer'),
-                                    SizedBox(height: 20),
-                                  ],
-                                ),
-                                // Image.asset('assets/images/sms.png')
-                              ],
-                            ),
-                          );
-                        },
-                      ),
-                    )
-                  : Center(
-                      child: CircularProgressIndicator(),
-                    )
+              devsgrid(),
             ],
           ),
         ),
       ),
     );
   }
-}
+  Widget devsgrid(){
+     return devs != null
+        ? SizedBox(
+            height: 750,
+            
+            child: GridView.builder(
+
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 8.0,
+              ),
+              itemCount: devs.documents.length,
+              itemBuilder: (_, index) {
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Color(0xffffffff),
+                      boxShadow: [
+                        BoxShadow(
+                          offset: Offset(0.00, 3.00),
+                          color: Color(0xff000000).withOpacity(0.09),
+                          blurRadius: 30,
+                        ),
+                      ],
+                      borderRadius: BorderRadius.circular(33.00),
+                    ),
+                    child: Column(
+                      children: <Widget>[
+                        SizedBox(height:10),
+                       CircleAvatar(
+                         radius: 50,
+                            backgroundImage: NetworkImage(
+                                devs.documents[index].data['image']),
+                          ),                                               
+                        SizedBox(height:5),
+                        Text(devs.documents[index].data['name']),
+                        SizedBox(height:5),
+                        Text(devs.documents[index].data['pos']),
+                      ],
+                    ),
+                  ),
+                );
+              },
+            ),
+          )
+        : Center(
+            child: CircularProgressIndicator(),
+          );
+  }
+  }
+
