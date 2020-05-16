@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/pages/contact.dart';
+import 'package:portfolio/pages/uiuxpage.dart';
 
 import 'package:portfolio/services/crud.dart';
 import 'package:portfolio/pages/projectdetailspage.dart';
@@ -131,6 +133,23 @@ class _MyHomePageState extends State<MyAppPage1> {
                   onTap: () {
                     Navigator.pushNamed(context, 'overallprojectspage');
                   }),
+                   GestureDetector(
+                onTap: () {
+                 Navigator.pushNamed(context, 'teamspage');
+                },
+                child: ListTile(
+                  title: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text(
+                        'Teams',
+                        style: TextStyle(fontSize: 22),
+                      ),
+                      Icon(Icons.arrow_forward),
+                    ],
+                  ),
+                ),
+              ),
               GestureDetector(
                 onTap: () {
                   Navigator.pushNamed(context, 'apppage');
@@ -167,7 +186,10 @@ class _MyHomePageState extends State<MyAppPage1> {
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(context, 'designpage');
+                   Navigator.push(
+                        context,
+                        EnterExitRoute(
+                            exitPage: MyAppPage1(), enterPage: MyuiuxPage()));
                 },
                 child: ListTile(
                   title: Row(
@@ -184,7 +206,10 @@ class _MyHomePageState extends State<MyAppPage1> {
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(context, 'designpage');
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Mycontact()),
+                    );
                 },
                 child: ListTile(
                   title: Row(
@@ -199,23 +224,7 @@ class _MyHomePageState extends State<MyAppPage1> {
                   ),
                 ),
               ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, 'designpage');
-                },
-                child: ListTile(
-                  title: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        'Developer Contact',
-                        style: TextStyle(fontSize: 22),
-                      ),
-                      Icon(Icons.arrow_forward),
-                    ],
-                  ),
-                ),
-              ),
+             
             ],
           ),
         ),

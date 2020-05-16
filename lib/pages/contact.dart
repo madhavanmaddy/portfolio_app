@@ -51,7 +51,7 @@ class _MycontactState extends State<Mycontact> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Text(
-                        'Contact',
+                        'Recent Projects',
                         style: TextStyle(
                           fontSize: 22,
                           fontFamily: "Circular Air",
@@ -64,6 +64,23 @@ class _MycontactState extends State<Mycontact> {
                   onTap: () {
                     Navigator.pushNamed(context, 'overallprojectspage');
                   }),
+                  GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, 'teamspage');
+                },
+                child: ListTile(
+                  title: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text(
+                        'Teams',
+                        style: TextStyle(fontSize: 22),
+                      ),
+                      Icon(Icons.arrow_forward),
+                    ],
+                  ),
+                ),
+              ),
               GestureDetector(
                 onTap: () {
                   Navigator.pushNamed(context, 'apppage');
@@ -117,7 +134,10 @@ class _MycontactState extends State<Mycontact> {
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(context, 'designpage');
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Mycontact()),
+                    );
                 },
                 child: ListTile(
                   title: Row(
@@ -132,23 +152,7 @@ class _MycontactState extends State<Mycontact> {
                   ),
                 ),
               ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, 'designpage');
-                },
-                child: ListTile(
-                  title: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        'Developer Contact',
-                        style: TextStyle(fontSize: 22),
-                      ),
-                      Icon(Icons.arrow_forward),
-                    ],
-                  ),
-                ),
-              ),
+              
             ],
           ),
         ),
