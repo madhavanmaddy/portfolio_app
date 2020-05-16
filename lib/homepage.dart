@@ -14,6 +14,32 @@ import 'package:flutter/painting.dart';
 import 'model/message.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+class SizeConfig {
+  static MediaQueryData _mediaQueryData;
+  static double screenWidth;
+  static double screenHeight;
+  static double blockSizeHorizontal;
+  static double blockSizeVertical;
+  static double _safeAreaHorizontal;
+  static double _safeAreaVertical;
+  static double safeBlockHorizontal;
+  static double safeBlockVertical;
+
+  void init(BuildContext context) {
+    _mediaQueryData = MediaQuery.of(context);
+    screenWidth = _mediaQueryData.size.width;
+    screenHeight = _mediaQueryData.size.height;
+    blockSizeHorizontal = screenWidth / 100;
+    blockSizeVertical = screenHeight / 100;
+    _safeAreaHorizontal =
+        _mediaQueryData.padding.left + _mediaQueryData.padding.right;
+    _safeAreaVertical =
+        _mediaQueryData.padding.top + _mediaQueryData.padding.bottom;
+    safeBlockHorizontal = (screenWidth - _safeAreaHorizontal) / 100;
+    safeBlockVertical = (screenHeight - _safeAreaVertical) / 100;
+  }
+}
+
 class EnterExitRoute extends PageRouteBuilder {
   final Widget enterPage;
   final Widget exitPage;
@@ -64,7 +90,7 @@ class MyApp extends StatelessWidget {
         'thankyoupage': (_) => MyThankPage1(),
         'uiuxpage': (_) => MyuiuxPage(),
         'homepage': (_) => MyHomePage(),
-        'teamspage':(_)=>teamspage(),
+        'teamspage': (_) => teamspage(),
       },
       debugShowCheckedModeBanner: false,
       home: Splash(),
@@ -152,7 +178,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       drawer: ClipRRect(
         borderRadius: BorderRadius.vertical(
-            top: Radius.circular(40.0), bottom: Radius.circular(40.0)),
+            top: Radius.circular(20.0), bottom: Radius.circular(20.0)),
         child: Drawer(
           child: Container(
             color: Colors.white,
@@ -196,7 +222,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     onTap: () {
                       Navigator.pushNamed(context, 'overallprojectspage');
                     }),
-                     GestureDetector(
+                GestureDetector(
                   onTap: () {
                     Navigator.pushNamed(context, 'teamspage');
                   },
@@ -291,7 +317,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 ),
-               
               ],
             ),
           ),
@@ -370,7 +395,8 @@ class _MyHomePageState extends State<MyHomePage> {
                               style: TextStyle(
                                 fontFamily: "Circular Air",
                                 fontWeight: FontWeight.w600,
-                                fontSize: 16,
+                                fontSize:
+                                    (MediaQuery.of(context).size.width) * 0.04,
                                 color: Color(0xff101010),
                               ),
                             ),
@@ -381,7 +407,8 @@ class _MyHomePageState extends State<MyHomePage> {
                               style: TextStyle(
                                 fontFamily: "Circular Air",
                                 fontWeight: FontWeight.w600,
-                                fontSize: 10,
+                                fontSize:
+                                    (MediaQuery.of(context).size.width) * 0.026,
                                 color: Color(0xff101010),
                               ),
                             ),
@@ -437,18 +464,20 @@ class _MyHomePageState extends State<MyHomePage> {
                               style: TextStyle(
                                 fontFamily: "Circular Air",
                                 fontWeight: FontWeight.w600,
-                                fontSize: 16,
+                                fontSize:
+                                    (MediaQuery.of(context).size.width) * 0.04,
                                 color: Color(0xff101010),
                               ),
                             ),
                             SizedBox(height: 7),
                             Text(
-                              "Create super cool graphic designs \nbeyond your creativity and make your \nproducts reach a wider group of audience",
+                              "Create super cool graphic designs \nbeyond your creativity and make your \nproducts reach a wider group of\naudience",
                               overflow: TextOverflow.clip,
                               style: TextStyle(
                                 fontFamily: "Circular Air",
                                 fontWeight: FontWeight.w600,
-                                fontSize: 10,
+                                fontSize:
+                                    (MediaQuery.of(context).size.width) * 0.026,
                                 color: Color(0xff101010),
                               ),
                             ),
@@ -504,20 +533,25 @@ class _MyHomePageState extends State<MyHomePage> {
                               style: TextStyle(
                                 fontFamily: "Circular Air",
                                 fontWeight: FontWeight.w600,
-                                fontSize: 16,
+                                fontSize:
+                                    (MediaQuery.of(context).size.width) * 0.04,
                                 color: Color(0xff101010),
                               ),
                             ),
                             SizedBox(height: 7),
-                            Text(
-                              "Cool UI makes user to love your product \nmore. We hep us to make your products \nfunction smooth and user friendly and \nmake more out of your users.",
-                              overflow: TextOverflow.clip,
-                              style: TextStyle(
-                                fontFamily: "Circular Air",
-                                fontWeight: FontWeight.w600,
-                                // height: 1.2,
-                                fontSize: 10,
-                                color: Color(0xff101010),
+                            Expanded(
+                              child: Text(
+                                "Cool UI makes user to love your product \nmore. We hep us to make your products \nfunction smooth and user friendly and \nmake more out of your users.",
+                                overflow: TextOverflow.clip,
+                                style: TextStyle(
+                                  fontFamily: "Circular Air",
+                                  fontWeight: FontWeight.w600,
+                                  // height: 1.2,
+                                  fontSize:
+                                      (MediaQuery.of(context).size.width) *
+                                          0.025,
+                                  color: Color(0xff101010),
+                                ),
                               ),
                             ),
                           ],
