@@ -421,7 +421,7 @@ class _uiuxformpageState extends State<uiuxformpage> {
               ),
             ),
             SizedBox(
-              height: 100,
+              height: 300,
             )
           ],
         ),

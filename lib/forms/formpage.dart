@@ -46,7 +46,7 @@ class _formpageState extends State<formpage> {
                     'Lets register your $title here',
                     // title,
                     style: TextStyle(
-                       color: Color(0xff4a148c),
+                      color: Color(0xff4a148c),
                       fontSize: 22,
                       fontWeight: FontWeight.bold,
                     ),
@@ -65,7 +65,8 @@ class _formpageState extends State<formpage> {
                   height: 30,
                 ),
                 Text('Project Details',
-                    style: TextStyle( color: Color(0xff4a148c),
+                    style: TextStyle(
+                      color: Color(0xff4a148c),
                       fontFamily: 'Circular Air',
                       fontSize: 20.0,
                       fontWeight: FontWeight.bold,
@@ -232,15 +233,16 @@ class _formpageState extends State<formpage> {
                   },
                   title: new Text('Others'),
                 ),
-                SizedBox(height: 30,),
+                SizedBox(
+                  height: 30,
+                ),
                 Text(
                   'Contact Details',
                   style: TextStyle(
                     color: Color(0xff4a148c),
-                      fontFamily: 'Circular Air',
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.bold,
-                    
+                    fontFamily: 'Circular Air',
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
                   ),
                   textAlign: TextAlign.start,
                 ),
@@ -396,9 +398,7 @@ class _formpageState extends State<formpage> {
                                   fontFamily: 'Circular Air',
                                   color: Colors.white),
                             ),
-                            
                           ),
-                          
                           onPressed: () {
                             Firestore.instance.collection('app').add({
                               'projectName': projectName,
@@ -418,12 +418,16 @@ class _formpageState extends State<formpage> {
                               category = '';
                             });
                           })
-
                     ],
                   ),
                 ),
-                SizedBox(height: 100,),
+                SizedBox(
+                  height: 100,
+                ),
               ],
+            ),
+            SizedBox(
+              height: 300,
             ),
           ],
         ),
