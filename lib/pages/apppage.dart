@@ -60,8 +60,10 @@ class _MyHomePageState extends State<MyAppPage1> {
   double temp31;
   int temp21;
 
+    
   @override
   void initState() {
+     
     crudObj.getdata().then((results) {
       setState(() {
         projects = results;
@@ -84,6 +86,8 @@ class _MyHomePageState extends State<MyAppPage1> {
 
   @override
   Widget build(BuildContext context) {
+    double sw = MediaQuery.of(context).size.width;
+     double sh = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
         iconTheme: new IconThemeData(color: Colors.black),
@@ -96,7 +100,7 @@ class _MyHomePageState extends State<MyAppPage1> {
           child: ListView(
             scrollDirection: Axis.vertical,
             // Important: Remove any padding from the ListView.
-            padding: EdgeInsets.symmetric(vertical: 40),
+            padding: EdgeInsets.symmetric(vertical: sh*0.05),
             children: <Widget>[
               // DrawerHeader(
               //   child: Padding(
@@ -112,9 +116,9 @@ class _MyHomePageState extends State<MyAppPage1> {
               //       //
               //       ),
               // ),
-              SizedBox(height: 40),
+              SizedBox(height: sh*0.025),
               Image.asset('assets/images/menu.png'),
-              SizedBox(height: 30),
+              SizedBox(height: sh*0.035),
               ListTile(
                   title: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -122,7 +126,7 @@ class _MyHomePageState extends State<MyAppPage1> {
                       Text(
                         'Recent projects',
                         style: TextStyle(
-                          fontSize: 22,
+                          fontSize: sw*0.05,
                           fontFamily: "Circular Air",
                           // fontWeight: FontWeight.bold
                         ),
@@ -143,7 +147,7 @@ class _MyHomePageState extends State<MyAppPage1> {
                     children: <Widget>[
                       Text(
                         'Teams',
-                        style: TextStyle(fontSize: 22),
+                        style: TextStyle(fontSize: sw*0.05),
                       ),
                       Icon(Icons.arrow_forward),
                     ],
@@ -160,7 +164,7 @@ class _MyHomePageState extends State<MyAppPage1> {
                     children: <Widget>[
                       Text(
                         'App development',
-                        style: TextStyle(fontSize: 22),
+                        style: TextStyle(fontSize: sw*0.05),
                       ),
                       Icon(Icons.arrow_forward),
                     ],
@@ -177,7 +181,7 @@ class _MyHomePageState extends State<MyAppPage1> {
                     children: <Widget>[
                       Text(
                         'Graphic Design',
-                        style: TextStyle(fontSize: 22),
+                        style: TextStyle(fontSize: sw*0.05),
                       ),
                       Icon(Icons.arrow_forward),
                     ],
@@ -197,7 +201,7 @@ class _MyHomePageState extends State<MyAppPage1> {
                     children: <Widget>[
                       Text(
                         'UI/UX Design',
-                        style: TextStyle(fontSize: 22),
+                        style: TextStyle(fontSize: sw*0.05),
                       ),
                       Icon(Icons.arrow_forward),
                     ],
@@ -217,7 +221,7 @@ class _MyHomePageState extends State<MyAppPage1> {
                     children: <Widget>[
                       Text(
                         'Contact us',
-                        style: TextStyle(fontSize: 22),
+                        style: TextStyle(fontSize: sw*0.05),
                       ),
                       Icon(Icons.arrow_forward),
                     ],
@@ -234,7 +238,7 @@ class _MyHomePageState extends State<MyAppPage1> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            SizedBox(height: 20),
+            SizedBox(height: sh*0.02),
             // Padding(
             //   padding: const EdgeInsets.symmetric(horizontal: 25),
             //   child: new Text(
@@ -255,12 +259,17 @@ class _MyHomePageState extends State<MyAppPage1> {
                 style: TextStyle(
                   fontFamily: "Circular Air",
                   fontWeight: FontWeight.w600,
-                  fontSize: 24,
+                  fontSize: sw*0.06,
                   color: Color(0xff101010),
                 ),
               ),
             ),
-            Image.asset('assets/images/android.png'),
+            Row(
+              children: <Widget>[
+                SizedBox(width:sw*0.05),
+                Image.asset('assets/images/android.png',height: sh*0.4,width: sw*0.9,),
+              ],
+            ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
               child: Text(
@@ -268,13 +277,13 @@ class _MyHomePageState extends State<MyAppPage1> {
                 style: TextStyle(
                   fontFamily: "Circular Air",
                   fontWeight: FontWeight.w600,
-                  fontSize: 16,
+                  fontSize: sw*0.038,
                   color: Color(0xff101010),
                 ),
               ),
             ),
             SizedBox(
-              height: 25,
+              height: sh*0.02,
             ),
             Center(
               child: GestureDetector(
@@ -287,8 +296,8 @@ class _MyHomePageState extends State<MyAppPage1> {
                 },
                 // },
                 child: new Container(
-                  height: 50.00,
-                  width: 370.00,
+                  height: sh*0.06,
+                  width: sw*0.85,
                   decoration: BoxDecoration(
                     color: Color(0xffffffff),
                     boxShadow: [
@@ -309,7 +318,7 @@ class _MyHomePageState extends State<MyAppPage1> {
               ),
             ),
             SizedBox(
-              height: 15,
+              height: sh*0.02,
             ),
             Center(
               child: GestureDetector(
@@ -321,8 +330,8 @@ class _MyHomePageState extends State<MyAppPage1> {
                           enterPage: formpage('Non Commercial Application')));
                 },
                 child: new Container(
-                  height: 50.00,
-                  width: 370.00,
+                  height: sh*0.06,
+                  width: sw*0.85,
                   decoration: BoxDecoration(
                     color: Color(0xffffffff),
                     boxShadow: [
@@ -342,7 +351,7 @@ class _MyHomePageState extends State<MyAppPage1> {
                 ),
               ),
             ),
-            SizedBox(height: 30),
+            SizedBox(height: sh*0.035),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
               child: Row(
@@ -353,7 +362,7 @@ class _MyHomePageState extends State<MyAppPage1> {
                     style: TextStyle(
                       fontFamily: "Circular Air",
                       fontWeight: FontWeight.w600,
-                      fontSize: 16,
+                      fontSize: sw*0.038,
                       color: Color(0xff101010),
                     ),
                   ),
@@ -380,7 +389,7 @@ class _MyHomePageState extends State<MyAppPage1> {
                 ],
               ),
             ),
-            SizedBox(height: 30),
+            SizedBox(height: sh*0.035),
             recentprojects(),
           ],
         ),
@@ -394,6 +403,7 @@ class _MyHomePageState extends State<MyAppPage1> {
     return projects != null
         ? SizedBox(
             height: temp31,
+            width: (MediaQuery.of(context).size.width)*0.90,
             child: GridView.builder(
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
@@ -417,7 +427,9 @@ class _MyHomePageState extends State<MyAppPage1> {
                     ),
                     child: IconButton(
                       icon: Image.network(
-                          projects.documents[index].data['image']),
+                          projects.documents[index].data['image'],
+                          height: (MediaQuery.of(context).size.height)*0.2,
+                          width: (MediaQuery.of(context).size.height)*0.4,),
                       onPressed: () {
                         // Navigator.push(
                         //   context,
