@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -15,6 +16,7 @@ class _designformpageState extends State<designformpage> {
   String desc;
   String contactName;
   String contactNumber;
+  String contactEmail;
   String special;
   int dl, db;
   @override
@@ -194,7 +196,7 @@ class _designformpageState extends State<designformpage> {
                           child: Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 25),
                             child: TextField(
-                              keyboardType: TextInputType.multiline,
+                              keyboardType: TextInputType.number,
                               maxLines: null,
                               decoration: InputDecoration(
                                   border: InputBorder.none, hintText: 'Length',hintStyle: txtstle),
@@ -233,7 +235,7 @@ class _designformpageState extends State<designformpage> {
                           child: Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 25),
                             child: TextField(
-                              keyboardType: TextInputType.multiline,
+                              keyboardType: TextInputType.number,
                               maxLines: null,
                               decoration: InputDecoration(
                                   border: InputBorder.none,
@@ -314,7 +316,6 @@ class _designformpageState extends State<designformpage> {
                       padding: const EdgeInsets.symmetric(horizontal: 25),
                       child: TextField(
                         keyboardType: TextInputType.number,
-                        maxLines: null,
                         decoration: InputDecoration(
                             border: InputBorder.none,
                             hintText: 'Mobile Number',hintStyle: txtstle),
@@ -346,13 +347,12 @@ class _designformpageState extends State<designformpage> {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 25),
                       child: TextField(
-                        keyboardType: TextInputType.number,
-                        maxLines: null,
+                        keyboardType: TextInputType.multiline,
                         decoration: InputDecoration(
                             border: InputBorder.none, hintText: 'E-Mail',hintStyle: txtstle),
                         onChanged: (value) {
                           setState(() {
-                            contactNumber = value;
+                            contactEmail = value;
                           });
                         },
                       ),
@@ -424,6 +424,8 @@ class _designformpageState extends State<designformpage> {
                                 'special': special,
                                 'contactName': contactName,
                                 'contactNumber': contactNumber,
+                                'contactEmail': contactEmail,
+                                'type':title,
                               });
                               Navigator.pushNamed(context, 'thankyoupage');
                               setState(() {
@@ -432,6 +434,7 @@ class _designformpageState extends State<designformpage> {
                                 special = '';
                                 contactName = '';
                                 contactNumber = '';
+                                contactEmail = '';
                               });
                             })
                       ],

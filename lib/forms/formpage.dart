@@ -13,6 +13,7 @@ class _formpageState extends State<formpage> {
   String title;
   String projectName;
   String desc;
+  String contactEmail;
   String contactName;
   String contactNumber;
   String category;
@@ -100,7 +101,6 @@ class _formpageState extends State<formpage> {
                     padding: const EdgeInsets.symmetric(horizontal: 25),
                     child: TextField(
                       keyboardType: TextInputType.multiline,
-                      maxLines: null,
                       decoration: InputDecoration(
                           border: InputBorder.none, hintText: 'Project Name',hintStyle: txtstle),
                       onChanged: (value) {
@@ -274,7 +274,6 @@ class _formpageState extends State<formpage> {
                     padding: const EdgeInsets.symmetric(horizontal: 25),
                     child: TextField(
                       keyboardType: TextInputType.multiline,
-                      maxLines: null,
                       decoration: InputDecoration(
                           border: InputBorder.none, hintText: 'Name',hintStyle: txtstle),
                       onChanged: (value) {
@@ -337,13 +336,12 @@ class _formpageState extends State<formpage> {
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 25),
                     child: TextField(
-                      keyboardType: TextInputType.number,
-                      maxLines: null,
+                      keyboardType: TextInputType.multiline,
                       decoration: InputDecoration(
                           border: InputBorder.none, hintText: 'Email',hintStyle: txtstle),
                       onChanged: (value) {
                         setState(() {
-                          contactNumber = value;
+                          contactEmail = value;
                         });
                       },
                     ),
@@ -415,7 +413,9 @@ class _formpageState extends State<formpage> {
                               'special': special,
                               'contactName': contactName,
                               'contactNumber': contactNumber,
+                              'contactEmail':contactEmail,
                               'category': category,
+                              'type':title,
                             });
                             Navigator.pushNamed(context, 'thankyoupage');
                             setState(() {
@@ -424,6 +424,7 @@ class _formpageState extends State<formpage> {
                               special = '';
                               contactName = '';
                               contactNumber = '';
+                              contactEmail = '';
                               category = '';
                             });
                           })

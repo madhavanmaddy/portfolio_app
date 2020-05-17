@@ -15,6 +15,7 @@ class _uiuxformpageState extends State<uiuxformpage> {
   String desc;
   String contactName;
   String contactNumber;
+  String contactEmail;
   String category;
   String special;
   int radioval;
@@ -97,7 +98,6 @@ double sw = MediaQuery.of(context).size.width;
                       padding: const EdgeInsets.symmetric(horizontal: 25),
                       child: TextField(
                         keyboardType: TextInputType.multiline,
-                        maxLines: null,
                         decoration: InputDecoration(
                             border: InputBorder.none,
                             hintText: 'Name of the Application/ Website',hintStyle: txtstle),
@@ -270,7 +270,6 @@ double sw = MediaQuery.of(context).size.width;
                       padding: const EdgeInsets.symmetric(horizontal: 25),
                       child: TextField(
                         keyboardType: TextInputType.multiline,
-                        maxLines: null,
                         decoration: InputDecoration(
                             border: InputBorder.none, hintText: 'Name',hintStyle: txtstle),
                         onChanged: (value) {
@@ -334,13 +333,12 @@ double sw = MediaQuery.of(context).size.width;
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 25),
                       child: TextField(
-                        keyboardType: TextInputType.number,
-                        maxLines: null,
+                        keyboardType: TextInputType.multiline,
                         decoration: InputDecoration(
                             border: InputBorder.none, hintText: 'Email',hintStyle: txtstle),
                         onChanged: (value) {
                           setState(() {
-                            contactNumber = value;
+                            contactEmail = value;
                           });
                         },
                       ),
@@ -412,7 +410,9 @@ double sw = MediaQuery.of(context).size.width;
                                 'special': special,
                                 'contactName': contactName,
                                 'contactNumber': contactNumber,
+                                'contactEmail':contactEmail,
                                 'category': category,
+                                'type':title,
                               });
                               Navigator.pushNamed(context, 'thankyoupage');
                               setState(() {
@@ -421,6 +421,7 @@ double sw = MediaQuery.of(context).size.width;
                                 special = '';
                                 contactName = '';
                                 contactNumber = '';
+                                contactEmail='';
                                 category = '';
                               });
                             })
