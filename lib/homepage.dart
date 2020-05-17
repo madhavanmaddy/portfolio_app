@@ -333,7 +333,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 style: TextStyle(
                   fontFamily: "Circular Air",
                   fontWeight: FontWeight.w600,
-                  fontSize: sw * 0.04,
+                  fontSize: sw * 0.05,
                   color: Color(0xff101010),
                 ),
               ),
@@ -389,7 +389,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             new Text(
-                              "Build Flutter Applications",
+                              "Build Mobile Applications",
                               style: TextStyle(
                                 fontFamily: "Circular Air",
                                 fontWeight: FontWeight.w600,
@@ -544,7 +544,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             SizedBox(height: 7),
                             Expanded(
                               child: Text(
-                                "Cool UI makes user to love your product \nmore. We hep us to make your products \nfunction smooth and user friendly and \nmake more out of your users.",
+                                "Cool UI makes user to love your product \nmore. We help us to make your products \nfunction smooth and user friendly and \nmake more out of your users.",
                                 overflow: TextOverflow.clip,
                                 style: TextStyle(
                                   fontFamily: "Circular Air",
