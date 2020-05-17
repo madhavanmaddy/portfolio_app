@@ -77,6 +77,8 @@ class _overallprojectspageState extends State<overallprojectspage> {
 
   @override
   Widget build(BuildContext context) {
+    double sh = MediaQuery.of(context).size.height;
+    double sw = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -85,7 +87,7 @@ class _overallprojectspageState extends State<overallprojectspage> {
             SizedBox(
               height: 75.0,
             ),
-            Image.asset('assets/images/recent.png'),
+            Image.asset('assets/images/recent.png',height: sh*0.35,width: sw*0.9,),
             SizedBox(
               child: GestureDetector(
                 onTap: () {
@@ -157,7 +159,7 @@ class _overallprojectspageState extends State<overallprojectspage> {
               style: TextStyle(
                 fontFamily: "Circular Air",
                 fontWeight: FontWeight.bold,
-                fontSize: 22,
+                fontSize: sw*0.04,
                 color: Color(0xff101010),
               ),
             ),
@@ -176,7 +178,7 @@ class _overallprojectspageState extends State<overallprojectspage> {
               style: TextStyle(
                 fontFamily: "Circular Air",
                 fontWeight: FontWeight.bold,
-                fontSize: 22,
+                fontSize: sw*0.04,
                 color: Color(0xff101010),
               ),
             ),
@@ -195,7 +197,7 @@ class _overallprojectspageState extends State<overallprojectspage> {
               style: TextStyle(
                 fontFamily: "Circular Air",
                 fontWeight: FontWeight.bold,
-                fontSize: 22,
+                fontSize: sw*0.04,
                 color: Color(0xff101010),
               ),
             ),
@@ -233,7 +235,10 @@ class _overallprojectspageState extends State<overallprojectspage> {
                   ),
                   child: IconButton(
                     icon: Image.network(
-                        uiuxprojects.documents[index].data['image']),
+                        uiuxprojects.documents[index].data['image'],
+                         height: (MediaQuery.of(context).size.height)*0.2,
+                          width: (MediaQuery.of(context).size.height)*0.4,
+                        ),
                     onPressed: () {
                       Navigator.pushNamed(context, 'nextpage');
                     },
@@ -270,7 +275,10 @@ class _overallprojectspageState extends State<overallprojectspage> {
                   ),
                   child: IconButton(
                     icon:
-                        Image.network(projects.documents[index].data['image']),
+                        Image.network(projects.documents[index].data['image'],
+                         height: (MediaQuery.of(context).size.height)*0.2,
+                          width: (MediaQuery.of(context).size.height)*0.4,
+                        ),
                     onPressed: () {
                       Navigator.push(
                         context,
@@ -315,7 +323,10 @@ class _overallprojectspageState extends State<overallprojectspage> {
                   ),
                   child: IconButton(
                     icon: Image.network(
-                        designprojects.documents[index].data['image']),
+                        designprojects.documents[index].data['image'],
+                         height: (MediaQuery.of(context).size.height)*0.2,
+                          width: (MediaQuery.of(context).size.height)*0.4,
+                        ),
                     onPressed: () {
                       Navigator.pushNamed(context, 'nextpage');
                     },

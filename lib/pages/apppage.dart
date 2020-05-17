@@ -94,145 +94,144 @@ class _MyHomePageState extends State<MyAppPage1> {
         backgroundColor: Colors.white,
         elevation: 0.0,
       ),
-      drawer: Drawer(
-        child: Container(
-          color: Colors.white,
-          child: ListView(
-            scrollDirection: Axis.vertical,
-            // Important: Remove any padding from the ListView.
-            padding: EdgeInsets.symmetric(vertical: sh*0.05),
-            children: <Widget>[
-              // DrawerHeader(
-              //   child: Padding(
-              //     padding: const EdgeInsets.symmetric(vertical: 18.0),
-              //     child: Center(
-              //         child: Text(
-              //           'Corona Virus Tracker ',
-              //           style: TextStyle(fontSize: 27, color: Colors.white,fontWeight: FontWeight.bold),
-              //         )),
-              //   ),
-              //   decoration: BoxDecoration(
-              //       color: Colors.blue[500],
-              //       //
-              //       ),
-              // ),
-              SizedBox(height: sh*0.025),
-              Image.asset('assets/images/menu.png'),
-              SizedBox(height: sh*0.035),
-              ListTile(
-                  title: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        'Recent projects',
-                        style: TextStyle(
-                          fontSize: sw*0.05,
-                          fontFamily: "Circular Air",
-                          // fontWeight: FontWeight.bold
+      drawer:Drawer(
+          child: Container(
+            color: Colors.white,
+            child: ListView(
+              scrollDirection: Axis.vertical,
+              // Important: Remove any padding from the ListView.
+              padding: EdgeInsets.symmetric(vertical: sh * 0.05),
+              children: <Widget>[
+                // DrawerHeader(
+                //   child: Padding(
+                //     padding: const EdgeInsets.symmetric(vertical: 18.0),
+                //     child: Center(
+                //         child: Text(
+                //           'Corona Virus Tracker ',
+                //           style: TextStyle(fontSize: 27, color: Colors.white,fontWeight: FontWeight.bold),
+                //         )),
+                //   ),
+                //   decoration: BoxDecoration(
+                //       color: Colors.blue[500],
+                //       //
+                //       ),
+                // ),
+                SizedBox(height: sh * 0.025),
+                Image.asset('assets/images/menu.png'),
+                SizedBox(height: sh * 0.035),
+                ListTile(
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          'Recent projects',
+                          style: TextStyle(
+                            fontSize: sw * 0.04,
+                            fontFamily: "Circular Air",
+                            // fontWeight: FontWeight.bold
+                          ),
                         ),
-                      ),
-                      Icon(Icons.arrow_forward),
-                    ],
-                  ),
+                        Icon(Icons.arrow_forward),
+                      ],
+                    ),
+                    onTap: () {
+                      Navigator.pushNamed(context, 'overallprojectspage');
+                    }),
+                GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, 'overallprojectspage');
-                  }),
-                   GestureDetector(
-                onTap: () {
-                 Navigator.pushNamed(context, 'teamspage');
-                },
-                child: ListTile(
-                  title: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        'Teams',
-                        style: TextStyle(fontSize: sw*0.05),
-                      ),
-                      Icon(Icons.arrow_forward),
-                    ],
+                    Navigator.pushNamed(context, 'teamspage');
+                  },
+                  child: ListTile(
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          'Teams',
+                          style: TextStyle(fontSize: sw * 0.04),
+                        ),
+                        Icon(Icons.arrow_forward),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, 'apppage');
-                },
-                child: ListTile(
-                  title: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        'App development',
-                        style: TextStyle(fontSize: sw*0.05),
-                      ),
-                      Icon(Icons.arrow_forward),
-                    ],
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, 'apppage');
+                  },
+                  child: ListTile(
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          'App development',
+                          style: TextStyle(fontSize: sw * 0.04),
+                        ),
+                        Icon(Icons.arrow_forward),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, 'designpage');
-                },
-                child: ListTile(
-                  title: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        'Graphic Design',
-                        style: TextStyle(fontSize: sw*0.05),
-                      ),
-                      Icon(Icons.arrow_forward),
-                    ],
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, 'designpage');
+                  },
+                  child: ListTile(
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          'Graphic Design',
+                          style: TextStyle(fontSize: sw * 0.04),
+                        ),
+                        Icon(Icons.arrow_forward),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              GestureDetector(
-                onTap: () {
-                   Navigator.push(
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
                         context,
                         EnterExitRoute(
                             exitPage: MyAppPage1(), enterPage: MyuiuxPage()));
-                },
-                child: ListTile(
-                  title: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        'UI/UX Design',
-                        style: TextStyle(fontSize: sw*0.05),
-                      ),
-                      Icon(Icons.arrow_forward),
-                    ],
+                  },
+                  child: ListTile(
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          'UI/UX Design',
+                          style: TextStyle(fontSize: sw * 0.04),
+                        ),
+                        Icon(Icons.arrow_forward),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => Mycontact()),
                     );
-                },
-                child: ListTile(
-                  title: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        'Contact us',
-                        style: TextStyle(fontSize: sw*0.05),
-                      ),
-                      Icon(Icons.arrow_forward),
-                    ],
+                  },
+                  child: ListTile(
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          'Contact us',
+                          style: TextStyle(fontSize: sw * 0.04),
+                        ),
+                        Icon(Icons.arrow_forward),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-             
-            ],
+              ],
+            ),
           ),
         ),
-      ),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Column(
@@ -259,7 +258,7 @@ class _MyHomePageState extends State<MyAppPage1> {
                 style: TextStyle(
                   fontFamily: "Circular Air",
                   fontWeight: FontWeight.w600,
-                  fontSize: sw*0.06,
+                  fontSize: sw*0.05,
                   color: Color(0xff101010),
                 ),
               ),
@@ -267,7 +266,7 @@ class _MyHomePageState extends State<MyAppPage1> {
             Row(
               children: <Widget>[
                 SizedBox(width:sw*0.05),
-                Image.asset('assets/images/android.png',height: sh*0.4,width: sw*0.9,),
+                Image.asset('assets/images/android.png',height: sh*0.35,width: sw*0.9,),
               ],
             ),
             Padding(
@@ -277,7 +276,7 @@ class _MyHomePageState extends State<MyAppPage1> {
                 style: TextStyle(
                   fontFamily: "Circular Air",
                   fontWeight: FontWeight.w600,
-                  fontSize: sw*0.038,
+                  fontSize: sw*0.04,
                   color: Color(0xff101010),
                 ),
               ),
@@ -312,7 +311,9 @@ class _MyHomePageState extends State<MyAppPage1> {
                   child: Center(
                       child: Text(
                     'Commercial Application',
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      fontSize: sw*0.038,
+                      fontWeight: FontWeight.bold),
                   )),
                 ),
               ),
@@ -346,7 +347,9 @@ class _MyHomePageState extends State<MyAppPage1> {
                   child: Center(
                       child: Text(
                     'Non Commercial Application',
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      fontSize: sw*0.038,
+                      fontWeight: FontWeight.bold),
                   )),
                 ),
               ),
@@ -362,7 +365,7 @@ class _MyHomePageState extends State<MyAppPage1> {
                     style: TextStyle(
                       fontFamily: "Circular Air",
                       fontWeight: FontWeight.w600,
-                      fontSize: sw*0.038,
+                      fontSize: sw*0.04,
                       color: Color(0xff101010),
                     ),
                   ),

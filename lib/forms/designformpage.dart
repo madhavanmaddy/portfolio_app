@@ -18,11 +18,14 @@ class _designformpageState extends State<designformpage> {
   String special;
   int dl, db;
   @override
-  final txtstle = TextStyle(
-    fontFamily: 'Circular Air',
-    fontSize: 25.0,
-  );
+  
   Widget build(BuildContext context) {
+    double sh = MediaQuery.of(context).size.height;
+    double sw = MediaQuery.of(context).size.width;
+    final txtstle = TextStyle(
+    fontFamily: 'Circular Air',
+    fontSize: sw*0.03,
+  );
     return Scaffold(
       backgroundColor: Colors.white,
       resizeToAvoidBottomPadding: false,
@@ -43,7 +46,7 @@ class _designformpageState extends State<designformpage> {
                     // title,
                     style: TextStyle(
                       color: Color(0xff4a148c),
-                      fontSize: 22,
+                      fontSize: sw*0.06,
                       fontWeight: FontWeight.bold,
                     ),
                     textAlign: TextAlign.left,
@@ -63,7 +66,7 @@ class _designformpageState extends State<designformpage> {
                     'Project Details',
                     style: TextStyle(
                       color: Color(0xff4a148c),
-                      fontSize: 22,
+                      fontSize: sw*0.05,
                       fontWeight: FontWeight.bold,
                     ),
                     textAlign: TextAlign.start,
@@ -73,7 +76,7 @@ class _designformpageState extends State<designformpage> {
                   ),
                   Container(
                     height: 40.0,
-                    width: 350.0,
+                    width: sw*0.9,
                     decoration: BoxDecoration(
                       color: Color(0xffffffff),
                       boxShadow: [
@@ -91,7 +94,7 @@ class _designformpageState extends State<designformpage> {
                         keyboardType: TextInputType.multiline,
                         maxLines: null,
                         decoration: InputDecoration(
-                            border: InputBorder.none, hintText: 'Project Name'),
+                            border: InputBorder.none, hintText: 'Project Name',hintStyle: txtstle),
                         onChanged: (value) {
                           setState(() {
                             projectName = value;
@@ -105,7 +108,7 @@ class _designformpageState extends State<designformpage> {
                   ),
                   Container(
                     height: 150.0,
-                    width: 350.0,
+                    width: sw*0.9,
                     decoration: BoxDecoration(
                       color: Color(0xffffffff),
                       boxShadow: [
@@ -124,7 +127,7 @@ class _designformpageState extends State<designformpage> {
                         maxLines: null,
                         decoration: InputDecoration(
                             border: InputBorder.none,
-                            hintText: 'Project Description'),
+                            hintText: 'Project Description',hintStyle: txtstle),
                         onChanged: (value) {
                           setState(() {
                             desc = value;
@@ -138,7 +141,7 @@ class _designformpageState extends State<designformpage> {
                   ),
                   Container(
                     height: 150.0,
-                    width: 350.0,
+                    width: sw*0.9,
                     decoration: BoxDecoration(
                       color: Color(0xffffffff),
                       boxShadow: [
@@ -157,7 +160,7 @@ class _designformpageState extends State<designformpage> {
                         maxLines: null,
                         decoration: InputDecoration(
                             border: InputBorder.none,
-                            hintText: 'Other Details'),
+                            hintText: 'Other Details',hintStyle: txtstle),
                         onChanged: (value) {
                           setState(() {
                             special = value;
@@ -176,7 +179,7 @@ class _designformpageState extends State<designformpage> {
                       children: <Widget>[
                         Container(
                           height: 40.0,
-                          width: 150.0,
+                          width: sw*0.35,
                           decoration: BoxDecoration(
                             color: Color(0xffffffff),
                             boxShadow: [
@@ -194,7 +197,7 @@ class _designformpageState extends State<designformpage> {
                               keyboardType: TextInputType.multiline,
                               maxLines: null,
                               decoration: InputDecoration(
-                                  border: InputBorder.none, hintText: 'Length'),
+                                  border: InputBorder.none, hintText: 'Length',hintStyle: txtstle),
                               onChanged: (value) {
                                 setState(() {
                                   desc = value;
@@ -215,7 +218,7 @@ class _designformpageState extends State<designformpage> {
                         ),
                         Container(
                           height: 40.0,
-                          width: 150.0,
+                          width: sw*0.35,
                           decoration: BoxDecoration(
                             color: Color(0xffffffff),
                             boxShadow: [
@@ -234,7 +237,7 @@ class _designformpageState extends State<designformpage> {
                               maxLines: null,
                               decoration: InputDecoration(
                                   border: InputBorder.none,
-                                  hintText: 'Breadth'),
+                                  hintText: 'Breadth',hintStyle: txtstle),
                               onChanged: (value) {
                                 setState(() {
                                   desc = value;
@@ -253,7 +256,7 @@ class _designformpageState extends State<designformpage> {
                     'Contact Details',
                     style: TextStyle(
                       color: Color(0xff4a148c),
-                      fontSize: 22,
+                      fontSize: sw*0.05,
                       fontWeight: FontWeight.bold,
                     ),
                     textAlign: TextAlign.start,
@@ -263,7 +266,7 @@ class _designformpageState extends State<designformpage> {
                   ),
                   Container(
                     height: 40.0,
-                    width: 350.0,
+                    width: sw*0.9,
                     decoration: BoxDecoration(
                       color: Color(0xffffffff),
                       boxShadow: [
@@ -281,7 +284,7 @@ class _designformpageState extends State<designformpage> {
                         keyboardType: TextInputType.multiline,
                         maxLines: null,
                         decoration: InputDecoration(
-                            border: InputBorder.none, hintText: 'Name'),
+                            border: InputBorder.none, hintText: 'Name',hintStyle: txtstle),
                         onChanged: (value) {
                           setState(() {
                             contactName = value;
@@ -295,7 +298,7 @@ class _designformpageState extends State<designformpage> {
                   ),
                   Container(
                     height: 40.0,
-                    width: 350.0,
+                    width: sw*0.9,
                     decoration: BoxDecoration(
                       color: Color(0xffffffff),
                       boxShadow: [
@@ -314,7 +317,7 @@ class _designformpageState extends State<designformpage> {
                         maxLines: null,
                         decoration: InputDecoration(
                             border: InputBorder.none,
-                            hintText: 'Mobile Number'),
+                            hintText: 'Mobile Number',hintStyle: txtstle),
                         onChanged: (value) {
                           setState(() {
                             contactNumber = value;
@@ -328,7 +331,7 @@ class _designformpageState extends State<designformpage> {
                   ),
                   Container(
                     height: 40.0,
-                    width: 350.0,
+                    width: sw*0.9,
                     decoration: BoxDecoration(
                       color: Color(0xffffffff),
                       boxShadow: [
@@ -346,7 +349,7 @@ class _designformpageState extends State<designformpage> {
                         keyboardType: TextInputType.number,
                         maxLines: null,
                         decoration: InputDecoration(
-                            border: InputBorder.none, hintText: 'E-Mail'),
+                            border: InputBorder.none, hintText: 'E-Mail',hintStyle: txtstle),
                         onChanged: (value) {
                           setState(() {
                             contactNumber = value;
@@ -380,6 +383,7 @@ class _designformpageState extends State<designformpage> {
                             child: Text(
                               'Back',
                               style: TextStyle(
+                                fontSize: sw*0.03,
                                   fontFamily: 'Circular Air',
                                   color: Color(0xff4a148c)),
                             ),
@@ -408,6 +412,7 @@ class _designformpageState extends State<designformpage> {
                               child: Text(
                                 'Submit',
                                 style: TextStyle(
+                                  fontSize: sw*0.03,
                                     fontFamily: 'Circular Air',
                                     color: Colors.white),
                               ),

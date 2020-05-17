@@ -23,6 +23,8 @@ class _teamspageState extends State<teamspage> {
 
   @override
   Widget build(BuildContext context) {
+    double sh = MediaQuery.of(context).size.height;
+    double sw = MediaQuery.of(context).size.width;
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
@@ -35,7 +37,7 @@ class _teamspageState extends State<teamspage> {
               Center(
                   child: Text('Development Team',
                       style: TextStyle(
-                        fontSize: 25.0,
+                        fontSize: sw*0.05,
                       ))),
               SizedBox(height: 10.0),
               // Image.asset('assets/images/mockups.png'),
@@ -78,14 +80,14 @@ class _teamspageState extends State<teamspage> {
                       children: <Widget>[
                         SizedBox(height:10),
                        CircleAvatar(
-                         radius: 50,
+                         radius: MediaQuery.of(context).size.width * 0.09,
                             backgroundImage: NetworkImage(
                                 devs.documents[index].data['image']),
                           ),                                               
                         SizedBox(height:5),
-                        Text(devs.documents[index].data['name']),
+                        Text(devs.documents[index].data['name'],style: TextStyle(fontSize:MediaQuery.of(context).size.width * 0.03),),
                         SizedBox(height:5),
-                        Text(devs.documents[index].data['pos']),
+                        Text(devs.documents[index].data['pos'],style: TextStyle(fontSize:MediaQuery.of(context).size.width * 0.03),),
                       ],
                     ),
                   ),

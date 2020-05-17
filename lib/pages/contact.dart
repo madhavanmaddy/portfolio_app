@@ -1,7 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/pages/uiuxpage.dart';
 import 'package:portfolio/services/crud.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:portfolio/homepage.dart';
 
 class Mycontact extends StatefulWidget {
   @override
@@ -11,152 +13,165 @@ class Mycontact extends StatefulWidget {
 class _MycontactState extends State<Mycontact> {
   crudMethods crudObj = new crudMethods();
 
-  QuerySnapshot uiuxprojects;
-
+  QuerySnapshot prodevs;
+  @override
+  void initState(){
+    super.initState();
+    crudObj.getprodevs().then((results){
+      setState(() {
+        prodevs = results;
+      });
+    });
+  }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    double sh = MediaQuery.of(context).size.height;
+    double sw= MediaQuery.of(context).size.width;
+    return prodevs!= null 
+    ? Scaffold(
       appBar: AppBar(
         iconTheme: new IconThemeData(color: Colors.black),
         backgroundColor: Colors.white,
         elevation: 0.0,
       ),
-      drawer: Drawer(
-        child: Container(
-          color: Colors.white,
-          child: ListView(
-            scrollDirection: Axis.vertical,
-            // Important: Remove any padding from the ListView.
-            padding: EdgeInsets.symmetric(vertical: 40),
-            children: <Widget>[
-              // DrawerHeader(
-              //   child: Padding(
-              //     padding: const EdgeInsets.symmetric(vertical: 18.0),
-              //     child: Center(
-              //         child: Text(
-              //           'Corona Virus Tracker ',
-              //           style: TextStyle(fontSize: 27, color: Colors.white,fontWeight: FontWeight.bold),
-              //         )),
-              //   ),
-              //   decoration: BoxDecoration(
-              //       color: Colors.blue[500],
-              //       //
-              //       ),
-              // ),
-              SizedBox(height: 40),
-              Image.asset('assets/images/menu.png'),
-              SizedBox(height: 30),
-              ListTile(
-                  title: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        'Recent Projects',
-                        style: TextStyle(
-                          fontSize: 22,
-                          fontFamily: "Circular Air",
-                          // fontWeight: FontWeight.bold
+      drawer:  Drawer(
+          child: Container(
+            color: Colors.white,
+            child: ListView(
+              scrollDirection: Axis.vertical,
+              // Important: Remove any padding from the ListView.
+              padding: EdgeInsets.symmetric(vertical: sh * 0.05),
+              children: <Widget>[
+                // DrawerHeader(
+                //   child: Padding(
+                //     padding: const EdgeInsets.symmetric(vertical: 18.0),
+                //     child: Center(
+                //         child: Text(
+                //           'Corona Virus Tracker ',
+                //           style: TextStyle(fontSize: 27, color: Colors.white,fontWeight: FontWeight.bold),
+                //         )),
+                //   ),
+                //   decoration: BoxDecoration(
+                //       color: Colors.blue[500],
+                //       //
+                //       ),
+                // ),
+                SizedBox(height: sh * 0.025),
+                Image.asset('assets/images/menu.png'),
+                SizedBox(height: sh * 0.035),
+                ListTile(
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          'Recent projects',
+                          style: TextStyle(
+                            fontSize: sw * 0.04,
+                            fontFamily: "Circular Air",
+                            // fontWeight: FontWeight.bold
+                          ),
                         ),
-                      ),
-                      Icon(Icons.arrow_forward),
-                    ],
-                  ),
+                        Icon(Icons.arrow_forward),
+                      ],
+                    ),
+                    onTap: () {
+                      Navigator.pushNamed(context, 'overallprojectspage');
+                    }),
+                GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, 'overallprojectspage');
-                  }),
-                  GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, 'teamspage');
-                },
-                child: ListTile(
-                  title: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        'Teams',
-                        style: TextStyle(fontSize: 22),
-                      ),
-                      Icon(Icons.arrow_forward),
-                    ],
+                    Navigator.pushNamed(context, 'teamspage');
+                  },
+                  child: ListTile(
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          'Teams',
+                          style: TextStyle(fontSize: sw * 0.04),
+                        ),
+                        Icon(Icons.arrow_forward),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, 'apppage');
-                },
-                child: ListTile(
-                  title: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        'App development',
-                        style: TextStyle(fontSize: 22),
-                      ),
-                      Icon(Icons.arrow_forward),
-                    ],
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, 'apppage');
+                  },
+                  child: ListTile(
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          'App development',
+                          style: TextStyle(fontSize: sw * 0.04),
+                        ),
+                        Icon(Icons.arrow_forward),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, 'designpage');
-                },
-                child: ListTile(
-                  title: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        'Graphic Design',
-                        style: TextStyle(fontSize: 22),
-                      ),
-                      Icon(Icons.arrow_forward),
-                    ],
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, 'designpage');
+                  },
+                  child: ListTile(
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          'Graphic Design',
+                          style: TextStyle(fontSize: sw * 0.04),
+                        ),
+                        Icon(Icons.arrow_forward),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, 'designpage');
-                },
-                child: ListTile(
-                  title: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        'UI/UX Design',
-                        style: TextStyle(fontSize: 22),
-                      ),
-                      Icon(Icons.arrow_forward),
-                    ],
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        EnterExitRoute(
+                            exitPage: Mycontact(), enterPage: MyuiuxPage()));
+                  },
+                  child: ListTile(
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          'UI/UX Design',
+                          style: TextStyle(fontSize: sw * 0.04),
+                        ),
+                        Icon(Icons.arrow_forward),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => Mycontact()),
                     );
-                },
-                child: ListTile(
-                  title: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        'Contact us',
-                        style: TextStyle(fontSize: 22),
-                      ),
-                      Icon(Icons.arrow_forward),
-                    ],
+                  },
+                  child: ListTile(
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text(
+                          'Contact us',
+                          style: TextStyle(fontSize: sw * 0.04),
+                        ),
+                        Icon(Icons.arrow_forward),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              
-            ],
+              ],
+            ),
           ),
         ),
-      ),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Column(
@@ -172,7 +187,7 @@ class _MycontactState extends State<Mycontact> {
                     style: TextStyle(
                       fontFamily: "Circular Air",
                       fontWeight: FontWeight.w500,
-                      fontSize: 22,
+                      fontSize: sw*0.05,
                       color: Color(0xff101010),
                     ),
                   ),
@@ -196,7 +211,7 @@ class _MycontactState extends State<Mycontact> {
                 style: TextStyle(
                   fontFamily: "Circular Air",
                   // fontWeight: FontWeight.w300,
-                  fontSize: 12,
+                  fontSize: sw*0.035,
                   color: Color(0xff101010),
                 ),
               ),
@@ -204,7 +219,7 @@ class _MycontactState extends State<Mycontact> {
             SizedBox(
               height: 25,
             ),
-            Image.asset('assets/images/contact.png'),
+            Image.asset('assets/images/contact.png',height: sh*0.35,width: sw*0.9,),
             SizedBox(
               height: 25,
             ),
@@ -212,12 +227,12 @@ class _MycontactState extends State<Mycontact> {
               padding: const EdgeInsets.symmetric(horizontal: 25),
               child: Center(
                 child: Text(
-                  '~ Connect us on ~ ',
+                  '~ Connect with us on ~ ',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontFamily: "Circular Air",
                     fontWeight: FontWeight.w600,
-                    fontSize: 16,
+                    fontSize: sw*0.045,
                     color: Color(0xff101010),
                   ),
                 ),
@@ -278,7 +293,7 @@ class _MycontactState extends State<Mycontact> {
                 style: TextStyle(
                   fontFamily: "Circular Air",
                   fontWeight: FontWeight.w500,
-                  fontSize: 18,
+                  fontSize: sw*0.045,
                   color: Color(0xff101010),
                 ),
               ),
@@ -293,14 +308,14 @@ class _MycontactState extends State<Mycontact> {
                   children: <Widget>[
                     CircleAvatar(
                         radius: 50,
-                        backgroundImage: AssetImage('assets/images/sms.png')),
+                        backgroundImage: NetworkImage(prodevs.documents[0].data['image'])),
                     SizedBox(height: 15),
                     Text(
-                      'Akil S',
+                      prodevs.documents[0].data['name'],
                       style: TextStyle(
                         fontFamily: "Circular Air",
                         fontWeight: FontWeight.w500,
-                        fontSize: 16,
+                        fontSize: sw*0.035,
                         color: Color(0xff101010),
                       ),
                     ),
@@ -313,7 +328,7 @@ class _MycontactState extends State<Mycontact> {
                         width: 20,
                       ),
                         SizedBox(width: 10),
-                        Text('akillika')
+                        Text(prodevs.documents[0].data['github'])
                       ],
                     )
                   ],
@@ -325,14 +340,14 @@ class _MycontactState extends State<Mycontact> {
                   children: <Widget>[
                     CircleAvatar(
                         radius: 50,
-                        backgroundImage: AssetImage('assets/images/sms.png')),
+                        backgroundImage: NetworkImage(prodevs.documents[1].data['image'])),
                     SizedBox(height: 15),
                     Text(
-                      'Madhavan S',
+                      prodevs.documents[1].data['name'],
                       style: TextStyle(
                         fontFamily: "Circular Air",
                         fontWeight: FontWeight.w500,
-                        fontSize: 16,
+                        fontSize: sw*0.035,
                         color: Color(0xff101010),
                       ),
                     ),
@@ -345,7 +360,7 @@ class _MycontactState extends State<Mycontact> {
                         width: 20,
                       ),
                         SizedBox(width: 10),
-                        Text('madhavanmaddy')
+                        Text(prodevs.documents[1].data['github'])
                       ],
                     )
                   ],
@@ -361,7 +376,7 @@ class _MycontactState extends State<Mycontact> {
       ),
 
       // This trailing comma makes auto-formatting nicer for build methods.
-    );
+    ) : Center(child: CircularProgressIndicator(),);
   }
 
   _launchWhatsApp() async {

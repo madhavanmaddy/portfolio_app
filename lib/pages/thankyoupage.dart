@@ -10,13 +10,14 @@ class MyThankPage1 extends StatefulWidget {
 class _MyHomePageState extends State<MyThankPage1> {
   @override
   Widget build(BuildContext context) {
+    double sw = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            SizedBox(height: 120),
+            SizedBox(height: 50),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
               child: new Text(
@@ -24,7 +25,7 @@ class _MyHomePageState extends State<MyThankPage1> {
                 style: TextStyle(
                   fontFamily: "Circular Air",
                   fontWeight: FontWeight.w600,
-                  fontSize: 24,
+                  fontSize: sw*0.05,
                   color: Color(0xff101010),
                 ),
               ),
@@ -64,7 +65,7 @@ class _MyHomePageState extends State<MyThankPage1> {
                         'Our team of developers and designers will be reaching you soon! \nGet ready for some thing amazing!',
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          fontSize: 16,
+                          fontSize: sw*0.03,
                           // fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -104,7 +105,7 @@ class _MyHomePageState extends State<MyThankPage1> {
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
-                          fontSize: 16,
+                          fontSize: sw*0.03,
                           // fontWeight: FontWeight.bold,
                         ),
                       ),
