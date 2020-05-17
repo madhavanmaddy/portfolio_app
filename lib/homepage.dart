@@ -346,7 +346,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 style: TextStyle(
                   fontFamily: "Circular Air",
                   fontWeight: FontWeight.w600,
-                  fontSize: sw * 0.04,
+                  fontSize: sw * 0.05,
                   color: Color(0xff101010),
                 ),
               ),
