@@ -14,6 +14,32 @@ import 'package:flutter/painting.dart';
 import 'model/message.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+class SizeConfig {
+  static MediaQueryData _mediaQueryData;
+  static double screenWidth;
+  static double screenHeight;
+  static double blockSizeHorizontal;
+  static double blockSizeVertical;
+  static double _safeAreaHorizontal;
+  static double _safeAreaVertical;
+  static double safeBlockHorizontal;
+  static double safeBlockVertical;
+
+  void init(BuildContext context) {
+    _mediaQueryData = MediaQuery.of(context);
+    screenWidth = _mediaQueryData.size.width;
+    screenHeight = _mediaQueryData.size.height;
+    blockSizeHorizontal = screenWidth / 100;
+    blockSizeVertical = screenHeight / 100;
+    _safeAreaHorizontal =
+        _mediaQueryData.padding.left + _mediaQueryData.padding.right;
+    _safeAreaVertical =
+        _mediaQueryData.padding.top + _mediaQueryData.padding.bottom;
+    safeBlockHorizontal = (screenWidth - _safeAreaHorizontal) / 100;
+    safeBlockVertical = (screenHeight - _safeAreaVertical) / 100;
+  }
+}
+
 class EnterExitRoute extends PageRouteBuilder {
   final Widget enterPage;
   final Widget exitPage;
@@ -64,7 +90,7 @@ class MyApp extends StatelessWidget {
         'thankyoupage': (_) => MyThankPage1(),
         'uiuxpage': (_) => MyuiuxPage(),
         'homepage': (_) => MyHomePage(),
-        'teamspage':(_)=>teamspage(),
+        'teamspage': (_) => teamspage(),
       },
       debugShowCheckedModeBanner: false,
       home: Splash(),
@@ -143,6 +169,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    double sw = MediaQuery.of(context).size.width;
+    double sh = MediaQuery.of(context).size.height;
     return Scaffold(
       //  backgroundColor: Color(0xFF198BAA),
       appBar: AppBar(
@@ -152,14 +180,14 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       drawer: ClipRRect(
         borderRadius: BorderRadius.vertical(
-            top: Radius.circular(40.0), bottom: Radius.circular(40.0)),
+            top: Radius.circular(20.0), bottom: Radius.circular(20.0)),
         child: Drawer(
           child: Container(
             color: Colors.white,
             child: ListView(
               scrollDirection: Axis.vertical,
               // Important: Remove any padding from the ListView.
-              padding: EdgeInsets.symmetric(vertical: 40),
+              padding: EdgeInsets.symmetric(vertical: sh * 0.05),
               children: <Widget>[
                 // DrawerHeader(
                 //   child: Padding(
@@ -175,9 +203,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 //       //
                 //       ),
                 // ),
-                SizedBox(height: 40),
+                SizedBox(height: sh * 0.025),
                 Image.asset('assets/images/menu.png'),
-                SizedBox(height: 30),
+                SizedBox(height: sh * 0.035),
                 ListTile(
                     title: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -185,7 +213,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         Text(
                           'Recent projects',
                           style: TextStyle(
-                            fontSize: 22,
+                            fontSize: sw * 0.04,
                             fontFamily: "Circular Air",
                             // fontWeight: FontWeight.bold
                           ),
@@ -196,7 +224,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     onTap: () {
                       Navigator.pushNamed(context, 'overallprojectspage');
                     }),
-                     GestureDetector(
+                GestureDetector(
                   onTap: () {
                     Navigator.pushNamed(context, 'teamspage');
                   },
@@ -206,7 +234,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       children: <Widget>[
                         Text(
                           'Teams',
-                          style: TextStyle(fontSize: 22),
+                          style: TextStyle(fontSize: sw * 0.04),
                         ),
                         Icon(Icons.arrow_forward),
                       ],
@@ -223,7 +251,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       children: <Widget>[
                         Text(
                           'App development',
-                          style: TextStyle(fontSize: 22),
+                          style: TextStyle(fontSize: sw * 0.04),
                         ),
                         Icon(Icons.arrow_forward),
                       ],
@@ -232,11 +260,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        EnterExitRoute(
-                            exitPage: MyHomePage(),
-                            enterPage: MyDesignPage1()));
+                    Navigator.pushNamed(context, 'designpage');
                   },
                   child: ListTile(
                     title: Row(
@@ -244,7 +268,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       children: <Widget>[
                         Text(
                           'Graphic Design',
-                          style: TextStyle(fontSize: 22),
+                          style: TextStyle(fontSize: sw * 0.04),
                         ),
                         Icon(Icons.arrow_forward),
                       ],
@@ -256,7 +280,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     Navigator.push(
                         context,
                         EnterExitRoute(
-                            exitPage: MyHomePage(), enterPage: MyuiuxPage()));
+                            exitPage: MyAppPage1(), enterPage: MyuiuxPage()));
                   },
                   child: ListTile(
                     title: Row(
@@ -264,7 +288,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       children: <Widget>[
                         Text(
                           'UI/UX Design',
-                          style: TextStyle(fontSize: 22),
+                          style: TextStyle(fontSize: sw * 0.04),
                         ),
                         Icon(Icons.arrow_forward),
                       ],
@@ -284,14 +308,13 @@ class _MyHomePageState extends State<MyHomePage> {
                       children: <Widget>[
                         Text(
                           'Contact us',
-                          style: TextStyle(fontSize: 22),
+                          style: TextStyle(fontSize: sw * 0.04),
                         ),
                         Icon(Icons.arrow_forward),
                       ],
                     ),
                   ),
                 ),
-               
               ],
             ),
           ),
@@ -310,7 +333,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 style: TextStyle(
                   fontFamily: "Circular Air",
                   fontWeight: FontWeight.w600,
-                  fontSize: 22,
+                  fontSize: sw * 0.05,
                   color: Color(0xff101010),
                 ),
               ),
@@ -323,12 +346,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 style: TextStyle(
                   fontFamily: "Circular Air",
                   fontWeight: FontWeight.w600,
-                  fontSize: 24,
+                  fontSize: sw * 0.05,
                   color: Color(0xff101010),
                 ),
               ),
             ),
-            Image.asset('assets/images/home.png'),
+            Image.asset('assets/images/home.png',height: sh*0.35,width: sw*0.9,),
             Center(
               child: GestureDetector(
                 onTap: () {
@@ -338,7 +361,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           exitPage: MyHomePage(), enterPage: MyAppPage1()));
                 },
                 child: new Container(
-                  height: 116.00,
+                  height: 100.00,
                   width: (MediaQuery.of(context).size.width) - 50,
                   decoration: BoxDecoration(
                     color: Color(0xffffffff),
@@ -358,7 +381,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: <Widget>[
-                        Image.asset('assets/images/flutter.png'),
+                        Image.asset('assets/images/flutter.png', height: sh * 0.1),
                         SizedBox(
                           width: 15,
                         ),
@@ -366,23 +389,28 @@ class _MyHomePageState extends State<MyHomePage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             new Text(
-                              "Build Flutter applications",
+                              "Build Mobile Applications",
                               style: TextStyle(
                                 fontFamily: "Circular Air",
                                 fontWeight: FontWeight.w600,
-                                fontSize: 16,
+                                fontSize: sw * 0.03,
                                 color: Color(0xff101010),
                               ),
                             ),
                             SizedBox(height: 7),
-                            Text(
-                              "We help us to build efficient applications\nusing flutter. Enjoy the power of fast, \nefficient, super cool apps with iOS and \nweb versions too.",
-                              overflow: TextOverflow.clip,
-                              style: TextStyle(
-                                fontFamily: "Circular Air",
-                                fontWeight: FontWeight.w600,
-                                fontSize: 10,
-                                color: Color(0xff101010),
+                            Expanded(
+                              child: Text(
+                                "We help us to build efficient applications \n using flutter. Enjoy the power of fast,\n efficient, super cool apps with iOS and\n web versions too",
+                                overflow: TextOverflow.clip,
+                                style: TextStyle(
+                                  fontFamily: "Circular Air",
+                                  fontWeight: FontWeight.w600,
+                                  // height: 1.2,
+                                  fontSize:
+                                      (MediaQuery.of(context).size.width) *
+                                          0.023,
+                                  color: Color(0xff101010),
+                                ),
                               ),
                             ),
                           ],
@@ -405,7 +433,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           exitPage: MyHomePage(), enterPage: MyDesignPage1()));
                 },
                 child: new Container(
-                  height: 116.00,
+                  height: 100.00,
                   width: (MediaQuery.of(context).size.width) - 50,
                   decoration: BoxDecoration(
                     color: Color(0xffffffff),
@@ -425,7 +453,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: <Widget>[
-                        Image.asset('assets/images/ps1.png'),
+                        Image.asset('assets/images/ps1.png', height: sh * 0.1),
                         SizedBox(
                           width: 15,
                         ),
@@ -437,19 +465,24 @@ class _MyHomePageState extends State<MyHomePage> {
                               style: TextStyle(
                                 fontFamily: "Circular Air",
                                 fontWeight: FontWeight.w600,
-                                fontSize: 16,
+                                fontSize: sw * 0.03,
                                 color: Color(0xff101010),
                               ),
                             ),
                             SizedBox(height: 7),
-                            Text(
-                              "Create super cool graphic designs \nbeyond your creativity and make your \nproducts reach a wider group of audience",
-                              overflow: TextOverflow.clip,
-                              style: TextStyle(
-                                fontFamily: "Circular Air",
-                                fontWeight: FontWeight.w600,
-                                fontSize: 10,
-                                color: Color(0xff101010),
+                            Expanded(
+                              child: Text(
+                                "Create super cool graphic designs \nbeyond your creativity and make your \nproducts reach a wider group of\naudience",
+                                overflow: TextOverflow.clip,
+                                style: TextStyle(
+                                  fontFamily: "Circular Air",
+                                  fontWeight: FontWeight.w600,
+                                  // height: 1.2,
+                                  fontSize:
+                                      (MediaQuery.of(context).size.width) *
+                                          0.023,
+                                  color: Color(0xff101010),
+                                ),
                               ),
                             ),
                           ],
@@ -472,7 +505,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           exitPage: MyHomePage(), enterPage: MyuiuxPage()));
                 },
                 child: new Container(
-                  height: 116.00,
+                  height: 100.00,
                   width: (MediaQuery.of(context).size.width) - 50,
                   decoration: BoxDecoration(
                     color: Color(0xffffffff),
@@ -492,7 +525,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: <Widget>[
-                        Image.asset('assets/images/xd.png'),
+                        Image.asset('assets/images/xd.png', height: sh * 0.1),
                         SizedBox(
                           width: 15,
                         ),
@@ -504,20 +537,24 @@ class _MyHomePageState extends State<MyHomePage> {
                               style: TextStyle(
                                 fontFamily: "Circular Air",
                                 fontWeight: FontWeight.w600,
-                                fontSize: 16,
+                                fontSize: sw * 0.03,
                                 color: Color(0xff101010),
                               ),
                             ),
                             SizedBox(height: 7),
-                            Text(
-                              "Cool UI makes user to love your product \nmore. We hep us to make your products \nfunction smooth and user friendly and \nmake more out of your users.",
-                              overflow: TextOverflow.clip,
-                              style: TextStyle(
-                                fontFamily: "Circular Air",
-                                fontWeight: FontWeight.w600,
-                                // height: 1.2,
-                                fontSize: 10,
-                                color: Color(0xff101010),
+                            Expanded(
+                              child: Text(
+                                "Cool UI makes user to love your product \nmore. We help us to make your products \nfunction smooth and user friendly and \nmake more out of your users.",
+                                overflow: TextOverflow.clip,
+                                style: TextStyle(
+                                  fontFamily: "Circular Air",
+                                  fontWeight: FontWeight.w600,
+                                  // height: 1.2,
+                                  fontSize:
+                                      (MediaQuery.of(context).size.width) *
+                                          0.023,
+                                  color: Color(0xff101010),
+                                ),
                               ),
                             ),
                           ],

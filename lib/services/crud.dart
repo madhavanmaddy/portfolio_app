@@ -13,4 +13,7 @@ class crudMethods {
   getdatadevs() async {
     return await Firestore.instance.collection('devs').getDocuments();
   }
+  getprodevs() async {
+    return await Firestore.instance.collection('prodevs').getDocuments();
+  }
 }

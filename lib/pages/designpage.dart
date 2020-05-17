@@ -98,6 +98,8 @@ class _MyHomePageState extends State<MyDesignPage1> {
   List<Widget> _messages = <Widget>[new Text('hello'), new Text('world')];
   @override
   Widget build(BuildContext context) {
+    double sh = MediaQuery.of(context).size.height;
+    double sw = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         iconTheme: new IconThemeData(color: Colors.black),
@@ -107,13 +109,13 @@ class _MyHomePageState extends State<MyDesignPage1> {
       drawer: ClipRRect(
         borderRadius: BorderRadius.vertical(
             top: Radius.circular(40.0), bottom: Radius.circular(40.0)),
-        child: Drawer(
+        child:  Drawer(
           child: Container(
             color: Colors.white,
             child: ListView(
               scrollDirection: Axis.vertical,
               // Important: Remove any padding from the ListView.
-              padding: EdgeInsets.symmetric(vertical: 40),
+              padding: EdgeInsets.symmetric(vertical: sh * 0.05),
               children: <Widget>[
                 // DrawerHeader(
                 //   child: Padding(
@@ -129,9 +131,9 @@ class _MyHomePageState extends State<MyDesignPage1> {
                 //       //
                 //       ),
                 // ),
-                SizedBox(height: 40),
+                SizedBox(height: sh * 0.025),
                 Image.asset('assets/images/menu.png'),
-                SizedBox(height: 30),
+                SizedBox(height: sh * 0.035),
                 ListTile(
                     title: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -139,7 +141,7 @@ class _MyHomePageState extends State<MyDesignPage1> {
                         Text(
                           'Recent projects',
                           style: TextStyle(
-                            fontSize: 22,
+                            fontSize: sw * 0.04,
                             fontFamily: "Circular Air",
                             // fontWeight: FontWeight.bold
                           ),
@@ -150,9 +152,9 @@ class _MyHomePageState extends State<MyDesignPage1> {
                     onTap: () {
                       Navigator.pushNamed(context, 'overallprojectspage');
                     }),
-                    GestureDetector(
+                GestureDetector(
                   onTap: () {
-                   Navigator.pushNamed(context, 'teamspage');
+                    Navigator.pushNamed(context, 'teamspage');
                   },
                   child: ListTile(
                     title: Row(
@@ -160,7 +162,7 @@ class _MyHomePageState extends State<MyDesignPage1> {
                       children: <Widget>[
                         Text(
                           'Teams',
-                          style: TextStyle(fontSize: 22),
+                          style: TextStyle(fontSize: sw * 0.04),
                         ),
                         Icon(Icons.arrow_forward),
                       ],
@@ -177,7 +179,7 @@ class _MyHomePageState extends State<MyDesignPage1> {
                       children: <Widget>[
                         Text(
                           'App development',
-                          style: TextStyle(fontSize: 22),
+                          style: TextStyle(fontSize: sw * 0.04),
                         ),
                         Icon(Icons.arrow_forward),
                       ],
@@ -186,11 +188,7 @@ class _MyHomePageState extends State<MyDesignPage1> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        EnterExitRoute(
-                            exitPage: MyHomePage(),
-                            enterPage: MyDesignPage1()));
+                    Navigator.pushNamed(context, 'designpage');
                   },
                   child: ListTile(
                     title: Row(
@@ -198,7 +196,7 @@ class _MyHomePageState extends State<MyDesignPage1> {
                       children: <Widget>[
                         Text(
                           'Graphic Design',
-                          style: TextStyle(fontSize: 22),
+                          style: TextStyle(fontSize: sw * 0.04),
                         ),
                         Icon(Icons.arrow_forward),
                       ],
@@ -210,7 +208,7 @@ class _MyHomePageState extends State<MyDesignPage1> {
                     Navigator.push(
                         context,
                         EnterExitRoute(
-                            exitPage: MyHomePage(), enterPage: MyuiuxPage()));
+                            exitPage: MyDesignPage1(), enterPage: MyuiuxPage()));
                   },
                   child: ListTile(
                     title: Row(
@@ -218,7 +216,7 @@ class _MyHomePageState extends State<MyDesignPage1> {
                       children: <Widget>[
                         Text(
                           'UI/UX Design',
-                          style: TextStyle(fontSize: 22),
+                          style: TextStyle(fontSize: sw * 0.04),
                         ),
                         Icon(Icons.arrow_forward),
                       ],
@@ -238,14 +236,13 @@ class _MyHomePageState extends State<MyDesignPage1> {
                       children: <Widget>[
                         Text(
                           'Contact us',
-                          style: TextStyle(fontSize: 22),
+                          style: TextStyle(fontSize: sw * 0.04),
                         ),
                         Icon(Icons.arrow_forward),
                       ],
                     ),
                   ),
                 ),
-                
               ],
             ),
           ),
@@ -264,7 +261,7 @@ class _MyHomePageState extends State<MyDesignPage1> {
                 style: TextStyle(
                   fontFamily: "Circular Air",
                   fontWeight: FontWeight.w600,
-                  fontSize: 22,
+                  fontSize: sw*0.06,
                   color: Color(0xff101010),
                 ),
               ),
@@ -277,12 +274,12 @@ class _MyHomePageState extends State<MyDesignPage1> {
                 style: TextStyle(
                   fontFamily: "Circular Air",
                   fontWeight: FontWeight.w600,
-                  fontSize: 24,
+                  fontSize: sw*0.05,
                   color: Color(0xff101010),
                 ),
               ),
             ),
-            Image.asset('assets/images/Design.png'),
+            Image.asset('assets/images/Design.png',height: sh*0.35,width: sw*0.9,),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
@@ -293,7 +290,7 @@ class _MyHomePageState extends State<MyDesignPage1> {
                     style: TextStyle(
                       fontFamily: "Circular Air",
                       fontWeight: FontWeight.w600,
-                      fontSize: 16,
+                      fontSize: sw*0.04,
                       color: Color(0xff101010),
                     ),
                   ),
@@ -311,7 +308,7 @@ class _MyHomePageState extends State<MyDesignPage1> {
                     );
                   },
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25),
+                    padding: EdgeInsets.symmetric(horizontal: sw*0.03),
                     child: Icon(Icons.arrow_forward),
                   ),
                 ),
@@ -679,7 +676,10 @@ class _MyHomePageState extends State<MyDesignPage1> {
                     ),
                     child: IconButton(
                       icon: Image.network(
-                          designprojects.documents[index].data['image']),
+                          designprojects.documents[index].data['image'],
+                          height: (MediaQuery.of(context).size.height)*0.2,
+                          width: (MediaQuery.of(context).size.height)*0.4,
+                          ),
                       onPressed: () {
                          Navigator.push(
                             context,

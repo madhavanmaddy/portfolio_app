@@ -5,13 +5,14 @@ class MyDetailsPage extends StatelessWidget {
   MyDetailsPage(this.title, this.desc, this.image);
   @override
   Widget build(BuildContext context) {
+    double sw = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            SizedBox(height: 120),
+            SizedBox(height: 50),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
               child: new Text(
@@ -19,7 +20,7 @@ class MyDetailsPage extends StatelessWidget {
                 style: TextStyle(
                   fontFamily: "Circular Air",
                   fontWeight: FontWeight.w600,
-                  fontSize: 24,
+                  fontSize: sw*0.05,
                   color: Color(0xff101010),
                 ),
               ),
@@ -31,7 +32,7 @@ class MyDetailsPage extends StatelessWidget {
                 child: Container(
                   child: Image.network(image),
                   height: 200.0,
-                  width: 200.0,
+                  width: sw*0.9,
                 ),
               ),
             ),
@@ -41,7 +42,7 @@ class MyDetailsPage extends StatelessWidget {
             Center(
               child: new Container(
                 height: 700.00,
-                width: 370.00,
+                width: sw*0.9,
                 decoration: BoxDecoration(
                   color: Color(0xffffffff),
                   boxShadow: [
@@ -63,7 +64,7 @@ class MyDetailsPage extends StatelessWidget {
                         desc,
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          fontSize: 16,
+                          fontSize: sw*0.03,
                           // fontWeight: FontWeight.bold,
                         ),
                       ),

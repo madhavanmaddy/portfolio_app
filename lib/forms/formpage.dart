@@ -13,17 +13,25 @@ class _formpageState extends State<formpage> {
   String title;
   String projectName;
   String desc;
+  String contactEmail;
   String contactName;
   String contactNumber;
   String category;
   String special;
   int radioval;
   @override
-  final txtstle = TextStyle(
-    fontFamily: 'Circular Air',
-    fontSize: 16.0,
-  );
+  
   Widget build(BuildContext context) {
+    double sh = MediaQuery.of(context).size.height;
+    double sw = MediaQuery.of(context).size.width;
+    final txtstle = TextStyle(
+    fontFamily: 'Circular Air',
+    fontSize: sw * 0.03,
+  );
+   final ctxtstle = TextStyle(
+    fontFamily: 'Circular Air',
+    fontSize: sw * 0.04,
+  );
     return Scaffold(
       backgroundColor: Colors.white,
       resizeToAvoidBottomPadding: false,
@@ -46,8 +54,8 @@ class _formpageState extends State<formpage> {
                     'Lets register your $title here',
                     // title,
                     style: TextStyle(
-                       color: Color(0xff4a148c),
-                      fontSize: 22,
+                      color: Color(0xff4a148c),
+                      fontSize: sw*0.06,
                       fontWeight: FontWeight.bold,
                     ),
                     textAlign: TextAlign.left,
@@ -65,9 +73,10 @@ class _formpageState extends State<formpage> {
                   height: 30,
                 ),
                 Text('Project Details',
-                    style: TextStyle( color: Color(0xff4a148c),
+                    style: TextStyle(
+                      color: Color(0xff4a148c),
                       fontFamily: 'Circular Air',
-                      fontSize: 20.0,
+                      fontSize: sw*0.05,
                       fontWeight: FontWeight.bold,
                     ),
                     textAlign: TextAlign.left),
@@ -76,7 +85,7 @@ class _formpageState extends State<formpage> {
                 ),
                 Container(
                   height: 40.0,
-                  width: 350.0,
+                  width: sw*0.9,
                   decoration: BoxDecoration(
                     color: Color(0xffffffff),
                     boxShadow: [
@@ -92,9 +101,8 @@ class _formpageState extends State<formpage> {
                     padding: const EdgeInsets.symmetric(horizontal: 25),
                     child: TextField(
                       keyboardType: TextInputType.multiline,
-                      maxLines: null,
                       decoration: InputDecoration(
-                          border: InputBorder.none, hintText: 'Project Name'),
+                          border: InputBorder.none, hintText: 'Project Name',hintStyle: txtstle),
                       onChanged: (value) {
                         setState(() {
                           projectName = value;
@@ -108,7 +116,7 @@ class _formpageState extends State<formpage> {
                 ),
                 Container(
                   height: 150.0,
-                  width: 350.0,
+                  width: sw*0.9,
                   decoration: BoxDecoration(
                     color: Color(0xffffffff),
                     boxShadow: [
@@ -127,7 +135,7 @@ class _formpageState extends State<formpage> {
                       maxLines: null,
                       decoration: InputDecoration(
                           border: InputBorder.none,
-                          hintText: 'Project Description'),
+                          hintText: 'Project Description',hintStyle: txtstle),
                       onChanged: (value) {
                         setState(() {
                           desc = value;
@@ -141,7 +149,7 @@ class _formpageState extends State<formpage> {
                 ),
                 Container(
                   height: 150.0,
-                  width: 350.0,
+                  width: sw*0.9,
                   decoration: BoxDecoration(
                     color: Color(0xffffffff),
                     boxShadow: [
@@ -160,7 +168,7 @@ class _formpageState extends State<formpage> {
                       maxLines: null,
                       decoration: InputDecoration(
                           border: InputBorder.none,
-                          hintText: 'Special Features (if any)'),
+                          hintText: 'Special Features (if any)',hintStyle: txtstle),
                       onChanged: (value) {
                         setState(() {
                           special = value;
@@ -194,7 +202,7 @@ class _formpageState extends State<formpage> {
                       category = 'Entertainment';
                     });
                   },
-                  title: new Text('Entertainment'),
+                  title: new Text('Entertainment',style: ctxtstle),
                 ),
                 RadioListTile(
                   value: 2,
@@ -206,7 +214,7 @@ class _formpageState extends State<formpage> {
                       category = 'Tools';
                     });
                   },
-                  title: new Text('Tools'),
+                  title: new Text('Tools',style: ctxtstle),
                 ),
                 RadioListTile(
                   value: 3,
@@ -218,7 +226,7 @@ class _formpageState extends State<formpage> {
                       category = 'Social';
                     });
                   },
-                  title: new Text('Social'),
+                  title: new Text('Social',style: ctxtstle),
                 ),
                 RadioListTile(
                   value: 4,
@@ -230,17 +238,18 @@ class _formpageState extends State<formpage> {
                       category = 'Others';
                     });
                   },
-                  title: new Text('Others'),
+                  title: new Text('Others',style: ctxtstle),
                 ),
-                SizedBox(height: 30,),
+                SizedBox(
+                  height: 30,
+                ),
                 Text(
                   'Contact Details',
                   style: TextStyle(
                     color: Color(0xff4a148c),
-                      fontFamily: 'Circular Air',
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.bold,
-                    
+                    fontFamily: 'Circular Air',
+                    fontSize: sw*0.05,
+                    fontWeight: FontWeight.bold,
                   ),
                   textAlign: TextAlign.start,
                 ),
@@ -249,7 +258,7 @@ class _formpageState extends State<formpage> {
                 ),
                 Container(
                   height: 40.0,
-                  width: 350.0,
+                  width: sw*0.9,
                   decoration: BoxDecoration(
                     color: Color(0xffffffff),
                     boxShadow: [
@@ -265,9 +274,8 @@ class _formpageState extends State<formpage> {
                     padding: const EdgeInsets.symmetric(horizontal: 25),
                     child: TextField(
                       keyboardType: TextInputType.multiline,
-                      maxLines: null,
                       decoration: InputDecoration(
-                          border: InputBorder.none, hintText: 'Name'),
+                          border: InputBorder.none, hintText: 'Name',hintStyle: txtstle),
                       onChanged: (value) {
                         setState(() {
                           contactName = value;
@@ -281,7 +289,7 @@ class _formpageState extends State<formpage> {
                 ),
                 Container(
                   height: 40.0,
-                  width: 350.0,
+                  width: sw*0.9,
                   decoration: BoxDecoration(
                     color: Color(0xffffffff),
                     boxShadow: [
@@ -299,7 +307,7 @@ class _formpageState extends State<formpage> {
                       keyboardType: TextInputType.number,
                       maxLines: null,
                       decoration: InputDecoration(
-                          border: InputBorder.none, hintText: 'Mobile Number'),
+                          border: InputBorder.none, hintText: 'Mobile Number',hintStyle: txtstle),
                       onChanged: (value) {
                         setState(() {
                           contactNumber = value;
@@ -313,7 +321,7 @@ class _formpageState extends State<formpage> {
                 ),
                 Container(
                   height: 40.0,
-                  width: 350.0,
+                  width: sw*0.9,
                   decoration: BoxDecoration(
                     color: Color(0xffffffff),
                     boxShadow: [
@@ -328,13 +336,12 @@ class _formpageState extends State<formpage> {
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 25),
                     child: TextField(
-                      keyboardType: TextInputType.number,
-                      maxLines: null,
+                      keyboardType: TextInputType.multiline,
                       decoration: InputDecoration(
-                          border: InputBorder.none, hintText: 'Email'),
+                          border: InputBorder.none, hintText: 'Email',hintStyle: txtstle),
                       onChanged: (value) {
                         setState(() {
-                          contactNumber = value;
+                          contactEmail = value;
                         });
                       },
                     ),
@@ -365,6 +372,7 @@ class _formpageState extends State<formpage> {
                           child: Text(
                             'Back',
                             style: TextStyle(
+                                fontSize: sw*0.03,
                                 fontFamily: 'Circular Air',
                                 color: Color(0xff4a148c)),
                           ),
@@ -393,12 +401,11 @@ class _formpageState extends State<formpage> {
                             child: Text(
                               'Submit',
                               style: TextStyle(
+                                  fontSize: sw*0.03,
                                   fontFamily: 'Circular Air',
                                   color: Colors.white),
                             ),
-                            
                           ),
-                          
                           onPressed: () {
                             Firestore.instance.collection('app').add({
                               'projectName': projectName,
@@ -406,7 +413,9 @@ class _formpageState extends State<formpage> {
                               'special': special,
                               'contactName': contactName,
                               'contactNumber': contactNumber,
+                              'contactEmail':contactEmail,
                               'category': category,
+                              'type':title,
                             });
                             Navigator.pushNamed(context, 'thankyoupage');
                             setState(() {
@@ -415,15 +424,20 @@ class _formpageState extends State<formpage> {
                               special = '';
                               contactName = '';
                               contactNumber = '';
+                              contactEmail = '';
                               category = '';
                             });
                           })
-
                     ],
                   ),
                 ),
-                SizedBox(height: 100,),
+                SizedBox(
+                  height: 100,
+                ),
               ],
+            ),
+            SizedBox(
+              height: 300,
             ),
           ],
         ),

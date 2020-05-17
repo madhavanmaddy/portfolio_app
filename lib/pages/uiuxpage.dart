@@ -40,6 +40,8 @@ class _MyUiuxPageState extends State<MyuiuxPage> {
 
   @override
   Widget build(BuildContext context) {
+    double sh = MediaQuery.of(context).size.height;
+    double sw = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         iconTheme: new IconThemeData(color: Colors.black),
@@ -49,13 +51,13 @@ class _MyUiuxPageState extends State<MyuiuxPage> {
       drawer: ClipRRect(
         borderRadius: BorderRadius.vertical(
             top: Radius.circular(40.0), bottom: Radius.circular(40.0)),
-        child: Drawer(
+        child:  Drawer(
           child: Container(
             color: Colors.white,
             child: ListView(
               scrollDirection: Axis.vertical,
               // Important: Remove any padding from the ListView.
-              padding: EdgeInsets.symmetric(vertical: 40),
+              padding: EdgeInsets.symmetric(vertical: sh * 0.05),
               children: <Widget>[
                 // DrawerHeader(
                 //   child: Padding(
@@ -71,9 +73,9 @@ class _MyUiuxPageState extends State<MyuiuxPage> {
                 //       //
                 //       ),
                 // ),
-                SizedBox(height: 40),
+                SizedBox(height: sh * 0.025),
                 Image.asset('assets/images/menu.png'),
-                SizedBox(height: 30),
+                SizedBox(height: sh * 0.035),
                 ListTile(
                     title: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -81,7 +83,7 @@ class _MyUiuxPageState extends State<MyuiuxPage> {
                         Text(
                           'Recent projects',
                           style: TextStyle(
-                            fontSize: 22,
+                            fontSize: sw * 0.04,
                             fontFamily: "Circular Air",
                             // fontWeight: FontWeight.bold
                           ),
@@ -92,7 +94,7 @@ class _MyUiuxPageState extends State<MyuiuxPage> {
                     onTap: () {
                       Navigator.pushNamed(context, 'overallprojectspage');
                     }),
-                    GestureDetector(
+                GestureDetector(
                   onTap: () {
                     Navigator.pushNamed(context, 'teamspage');
                   },
@@ -102,7 +104,7 @@ class _MyUiuxPageState extends State<MyuiuxPage> {
                       children: <Widget>[
                         Text(
                           'Teams',
-                          style: TextStyle(fontSize: 22),
+                          style: TextStyle(fontSize: sw * 0.04),
                         ),
                         Icon(Icons.arrow_forward),
                       ],
@@ -119,7 +121,7 @@ class _MyUiuxPageState extends State<MyuiuxPage> {
                       children: <Widget>[
                         Text(
                           'App development',
-                          style: TextStyle(fontSize: 22),
+                          style: TextStyle(fontSize: sw * 0.04),
                         ),
                         Icon(Icons.arrow_forward),
                       ],
@@ -136,7 +138,7 @@ class _MyUiuxPageState extends State<MyuiuxPage> {
                       children: <Widget>[
                         Text(
                           'Graphic Design',
-                          style: TextStyle(fontSize: 22),
+                          style: TextStyle(fontSize: sw * 0.04),
                         ),
                         Icon(Icons.arrow_forward),
                       ],
@@ -145,10 +147,10 @@ class _MyUiuxPageState extends State<MyuiuxPage> {
                 ),
                 GestureDetector(
                   onTap: () {
-                     Navigator.push(
+                    Navigator.push(
                         context,
                         EnterExitRoute(
-                            exitPage: MyuiuxPage(), enterPage: MyuiuxPage()));
+                            exitPage: MyAppPage1(), enterPage: MyuiuxPage()));
                   },
                   child: ListTile(
                     title: Row(
@@ -156,7 +158,7 @@ class _MyUiuxPageState extends State<MyuiuxPage> {
                       children: <Widget>[
                         Text(
                           'UI/UX Design',
-                          style: TextStyle(fontSize: 22),
+                          style: TextStyle(fontSize: sw * 0.04),
                         ),
                         Icon(Icons.arrow_forward),
                       ],
@@ -176,14 +178,13 @@ class _MyUiuxPageState extends State<MyuiuxPage> {
                       children: <Widget>[
                         Text(
                           'Contact us',
-                          style: TextStyle(fontSize: 22),
+                          style: TextStyle(fontSize: sw * 0.04),
                         ),
                         Icon(Icons.arrow_forward),
                       ],
                     ),
                   ),
                 ),
-                
               ],
             ),
           ),
@@ -202,12 +203,12 @@ class _MyUiuxPageState extends State<MyuiuxPage> {
                 style: TextStyle(
                   fontFamily: "Circular Air",
                   fontWeight: FontWeight.w600,
-                  fontSize: 20,
+                  fontSize: sw*0.05,
                   color: Color(0xff101010),
                 ),
               ),
             ),
-            Image.asset('assets/images/uiux.png'),
+            Image.asset('assets/images/uiux.png',height: sh*0.35,width: sw*0.9,),
             SizedBox(
               height: 15,
             ),
@@ -218,7 +219,7 @@ class _MyUiuxPageState extends State<MyuiuxPage> {
                 style: TextStyle(
                   fontFamily: "Circular Air",
                   fontWeight: FontWeight.w600,
-                  fontSize: 16,
+                  fontSize: sw*0.04,
                   color: Color(0xff101010),
                 ),
               ),
@@ -252,7 +253,9 @@ class _MyUiuxPageState extends State<MyuiuxPage> {
                   child: Center(
                       child: Text(
                     'Mobile Applications',
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      fontSize: sw*0.035,
+                      fontWeight: FontWeight.bold),
                   )),
                 ),
               ),
@@ -286,7 +289,9 @@ class _MyUiuxPageState extends State<MyuiuxPage> {
                   child: Center(
                       child: Text(
                     'Websites',
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      fontSize: sw*0.035,
+                      fontWeight: FontWeight.bold),
                   )),
                 ),
               ),
@@ -320,7 +325,9 @@ class _MyUiuxPageState extends State<MyuiuxPage> {
                   child: Center(
                       child: Text(
                     'Smart TV applications',
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      fontSize: sw*0.035,
+                      fontWeight: FontWeight.bold),
                   )),
                 ),
               ),
@@ -354,7 +361,9 @@ class _MyUiuxPageState extends State<MyuiuxPage> {
                   child: Center(
                       child: Text(
                     'Others',
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      fontSize: sw*0.035,
+                      fontWeight: FontWeight.bold),
                   )),
                 ),
               ),
@@ -370,7 +379,7 @@ class _MyUiuxPageState extends State<MyuiuxPage> {
                     style: TextStyle(
                       fontFamily: "Circular Air",
                       fontWeight: FontWeight.w600,
-                      fontSize: 16,
+                      fontSize: sw*0.04,
                       color: Color(0xff101010),
                     ),
                   ),
@@ -434,7 +443,10 @@ class _MyUiuxPageState extends State<MyuiuxPage> {
                     ),
                     child: IconButton(
                       icon: Image.network(
-                          uiuxprojects.documents[index].data['image']),
+                          uiuxprojects.documents[index].data['image'],
+                          height: (MediaQuery.of(context).size.height)*0.2,
+                          width: (MediaQuery.of(context).size.height)*0.4,
+                          ),
                       onPressed: () {
                         Navigator.push(
                             context,

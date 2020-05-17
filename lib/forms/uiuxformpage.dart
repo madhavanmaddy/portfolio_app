@@ -15,15 +15,24 @@ class _uiuxformpageState extends State<uiuxformpage> {
   String desc;
   String contactName;
   String contactNumber;
+  String contactEmail;
   String category;
   String special;
   int radioval;
   @override
-  final txtstle = TextStyle(
-    fontFamily: 'Circular Air',
-    fontSize: 25.0,
-  );
+ 
   Widget build(BuildContext context) {
+double sh = MediaQuery.of(context).size.height;
+double sw = MediaQuery.of(context).size.width;
+
+     final txtstle = TextStyle(
+    fontFamily: 'Circular Air',
+    fontSize: sw*0.03,
+  );
+  final ctxtstle = TextStyle(
+    fontFamily: 'Circular Air',
+    fontSize: sw*0.04,
+  );
     return Scaffold(
       backgroundColor: Colors.white,
       resizeToAvoidBottomPadding: false,
@@ -43,7 +52,7 @@ class _uiuxformpageState extends State<uiuxformpage> {
                     title,
                     style: TextStyle(
                       color: Color(0xff4a148c),
-                      fontSize: 22,
+                      fontSize: sw*0.06,
                       fontWeight: FontWeight.bold,
                     ),
                     textAlign: TextAlign.left,
@@ -63,7 +72,7 @@ class _uiuxformpageState extends State<uiuxformpage> {
                     'Project Details',
                     style: TextStyle(
                       color: Color(0xff4a148c),
-                      fontSize: 22,
+                      fontSize: sw*0.05,
                       fontWeight: FontWeight.bold,
                     ),
                     textAlign: TextAlign.start,
@@ -73,7 +82,7 @@ class _uiuxformpageState extends State<uiuxformpage> {
                   ),
                   Container(
                     height: 50.0,
-                    width: 350.0,
+                    width: sw*0.9,
                     decoration: BoxDecoration(
                       color: Color(0xffffffff),
                       boxShadow: [
@@ -89,10 +98,9 @@ class _uiuxformpageState extends State<uiuxformpage> {
                       padding: const EdgeInsets.symmetric(horizontal: 25),
                       child: TextField(
                         keyboardType: TextInputType.multiline,
-                        maxLines: null,
                         decoration: InputDecoration(
                             border: InputBorder.none,
-                            hintText: 'Name of the Application/ Website'),
+                            hintText: 'Name of the Application/ Website',hintStyle: txtstle),
                         onChanged: (value) {
                           setState(() {
                             projectName = value;
@@ -106,7 +114,7 @@ class _uiuxformpageState extends State<uiuxformpage> {
                   ),
                   Container(
                     height: 150.0,
-                    width: 350.0,
+                    width: sw*0.9,
                     decoration: BoxDecoration(
                       color: Color(0xffffffff),
                       boxShadow: [
@@ -125,7 +133,7 @@ class _uiuxformpageState extends State<uiuxformpage> {
                         maxLines: null,
                         decoration: InputDecoration(
                             border: InputBorder.none,
-                            hintText: 'Project Description'),
+                            hintText: 'Project Description',hintStyle: txtstle),
                         onChanged: (value) {
                           setState(() {
                             desc = value;
@@ -139,7 +147,7 @@ class _uiuxformpageState extends State<uiuxformpage> {
                   ),
                   Container(
                     height: 150.0,
-                    width: 350.0,
+                    width: sw*0.9,
                     decoration: BoxDecoration(
                       color: Color(0xffffffff),
                       boxShadow: [
@@ -158,7 +166,7 @@ class _uiuxformpageState extends State<uiuxformpage> {
                         maxLines: null,
                         decoration: InputDecoration(
                             border: InputBorder.none,
-                            hintText: 'Special Features (if any)'),
+                            hintText: 'Special Features (if any)',hintStyle: txtstle),
                         onChanged: (value) {
                           setState(() {
                             special = value;
@@ -174,7 +182,7 @@ class _uiuxformpageState extends State<uiuxformpage> {
                     'Category',
                     style: TextStyle(
                       color: Color(0xff4a148c),
-                      fontSize: 22,
+                      fontSize: sw*0.05,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -191,7 +199,7 @@ class _uiuxformpageState extends State<uiuxformpage> {
                         category = 'Entertainment';
                       });
                     },
-                    title: new Text('Entertainment'),
+                    title: new Text('Entertainment',style: ctxtstle,),
                   ),
                   RadioListTile(
                     value: 2,
@@ -203,7 +211,7 @@ class _uiuxformpageState extends State<uiuxformpage> {
                         category = 'Tools';
                       });
                     },
-                    title: new Text('Tools'),
+                    title: new Text('Tools',style: ctxtstle,),
                   ),
                   RadioListTile(
                     value: 3,
@@ -215,7 +223,7 @@ class _uiuxformpageState extends State<uiuxformpage> {
                         category = 'Social';
                       });
                     },
-                    title: new Text('Social'),
+                    title: new Text('Social',style: ctxtstle,),
                   ),
                   RadioListTile(
                     value: 4,
@@ -227,7 +235,7 @@ class _uiuxformpageState extends State<uiuxformpage> {
                         category = 'Others';
                       });
                     },
-                    title: new Text('Others'),
+                    title: new Text('Others',style: ctxtstle,),
                   ),
                   SizedBox(
                     height: 40,
@@ -236,7 +244,7 @@ class _uiuxformpageState extends State<uiuxformpage> {
                     'Contact Details',
                     style: TextStyle(
                       color: Color(0xff4a148c),
-                      fontSize: 22,
+                      fontSize: sw*0.05,
                       fontWeight: FontWeight.bold,
                     ),
                     textAlign: TextAlign.start,
@@ -246,7 +254,7 @@ class _uiuxformpageState extends State<uiuxformpage> {
                   ),
                   Container(
                     height: 40.0,
-                    width: 350.0,
+                    width: sw*0.9,
                     decoration: BoxDecoration(
                       color: Color(0xffffffff),
                       boxShadow: [
@@ -262,9 +270,8 @@ class _uiuxformpageState extends State<uiuxformpage> {
                       padding: const EdgeInsets.symmetric(horizontal: 25),
                       child: TextField(
                         keyboardType: TextInputType.multiline,
-                        maxLines: null,
                         decoration: InputDecoration(
-                            border: InputBorder.none, hintText: 'Name'),
+                            border: InputBorder.none, hintText: 'Name',hintStyle: txtstle),
                         onChanged: (value) {
                           setState(() {
                             contactName = value;
@@ -278,7 +285,7 @@ class _uiuxformpageState extends State<uiuxformpage> {
                   ),
                   Container(
                     height: 40.0,
-                    width: 350.0,
+                    width: sw*0.9,
                     decoration: BoxDecoration(
                       color: Color(0xffffffff),
                       boxShadow: [
@@ -297,7 +304,7 @@ class _uiuxformpageState extends State<uiuxformpage> {
                         maxLines: null,
                         decoration: InputDecoration(
                             border: InputBorder.none,
-                            hintText: 'Mobile Number'),
+                            hintText: 'Mobile Number',hintStyle: txtstle),
                         onChanged: (value) {
                           setState(() {
                             contactNumber = value;
@@ -311,7 +318,7 @@ class _uiuxformpageState extends State<uiuxformpage> {
                   ),
                   Container(
                     height: 40.0,
-                    width: 350.0,
+                    width: sw*0.9,
                     decoration: BoxDecoration(
                       color: Color(0xffffffff),
                       boxShadow: [
@@ -326,13 +333,12 @@ class _uiuxformpageState extends State<uiuxformpage> {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 25),
                       child: TextField(
-                        keyboardType: TextInputType.number,
-                        maxLines: null,
+                        keyboardType: TextInputType.multiline,
                         decoration: InputDecoration(
-                            border: InputBorder.none, hintText: 'Email'),
+                            border: InputBorder.none, hintText: 'Email',hintStyle: txtstle),
                         onChanged: (value) {
                           setState(() {
-                            contactNumber = value;
+                            contactEmail = value;
                           });
                         },
                       ),
@@ -363,6 +369,7 @@ class _uiuxformpageState extends State<uiuxformpage> {
                             child: Text(
                               'Back',
                               style: TextStyle(
+                                fontSize: sw*0.03,
                                   fontFamily: 'Circular Air',
                                   color: Color(0xff4a148c)),
                             ),
@@ -391,6 +398,7 @@ class _uiuxformpageState extends State<uiuxformpage> {
                               child: Text(
                                 'Submit',
                                 style: TextStyle(
+                                  fontSize: sw*0.03,
                                     fontFamily: 'Circular Air',
                                     color: Colors.white),
                               ),
@@ -402,7 +410,9 @@ class _uiuxformpageState extends State<uiuxformpage> {
                                 'special': special,
                                 'contactName': contactName,
                                 'contactNumber': contactNumber,
+                                'contactEmail':contactEmail,
                                 'category': category,
+                                'type':title,
                               });
                               Navigator.pushNamed(context, 'thankyoupage');
                               setState(() {
@@ -411,6 +421,7 @@ class _uiuxformpageState extends State<uiuxformpage> {
                                 special = '';
                                 contactName = '';
                                 contactNumber = '';
+                                contactEmail='';
                                 category = '';
                               });
                             })
@@ -421,7 +432,7 @@ class _uiuxformpageState extends State<uiuxformpage> {
               ),
             ),
             SizedBox(
-              height: 100,
+              height: 300,
             )
           ],
         ),
