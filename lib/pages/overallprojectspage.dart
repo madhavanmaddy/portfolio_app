@@ -240,7 +240,15 @@ class _overallprojectspageState extends State<overallprojectspage> {
                           width: (MediaQuery.of(context).size.height)*0.4,
                         ),
                     onPressed: () {
-                      Navigator.pushNamed(context, 'nextpage');
+                       Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => MyDetailsPage(
+                                  uiuxprojects.documents[index].data['title'],
+                                  uiuxprojects.documents[index].data['desc'],
+                                  uiuxprojects.documents[index].data['image'],
+                                )),
+                      );
                     },
                   ),
                 ),
@@ -280,7 +288,7 @@ class _overallprojectspageState extends State<overallprojectspage> {
                           width: (MediaQuery.of(context).size.height)*0.4,
                         ),
                     onPressed: () {
-                      Navigator.push(
+                       Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => MyDetailsPage(
@@ -328,7 +336,15 @@ class _overallprojectspageState extends State<overallprojectspage> {
                           width: (MediaQuery.of(context).size.height)*0.4,
                         ),
                     onPressed: () {
-                      Navigator.pushNamed(context, 'nextpage');
+                       Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => MyDetailsPage(
+                                  designprojects.documents[index].data['title'],
+                                  designprojects.documents[index].data['desc'],
+                                  designprojects.documents[index].data['image'],
+                                )),
+                      );
                     },
                   ),
                 ),
